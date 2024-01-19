@@ -9,9 +9,9 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
   },
-  "devDependencies": {
+  "dependencies": {
     "nuxt": "^3.9.3",
-    "vue": "^3.4.14",
-    "vue-router": "^4.2.5"
+    "nuxt-og-image": "^3.0.0-rc.27",
+    "vue": "^3.4.14"
   }
 }
