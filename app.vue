@@ -32,6 +32,8 @@
 </template>
 
 <script lang="ts" setup>
+import '@unocss/reset/tailwind-compat.css'
+
 const domain = useRoute().path.slice(1)
 if (!domain || domain.includes('/')) {
   throw new Error('Invalid domain')
@@ -47,7 +49,3 @@ defineOgImageComponent('Lighthouse', {
   domain,
 })
 </script>
-
-<style>
-@import '@unocss/reset/tailwind-compat.css';
-</style>
