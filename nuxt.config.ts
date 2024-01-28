@@ -6,6 +6,7 @@ export default defineNuxtConfig({
     url: 'https://page-speed.dev',
   },
   nitro: {
+    serveStatic: true,
     azure: {
       config: {
         platform: {
