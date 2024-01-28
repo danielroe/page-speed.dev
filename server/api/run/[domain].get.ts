@@ -17,7 +17,7 @@ interface PagespeedInsightsResult {
   }
 }
 
-export default defineCachedEventHandler(async event => {
+export default defineEventHandler(async event => {
   const domain = getRouterParam(event, 'domain')
   if (!domain || domain.includes('/') || domain.includes('%')) {
     throw createError({ message: 'Invalid domain', statusCode: 422 })
@@ -32,9 +32,4 @@ export default defineCachedEventHandler(async event => {
     accessibility: results.lighthouseResult.categories.accessibility.score * 100,
     bestPractices: results.lighthouseResult.categories['best-practices'].score * 100,
   }
-}, {
-  base: 'pagespeed',
-  swr: true,
-  maxAge: 24 * 60 * 60,
-  staleMaxAge: 24 * 60 * 60,
 })

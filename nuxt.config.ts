@@ -38,6 +38,13 @@ export default defineNuxtConfig({
   routeRules: {
     '/': { redirect: 'https://pagespeed.web.dev/' },
     '/**': { swr: 600 },
+    '/api': {
+      cache: {
+        base: 'pagespeed',
+        maxAge: 24 * 60 * 60,
+        staleMaxAge: 24 * 60 * 60,
+      }
+    },
     '/__og-image__/**': { swr: false, cache: false }
   },
   runtimeConfig: {
