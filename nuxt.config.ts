@@ -5,6 +5,26 @@ export default defineNuxtConfig({
   site: {
     url: 'https://page-speed.dev',
   },
+  $production: {
+    nitro: {
+      storage: {
+        pagespeed: {
+          driver: 'azureStorageBlob',
+          accountName: 'pagespeedcache'
+        }
+      }
+    }
+  },
+  $development: {
+    nitro: {
+      storage: {
+        pagespeed: {
+          driver: 'fs',
+          base: 'cache'
+        }
+      }
+    }
+  },
   routeRules: {
     '/': { redirect: 'https://pagespeed.web.dev/' },
     '/**': { swr: 600 }
