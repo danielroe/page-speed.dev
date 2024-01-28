@@ -5,6 +5,15 @@ export default defineNuxtConfig({
   site: {
     url: 'https://page-speed.dev',
   },
+  nitro: {
+    azure: {
+      config: {
+        platform: {
+          apiRuntime: 'node:18'
+        }
+      }
+    }
+  },
   $production: {
     nitro: {
       storage: {
