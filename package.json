@@ -10,9 +10,9 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
-    "@unocss/nuxt": "^0.58.3",
+    "@unocss/nuxt": "^0.58.4",
     "nuxt": "^3.9.3",
-    "nuxt-og-image": "^3.0.0-rc.27",
-    "vue": "^3.4.14"
+    "nuxt-og-image": "^3.0.0-rc.30",
+    "vue": "^3.4.15"
   }
 }
