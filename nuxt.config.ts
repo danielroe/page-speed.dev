@@ -6,7 +6,6 @@ export default defineNuxtConfig({
     url: 'https://page-speed.dev',
   },
   nitro: {
-    serveStatic: true,
     azure: {
       config: {
         platform: {
@@ -37,11 +36,12 @@ export default defineNuxtConfig({
   },
   routeRules: {
     '/': { redirect: 'https://pagespeed.web.dev/' },
-    '/**': { swr: 600 },
+    '/**': { swr: 24 * 60 * 60 },
     '/api': {
       cache: {
         base: 'pagespeed',
-        maxAge: 24 * 60 * 60,
+        swr: true,
+        maxAge: 60 * 60,
         staleMaxAge: 24 * 60 * 60,
       }
     },
@@ -60,8 +60,20 @@ export default defineNuxtConfig({
     }
   },
   ogImage: {
+    defaults: {
+      cacheMaxAgeSeconds: 60 * 60 * 24
+    },
+    runtimeCacheStorage: {
+      cacheMaxAgeSeconds: 24 * 60 * 60,
+      driver: 'azureStorageBlob',
+      accountName: 'pagespeedcache'
+    },
     fonts: [
-      'Roboto:500'
+      {
+        name: 'Roboto',
+        weight: 500,
+        path: 'https://fonts.gstatic.com/s/roboto/v30/KFOlCnqEu92Fr1MmEU9vAw.ttf',
+      }
     ]
   }
 })
