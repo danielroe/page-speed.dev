@@ -36,7 +36,8 @@ export default defineNuxtConfig({
   },
   routeRules: {
     '/': { redirect: 'https://pagespeed.web.dev/' },
-    '/**': { swr: 600 }
+    '/**': { swr: 600 },
+    '/__og-image__/**': { swr: false, cache: false }
   },
   runtimeConfig: {
     google: {
