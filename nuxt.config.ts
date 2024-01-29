@@ -14,16 +14,16 @@ export default defineNuxtConfig({
       }
     }
   },
-  $production: {
-    nitro: {
-      storage: {
-        pagespeed: {
-          driver: 'azureStorageBlob',
-          accountName: 'pagespeedcache'
-        }
-      }
-    }
-  },
+  // $production: {
+  //   nitro: {
+  //     storage: {
+  //       pagespeed: {
+  //         driver: 'azureStorageBlob',
+  //         accountName: 'pagespeedcache'
+  //       }
+  //     }
+  //   }
+  // },
   $development: {
     nitro: {
       storage: {
@@ -63,11 +63,10 @@ export default defineNuxtConfig({
     defaults: {
       cacheMaxAgeSeconds: 60 * 60 * 24
     },
-    runtimeCacheStorage: {
-      cacheMaxAgeSeconds: 24 * 60 * 60,
-      driver: 'azureStorageBlob',
-      accountName: 'pagespeedcache'
-    },
+    // runtimeCacheStorage: {
+    //   driver: 'azureStorageBlob',
+    //   accountName: 'pagespeedcache'
+    // },
     fonts: [
       {
         name: 'Roboto',
