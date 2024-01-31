@@ -1,0 +1,12 @@
+diff --git a/dist/runtime/entries/azure.mjs b/dist/runtime/entries/azure.mjs
+index 2ed72eb8e5f5f6b740d909bb12f62cf761599569..310d61dd705adf9237af5d95f931465b1818a354 100644
+--- a/dist/runtime/entries/azure.mjs
++++ b/dist/runtime/entries/azure.mjs
+@@ -23,6 +23,6 @@ export async function handle(context, req) {
+     // cookies https://learn.microsoft.com/en-us/azure/azure-functions/functions-reference-node?tabs=typescript%2Cwindows%2Cazure-cli&pivots=nodejs-model-v4#http-response
+     cookies: getAzureParsedCookiesFromHeaders(headers),
+     headers: normalizeLambdaOutgoingHeaders(headers, true),
+-    body: body ? body.toString() : statusText
++    body: body ? Buffer.from(body) : statusText
+   };
+ }

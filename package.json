@@ -17,8 +17,9 @@
     "nuxt-og-image": "^3.0.0-rc.30",
     "vue": "^3.4.15"
   },
-  "resolutions": {
-    "nitropack": "2.8.1",
-    "h3": "npm:h3-nightly@latest"
+  "pnpm": {
+    "patchedDependencies": {
+      "nitropack@2.8.1": "patches/nitropack@2.8.1.patch"
+    }
   }
 }
