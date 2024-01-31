@@ -18,7 +18,7 @@
     "vue": "^3.4.15"
   },
   "resolutions": {
-    "nitropack": "npm:nitropack-nightly@latest",
+    "nitropack": "2.8.1",
     "h3": "npm:h3-nightly@latest"
   }
 }
