@@ -33,13 +33,23 @@
 
 <script lang="ts" setup>
 import '@unocss/reset/tailwind-compat.css'
+import { withoutLeadingSlash } from 'ufo'
 
-const domain = useRoute().path.slice(1)
+const domain = withoutLeadingSlash(useRoute().path.slice(1))
 if (!domain || domain.includes('/')) {
   throw new Error('Invalid domain')
 }
 
 const { data: results } = await useFetch(`/api/run/${domain}`)
+
+useServerSeoMeta({
+  title: 'page-speed.dev - ' + domain,
+  description:
+    `Performance: ${results.value?.performance} | ` +
+    `Accessibility: ${results.value?.accessibility} | ` +
+    `Best Practices: ${results.value?.bestPractices} | ` +
+    `SEO: ${results.value?.seo} | `
+})
 
 defineOgImageComponent('Lighthouse', {
   performance: results.value?.performance,
