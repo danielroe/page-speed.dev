@@ -25,7 +25,8 @@ export default defineNuxtConfig({
       }
     },
     routeRules: {
-      '/**': {
+      '/': { prerender: true },
+      '/api/**': {
         cache: {
           base: 'pagespeed',
           swr: true,
@@ -45,9 +46,6 @@ export default defineNuxtConfig({
         }
       }
     }
-  },
-  routeRules: {
-    '/': { prerender: true },
   },
   runtimeConfig: {
     google: {
