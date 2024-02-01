@@ -6,7 +6,7 @@
         <button v-if="domain && !editing" class="bg-transparent" @click="enableEditing">{{ domain }}</button>
         <form v-else class="flex flex-col gap-4 overflow-hidden" @submit.prevent="navigateToNewDomain">
           <input ref="input" v-model="newDomain" name="domain" type="text"
-            class="md:-mt-1 py-0 bg-transparent outline-none border-b-2 border-b-solid border-transparent focus:border-green-500 underline-dashed"
+            class="md:-mt-1 rounded-none py-0 bg-transparent outline-none border-b-2 border-b-solid border-transparent focus:border-green-500 underline-dashed"
             autofocus inputmode="url" autocapitalize="none" placeholder="Enter a domain" required />
           <button type="submit"
             class="bg-green-400 text-black hover: hover:bg-white focus:bg-white active:bg-white text-xl md:text-2xl py-2 px-6 md:self-start">See
@@ -129,7 +129,7 @@ const favicon = computed(() => {
 })
 
 useHead({
-  title: () => domain.value ? `page-speed.dev - ${domain.value}` : 'page-speed.dev',
+  title: () => domain.value ? domain.value : 'page-speed.dev',
   link: [
     () => ({
       key: 'favicon',
