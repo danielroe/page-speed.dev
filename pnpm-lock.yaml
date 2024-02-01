@@ -26,8 +26,8 @@ dependencies:
     specifier: ^3.0.0-rc.30
     version: 3.0.0-rc.30(@lezer/common@1.2.1)(@nuxt/devtools@1.0.8)(@vue/compiler-core@3.4.15)(nuxt@3.10.0)(postcss@8.4.33)(vite@5.0.12)(vue@3.4.15)(webpack@5.89.0)
   nuxt-time:
-    specifier: ^0.1.1
-    version: 0.1.1
+    specifier: ^0.1.2
+    version: 0.1.2
   vue:
     specifier: ^3.4.15
     version: 3.4.15
@@ -6115,8 +6115,8 @@ packages:
       - webpack
     dev: false
 
-  /nuxt-time@0.1.1:
-    resolution: {integrity: sha512-MXgvzAf2+ByCsGc66qP+XbPUZRMVGwbRX5nGXlsyot+uwLVpBqQNnR8b3X46nBaEXEPy/Jqj6qaXwjTk0AYosA==}
+  /nuxt-time@0.1.2:
+    resolution: {integrity: sha512-EFnatUYaVtizJe9RpNFDcHEXqgIQendfwGdUjuayXjKWpyphoCC2xplLk9JKj5I542kpzUMUDPfgPpqXGyTF0A==}
     dependencies:
       '@nuxt/kit': 3.10.0
       defu: 6.1.4
