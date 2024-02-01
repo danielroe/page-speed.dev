@@ -48,7 +48,7 @@ useServerSeoMeta({
     `Performance: ${results.value?.performance} | ` +
     `Accessibility: ${results.value?.accessibility} | ` +
     `Best Practices: ${results.value?.bestPractices} | ` +
-    `SEO: ${results.value?.seo} | `
+    `SEO: ${results.value?.seo}`
 })
 
 defineOgImageComponent('Lighthouse', {
