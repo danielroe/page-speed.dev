@@ -2,6 +2,10 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: ['@unocss/nuxt', 'nuxt-og-image', 'nuxt-time'],
+  experimental: {
+    appManifest: false,
+    payloadExtraction: false,
+  },
   site: {
     url: 'https://page-speed.dev',
   },
@@ -55,7 +59,12 @@ export default defineNuxtConfig({
   unocss: {
     webFonts: {
       fonts: {
-        sans: ['Roboto'],
+        sans: [
+          {
+            name: 'Roboto',
+            provider: 'bunny'
+          }
+        ],
       }
     }
   },
