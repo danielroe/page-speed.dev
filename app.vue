@@ -129,6 +129,7 @@ const favicon = computed(() => {
 })
 
 useHead({
+  title: () => domain.value ? `page-speed.dev - ${domain.value}` : 'page-speed.dev',
   link: [
     () => ({
       key: 'favicon',
@@ -181,7 +182,6 @@ useServerSeoMeta({
   twitterCard: 'summary_large_image',
   twitterSite: '@danielcroe',
 })
-useSeoMeta({ title: () => domain.value ? `page-speed.dev - ${domain.value}` : 'page-speed.dev' })
 
 if (!domain.value) {
   defineOgImageComponent('Home')
