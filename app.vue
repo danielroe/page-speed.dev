@@ -62,6 +62,7 @@ import { joinURL, withoutLeadingSlash, parseURL } from 'ufo'
 
 const route = useRoute()
 const domain = computed(() => withoutLeadingSlash(route.path).toLowerCase().replace(/(\/|\?).*$/, '').trim())
+const canonicalURL = computed(() => domain.value ? joinURL(`https://page-speed.dev`, domain.value) : 'https://page-speed.dev')
 
 if (domain.value && !/^[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$/g.test(domain.value)) {
   throw new Error('Invalid domain')
@@ -136,8 +137,6 @@ useHead({
   ]
 })
 
-
-
 useServerHead({
   htmlAttrs: {
     lang: 'en',
@@ -145,7 +144,7 @@ useServerHead({
   link: [
     {
       rel: 'canonical',
-      href: joinURL(`https://page-speed.dev`, domain.value)
+      href: canonicalURL.value
     },
     {
       rel: 'apple-touch-icon',
@@ -174,13 +173,8 @@ useServerHead({
   ]
 })
 
-useServerSeoMeta({
-  ogUrl: joinURL(`https://page-speed.dev`, domain.value)
-})
-
-useSeoMeta({
-  title: () => domain.value ? `page-speed.dev - ${domain.value}` : 'page-speed.dev',
-})
+useServerSeoMeta({ ogUrl: canonicalURL.value })
+useSeoMeta({ title: () => domain.value ? `page-speed.dev - ${domain.value}` : 'page-speed.dev' })
 
 if (!domain.value) {
   defineOgImageComponent('Home')
@@ -213,15 +207,15 @@ function navigateToNewDomain () {
   return navigateTo('/' + withoutLeadingSlash(host).toLowerCase().replace(/(\/|\?).*$/, '').trim())
 }
 
-const shareLink = computed(() => domain.value ? `https://twitter.com/intent/tweet?text=${encodeURIComponent(`Check out the Page Speed results for ${domain.value.replace(/\./g, '.\x00')}` + `\n\nhttps://page-speed.dev/${domain.value}`)}` : 'See and share PageSpeed Insights results simply and easily.')
+const shareLink = computed(() => domain.value ? `https://twitter.com/intent/tweet?text=${encodeURIComponent(`Check out the Page Speed results for ${domain.value.replace(/\./g, '.​')}` + `\n\nhttps://page-speed.dev/${domain.value}`)}` : 'See and share PageSpeed Insights results simply and easily.')
 
 async function nativeShare () {
   try {
     if (navigator.share) {
       return await navigator.share({
         title: 'page-speed.dev',
-        text: `See page speed results for ${domain.value.replace(/\./g, '.\x00')}`,
-        url: `https://page-speed.dev/${domain.value}`,
+        text: `See page speed results for ${domain.value.replace(/\./g, '.​')}`,
+        url: canonicalURL.value,
       })
     }
   } catch {
