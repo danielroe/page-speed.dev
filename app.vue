@@ -173,6 +173,22 @@ if (!domain.value) {
     title: 'page-speed.dev',
     description: 'See and share PageSpeed Insights results simply and easily.',
   })
+  useHead({
+    link: [
+      {
+        rel: 'icon',
+        type: 'image/png',
+        sizes: '32x32',
+        href: '/favicon-32x32.png'
+      },
+      {
+        rel: 'icon',
+        type: 'image/png',
+        sizes: '16x16',
+        href: '/favicon-16x16.png'
+      },
+    ]
+  })
 } else if (results.value) {
   useServerSeoMeta({
     title: 'page-speed.dev - ' + domain.value,
@@ -196,7 +212,7 @@ function navigateToNewDomain () {
   if (!newDomain.value) { return }
 
   const host = parseURL(newDomain.value).host || newDomain.value
-  editing.value = false  
+  editing.value = false
   return navigateTo('/' + withoutLeadingSlash(host).toLowerCase().replace(/(\/|\?).*$/, '').trim())
 }
 
