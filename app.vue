@@ -6,8 +6,8 @@
         <button v-if="domain && !editing" class="bg-transparent" @click="enableEditing">{{ domain }}</button>
         <form v-else class="flex flex-col gap-4 overflow-hidden" @submit.prevent="navigateToNewDomain">
           <input ref="input" v-model="newDomain" name="domain" type="text"
-            class="py-0 bg-transparent outline-none focus:underline underline-dashed"
-            autofocus placeholder="Enter a domain" required />
+            class="md:-mt-1 py-0 bg-transparent outline-none border-b-2 border-b-solid border-transparent focus:border-green-500 underline-dashed"
+            autofocus inputmode="url" autocapitalize="none" placeholder="Enter a domain" required />
           <button type="submit"
             class="bg-green-400 text-black hover: hover:bg-white focus:bg-white active:bg-white text-xl md:text-2xl py-2 px-6 md:self-start">See
             results</button>
