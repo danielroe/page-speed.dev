@@ -1,5 +1,5 @@
 <template>
-  <div class="font-sans text-white min-h-screen min-w-screen flex flex-col items-start justify-start bg-[#212121]">
+  <div class="font-sans text-white min-h-screen min-w-screen flex flex-col items-start justify-start">
     <div class="flex flex-col justify-start mt-4 sm:mt-8 md:my-12 p-4 gap-8 md:gap-12 flex-grow">
       <h1 class="flex flex-row gap-4 text-white text-3xl md:text-5xl">
         <span class="text-green-400">&raquo;</span>
@@ -142,6 +142,7 @@ useHead({
 useServerHead({
   htmlAttrs: {
     lang: 'en',
+    class: 'bg-[#212121]'
   },
   link: [
     {
