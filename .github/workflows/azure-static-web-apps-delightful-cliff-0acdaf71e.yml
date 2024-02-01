@@ -26,6 +26,7 @@ jobs:
           PRE_BUILD_COMMAND: corepack enable
           CUSTOM_BUILD_COMMAND: pnpm install && pnpm build || true
           NODE_VERSION: 18.17.1
+          AZURE_STORAGE_ACCOUNT_KEY: ${{ secrets.AZURE_STORAGE_ACCOUNT_KEY }}
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_DELIGHTFUL_CLIFF_0ACDAF71E }}
           repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for Github integrations (i.e. PR comments)

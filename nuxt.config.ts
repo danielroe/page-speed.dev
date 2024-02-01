@@ -20,6 +20,7 @@ export default defineNuxtConfig({
         pagespeed: {
           driver: 'azureStorageBlob',
           accountName: 'pagespeedcache',
+          accountKey: process.env.AZURE_STORAGE_ACCOUNT_KEY
         }
       }
     },
