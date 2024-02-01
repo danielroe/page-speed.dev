@@ -35,7 +35,7 @@
           </NuxtLink>
           <span v-if="results?.timestamp" class="text-gray-400">
             Last updated at
-            <NuxtTime :datetime="results.timestamp" dateStyle="full" />.
+            <NuxtTime :datetime="results.timestamp" dateStyle="full" timeStyle="medium" />.
           </span>
           <a :href="`https://pagespeed.web.dev/analysis?url=https://${domain}`"
             class="self-start underline text-gray-400 hover:text-green-400 focus:text-green-400 active:text-green-400">
@@ -75,10 +75,12 @@ const input = ref<HTMLInputElement>()
 function enableEditing () {
   newDomain.value = domain.value
   editing.value = true
-  setTimeout(() => {
-    input.value?.focus()
-    input.value?.setSelectionRange(0, input.value.value.length)
-  }, 10)
+  watch(input, (input) => {
+    if (input) {
+      input.focus()
+      input.setSelectionRange(0, newDomain.value.length)
+    }
+  }, { once: true })
 }
 
 const { data: results, status, refresh } = await useFetch(() => `/api/run/${domain.value}`, {
