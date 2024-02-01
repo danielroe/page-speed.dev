@@ -220,7 +220,7 @@ async function nativeShare () {
     if (navigator.share) {
       return await navigator.share({
         title: 'page-speed.dev',
-        text: `See page speed results for ${domain.value}`,
+        text: `See page speed results for ${domain.value.replace(/\./g, '.\x00')}`,
         url: `https://page-speed.dev/${domain.value}`,
       })
     }
