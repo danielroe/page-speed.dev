@@ -54,7 +54,7 @@ const color = computed(() => {
           :cy="radius"
         />
       </svg>
-      {{ value }}
+      {{ value?.toFixed(0) }}
     </span>
     <span :class="size === 'large' ? 'text-4xl' : 'text-2xl'">{{ caption }}</span>
   </span>
