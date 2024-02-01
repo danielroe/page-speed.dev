@@ -26,10 +26,16 @@ export default defineNuxtConfig({
     },
     routeRules: {
       '/': { prerender: true },
-      '/api/**': {
+      '/**': {
         cache: {
           base: 'pagespeed',
           swr: true,
+          maxAge: 60,
+          staleMaxAge: 60,
+        }
+      },
+      '/api/**': {
+        cache: {
           maxAge: 60 * 60,
           staleMaxAge: 24 * 60 * 60,
         }
