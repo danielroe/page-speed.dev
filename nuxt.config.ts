@@ -28,7 +28,6 @@ export default defineNuxtConfig({
       '/': { prerender: true },
       '/**': {
         cache: {
-          base: 'pagespeed',
           swr: true,
           maxAge: 60,
           staleMaxAge: 60,
@@ -36,6 +35,7 @@ export default defineNuxtConfig({
       },
       '/api/**': {
         cache: {
+          base: 'pagespeed',
           maxAge: 60 * 60,
           staleMaxAge: 24 * 60 * 60,
         }
