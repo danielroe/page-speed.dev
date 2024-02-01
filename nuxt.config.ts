@@ -24,6 +24,18 @@ export default defineNuxtConfig({
         }
       }
     },
+    routeRules: {
+      '/': { prerender: true },
+      '/**': {
+        cache: {
+          base: 'pagespeed',
+          swr: true,
+          maxAge: 60 * 60,
+          staleMaxAge: 24 * 60 * 60,
+        }
+      },
+      '/__og-image__/**': { swr: false, cache: false }
+    },
   },
   $development: {
     nitro: {
@@ -34,18 +46,6 @@ export default defineNuxtConfig({
         }
       }
     }
-  },
-  routeRules: {
-    '/': { prerender: true },
-    '/**': {
-      cache: {
-        base: 'pagespeed',
-        swr: true,
-        maxAge: 60 * 60,
-        staleMaxAge: 24 * 60 * 60,
-      }
-    },
-    '/__og-image__/**': { swr: false, cache: false }
   },
   runtimeConfig: {
     google: {

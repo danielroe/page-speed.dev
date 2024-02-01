@@ -1,9 +1,9 @@
 <template>
   <div class="font-sans text-white min-h-screen min-w-screen flex flex-col items-start justify-start bg-[#212121]">
-    <div class="flex flex-col justify-start md:my-12 p-4 gap-8 md:gap-12">
+    <div class="flex flex-col justify-start my-8 md:my-12 p-4 gap-8 md:gap-12">
       <h1 class="flex flex-row gap-4 text-white text-3xl md:text-5xl">
         <span class="text-green-400">&raquo;</span>
-        <span v-if="domain && !editing" @click="enableEditing">{{ domain }}</span>
+        <button v-if="domain && !editing" class="bg-transparent" @click="enableEditing">{{ domain }}</button>
         <form v-else class="flex flex-col gap-4" @submit.prevent="navigateToNewDomain">
           <input ref="input" v-model="newDomain" name="domain" type="text"
             class="leading-none tracking-none py-0  bg-transparent outline-none focus:underline underline-dashed"
@@ -14,11 +14,15 @@
         </form>
       </h1>
       <template v-if="!editing && domain">
-        <div v-if="status === 'pending' || results" class="flex flex-row flex-wrap gap-4 lg:flex-row justify-around w-full">
-          <ProgressRing size="normal" :value="status === 'pending' ? undefined : results!.performance" caption="performance" />
-          <ProgressRing size="normal" :value="status === 'pending' ? undefined : results!.accessibility" caption="accessibility" />
-          <ProgressRing size="normal" :value="status === 'pending' ? undefined : results!.bestPractices" caption="best practices" />
-          <ProgressRing size="normal" :value="status === 'pending' ? undefined : results!.seo" caption="SEO" />
+        <div v-if="status === 'pending' || results"
+          class="flex flex-row flex-wrap gap-4 lg:flex-row justify-around w-full">
+          <ProgressRing size="normal" :value="results && status !== 'pending' ? results.performance : undefined"
+            caption="performance" />
+          <ProgressRing size="normal" :value="results && status !== 'pending' ? results.accessibility : undefined"
+            caption="accessibility" />
+          <ProgressRing size="normal" :value="results && status !== 'pending' ? results.bestPractices : undefined"
+            caption="best practices" />
+          <ProgressRing size="normal" :value="results && status !== 'pending' ? results.seo : undefined" caption="SEO" />
         </div>
         <div v-else-if="domain">
           No results could be fetched. Is it a valid domain?
@@ -26,11 +30,12 @@
         <div class="flex flex-col gap-2">
           <span v-if="results?.timestamp" class="text-gray-500">
             Last updated at
-            <NuxtTime :datetime="results.timestamp" date-style="full" />.
+            <NuxtTime :datetime="results.timestamp" dateStyle="full" />.
           </span>
           <a :href="`https://pagespeed.web.dev/analysis?url=https://${domain}`"
-          class="underline text-gray-500 hover:text-green-400 focus:text-green-400 active:text-green-400">See full results
-          on PageSpeed Insights &raquo;</a>
+            class="self-start underline text-gray-500 hover:text-green-400 focus:text-green-400 active:text-green-400">
+            See full results on PageSpeed Insights &raquo;
+          </a>
         </div>
         <NuxtLink type="submit"
           class="bg-green-400 text-black hover: hover:bg-white focus:bg-white active:bg-white text-xl md:text-2xl py-2 px-6 md:self-start"
@@ -51,7 +56,7 @@
 
 <script lang="ts" setup>
 import '@unocss/reset/tailwind-compat.css'
-import { withoutLeadingSlash, parseURL } from 'ufo'
+import { joinURL, withoutLeadingSlash, parseURL } from 'ufo'
 
 const route = useRoute()
 const domain = computed(() => withoutLeadingSlash(route.path).replace(/\/.*$/, '').trim())
@@ -80,71 +85,81 @@ if (!domain.value) {
   watch(domain, () => refresh(), { once: true })
 }
 
-if (import.meta.server) {
-  useServerHead({
-    link: [
-      {
-        rel: 'apple-touch-icon',
-        sizes: '180x180',
-        href: '/apple-touch-icon.png'
-      },
-      {
-        rel: 'icon',
-        type: 'image/png',
-        sizes: '32x32',
-        href: '/favicon-32x32.png'
-      },
-      {
-        rel: 'icon',
-        type: 'image/png',
-        sizes: '16x16',
-        href: '/favicon-16x16.png'
-      },
-      {
-        rel: 'manifest',
-        href: '/site.webmanifest'
-      },
-      {
-        rel: 'mask-icon',
-        href: '/safari-pinned-tab.svg',
-        color: '#23c55e'
-      },
-    ],
-    meta: [
-      {
-        name: 'msapplication-TileColor',
-        content: '#23c55e'
-      },
-      {
-        name: 'theme-color',
-        content: '#ffffff'
-      }
-    ]
+useServerHead({
+  htmlAttrs: {
+    lang: 'en',
+  },
+  link: [
+    {
+      rel: 'canonical',
+      href: joinURL(`https://page-speed.dev`, domain.value)
+    },
+    {
+      rel: 'apple-touch-icon',
+      sizes: '180x180',
+      href: '/apple-touch-icon.png'
+    },
+    {
+      rel: 'icon',
+      type: 'image/png',
+      sizes: '32x32',
+      href: '/favicon-32x32.png'
+    },
+    {
+      rel: 'icon',
+      type: 'image/png',
+      sizes: '16x16',
+      href: '/favicon-16x16.png'
+    },
+    {
+      rel: 'manifest',
+      href: '/site.webmanifest'
+    },
+    {
+      rel: 'mask-icon',
+      href: '/safari-pinned-tab.svg',
+      color: '#23c55e'
+    },
+  ],
+  meta: [
+    {
+      name: 'msapplication-TileColor',
+      content: '#23c55e'
+    },
+    {
+      name: 'theme-color',
+      content: '#ffffff'
+    }
+  ]
+})
+
+useServerSeoMeta({
+  ogUrl: joinURL(`https://page-speed.dev`, domain.value)
+})
+
+if (!domain.value) {
+  defineOgImageComponent('Home')
+  useServerSeoMeta({
+    title: 'page-speed.dev',
+    description: 'See and share PageSpeed Insights results simply and easily.',
   })
-  if (!domain.value) {
-    // TODO: OG image for home page
-    useServerSeoMeta({
-      title: 'page-speed.dev',
-      description: 'See and share PageSpeed Insights results for your website.'
-    })
-  } else if (results.value) {
-    useServerSeoMeta({
-      title: 'page-speed.dev - ' + domain.value,
-      description:
-        `Performance: ${results.value?.performance} | ` +
-        `Accessibility: ${results.value?.accessibility} | ` +
-        `Best Practices: ${results.value?.bestPractices} | ` +
-        `SEO: ${results.value?.seo}`
-    })
-  
-    defineOgImageComponent('Lighthouse', {
-      performance: results.value?.performance,
-      accessibility: results.value?.accessibility,
-      bestPractices: results.value?.bestPractices,
-      seo: results.value?.seo,
-      domain: domain.value,
-    })
-  }
+} else if (results.value) {
+  useServerSeoMeta({
+    title: 'page-speed.dev - ' + domain.value,
+    description:
+      `Performance: ${results.value?.performance} | ` +
+      `Accessibility: ${results.value?.accessibility} | ` +
+      `Best Practices: ${results.value?.bestPractices} | ` +
+      `SEO: ${results.value?.seo}`
+  })
+
+  defineOgImageComponent('Lighthouse', {
+    performance: results.value?.performance,
+    accessibility: results.value?.accessibility,
+    bestPractices: results.value?.bestPractices,
+    seo: results.value?.seo,
+    domain: domain.value,
+  })
 }
 
 function navigateToNewDomain () {
