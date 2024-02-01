@@ -86,6 +86,47 @@ if (!domain.value) {
   watch(domain, () => refresh(), { once: true })
 }
 
+const favicon = computed(() => {
+  const radius = 80
+  const stroke = 14
+  const normalizedRadius = radius - stroke * 2
+  const circumference = normalizedRadius * 2 * Math.PI
+
+  const value = (results.value ? Math.floor((results.value.performance + results.value.accessibility + results.value.bestPractices + results.value.seo) / 4) : 97)
+  const color = value >= 90 ? '#23c55e' : value >= 50 ? '#fbbf24' : '#ef4444'
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" height="${radius * 2}" width="${radius * 2}">
+    <circle
+      stroke="${color}"
+      fill="transparent"
+      stroke-linecap="round"
+      stroke-dasharray="${circumference + ' ' + circumference}"
+      style="transform-origin:center;stroke-dashoffset: ${circumference - (Math.floor(value / 4) * 4) / 100 * circumference};transform: rotate(270deg)"
+      stroke-width="${stroke}"
+      r="${normalizedRadius}"
+      cx="${radius}"
+      cy="${radius}"
+    />
+    <circle
+      fill="${color}"
+      stroke-width="${stroke}"
+      r="${normalizedRadius - 35}"
+      cx="${radius}"
+      cy="${radius}"
+    />
+  </svg>`
+  return `data:image/svg+xml;base64,${btoa(svg)}`
+})
+
+useHead({
+  link: [
+    {
+      rel: 'icon',
+      type: 'image/svg',
+      href: () => favicon.value
+    }
+  ]
+})
+
 useServerHead({
   htmlAttrs: {
     lang: 'en',
@@ -99,18 +140,6 @@ useServerHead({
       rel: 'apple-touch-icon',
       sizes: '180x180',
       href: '/apple-touch-icon.png'
-    },
-    {
-      rel: 'icon',
-      type: 'image/png',
-      sizes: '32x32',
-      href: '/favicon-32x32.png'
-    },
-    {
-      rel: 'icon',
-      type: 'image/png',
-      sizes: '16x16',
-      href: '/favicon-16x16.png'
     },
     {
       rel: 'manifest',
