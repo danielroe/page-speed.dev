@@ -28,6 +28,9 @@ dependencies:
   nuxt-time:
     specifier: ^0.1.2
     version: 0.1.2
+  ufo:
+    specifier: ^1.3.2
+    version: 1.3.2
   vue:
     specifier: ^3.4.15
     version: 3.4.15

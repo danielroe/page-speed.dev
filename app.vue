@@ -59,7 +59,8 @@ import '@unocss/reset/tailwind-compat.css'
 import { joinURL, withoutLeadingSlash, parseURL } from 'ufo'
 
 const route = useRoute()
-const domain = computed(() => withoutLeadingSlash(route.path).replace(/\/.*$/, '').trim())
+const domain = computed(() => withoutLeadingSlash(route.path).toLowerCase().replace(/(\/|\?).*$/, '').trim())
+
 if (domain.value && !/^[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$/g.test(domain.value)) {
   throw new Error('Invalid domain')
 }
@@ -166,8 +167,8 @@ function navigateToNewDomain () {
   if (!newDomain.value) { return }
 
   const host = parseURL(newDomain.value).host || newDomain.value
-  editing.value = false
-  return navigateTo('/' + host)
+  editing.value = false  
+  return navigateTo('/' + withoutLeadingSlash(host).toLowerCase().replace(/(\/|\?).*$/, '').trim())
 }
 
 const shareLink = computed(() => `https://twitter.com/intent/tweet?text=${encodeURIComponent(`Check out the Page Speed results for ${domain.value.replace(/\./g, '.\x00')}` + `\n\nhttps://page-speed.dev/${domain.value}`)}`)
