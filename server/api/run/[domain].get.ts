@@ -31,6 +31,7 @@ export default defineCachedEventHandler(async event => {
     seo: results.lighthouseResult.categories.seo.score * 100,
     accessibility: results.lighthouseResult.categories.accessibility.score * 100,
     bestPractices: results.lighthouseResult.categories['best-practices'].score * 100,
+    timestamp: Date.now(),
   }
 }, {
   base: 'pagespeed',

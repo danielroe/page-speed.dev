@@ -1,7 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  modules: ['@unocss/nuxt', 'nuxt-og-image'],
+  modules: ['@unocss/nuxt', 'nuxt-og-image', 'nuxt-time'],
   site: {
     url: 'https://page-speed.dev',
   },
@@ -36,9 +36,8 @@ export default defineNuxtConfig({
     }
   },
   routeRules: {
-    '/': { redirect: 'https://pagespeed.web.dev/' },
-    '/**': { swr: 24 * 60 * 60 },
-    '/api': {
+    '/': { prerender: true },
+    '/**': {
       cache: {
         base: 'pagespeed',
         swr: true,
