@@ -1,12 +1,12 @@
 <template>
   <div class="font-sans text-white min-h-screen min-w-screen flex flex-col items-start justify-start">
-    <div class="flex flex-col justify-start mt-4 sm:mt-8 md:my-12 p-4 gap-8 md:gap-12 flex-grow">
+    <div class="flex flex-col justify-start mt-4 sm:mt-8 md:my-12 p-4 gap-8 md:gap-12 flex-grow max-w-full">
       <h1 class="flex flex-row gap-4 text-white text-3xl md:text-5xl">
         <span class="text-green-400">&raquo;</span>
         <button v-if="domain && !editing" class="bg-transparent" @click="enableEditing">{{ domain }}</button>
-        <form v-else class="flex flex-col gap-4" @submit.prevent="navigateToNewDomain">
+        <form v-else class="flex flex-col gap-4 overflow-hidden" @submit.prevent="navigateToNewDomain">
           <input ref="input" v-model="newDomain" name="domain" type="text"
-            class="leading-none tracking-none py-0  bg-transparent outline-none focus:underline underline-dashed"
+            class="py-0 bg-transparent outline-none focus:underline underline-dashed"
             autofocus placeholder="Enter a domain" required />
           <button type="submit"
             class="bg-green-400 text-black hover: hover:bg-white focus:bg-white active:bg-white text-xl md:text-2xl py-2 px-6 md:self-start">See
