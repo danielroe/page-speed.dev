@@ -144,10 +144,6 @@ useServerHead({
   },
   link: [
     {
-      rel: 'preconnect',
-      href: 'https://fonts.bunny.net'
-    },
-    {
       rel: 'canonical',
       href: joinURL(`https://page-speed.dev`, domain.value)
     },

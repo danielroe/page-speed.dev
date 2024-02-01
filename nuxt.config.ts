@@ -56,18 +56,6 @@ export default defineNuxtConfig({
       apiToken: ''
     }
   },
-  unocss: {
-    webFonts: {
-      fonts: {
-        sans: [
-          {
-            name: 'Roboto',
-            provider: 'bunny'
-          }
-        ],
-      }
-    }
-  },
   ogImage: {
     defaults: {
       cacheMaxAgeSeconds: 60 * 60 * 24
