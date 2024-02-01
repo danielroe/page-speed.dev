@@ -80,23 +80,71 @@ if (!domain.value) {
   watch(domain, () => refresh(), { once: true })
 }
 
-if (import.meta.server && domain.value && results.value) {
-  useServerSeoMeta({
-    title: 'page-speed.dev - ' + domain.value,
-    description:
-      `Performance: ${results.value?.performance} | ` +
-      `Accessibility: ${results.value?.accessibility} | ` +
-      `Best Practices: ${results.value?.bestPractices} | ` +
-      `SEO: ${results.value?.seo}`
+if (import.meta.server) {
+  useServerHead({
+    link: [
+      {
+        rel: 'apple-touch-icon',
+        sizes: '180x180',
+        href: '/apple-touch-icon.png'
+      },
+      {
+        rel: 'icon',
+        type: 'image/png',
+        sizes: '32x32',
+        href: '/favicon-32x32.png'
+      },
+      {
+        rel: 'icon',
+        type: 'image/png',
+        sizes: '16x16',
+        href: '/favicon-16x16.png'
+      },
+      {
+        rel: 'manifest',
+        href: '/site.webmanifest'
+      },
+      {
+        rel: 'mask-icon',
+        href: '/safari-pinned-tab.svg',
+        color: '#23c55e'
+      },
+    ],
+    meta: [
+      {
+        name: 'msapplication-TileColor',
+        content: '#23c55e'
+      },
+      {
+        name: 'theme-color',
+        content: '#ffffff'
+      }
+    ]
   })
-
-  defineOgImageComponent('Lighthouse', {
-    performance: results.value?.performance,
-    accessibility: results.value?.accessibility,
-    bestPractices: results.value?.bestPractices,
-    seo: results.value?.seo,
-    domain: domain.value,
-  })
+  if (!domain.value) {
+    // TODO: OG image for home page
+    useServerSeoMeta({
+      title: 'page-speed.dev',
+      description: 'See and share PageSpeed Insights results for your website.'
+    })
+  } else if (results.value) {
+    useServerSeoMeta({
+      title: 'page-speed.dev - ' + domain.value,
+      description:
+        `Performance: ${results.value?.performance} | ` +
+        `Accessibility: ${results.value?.accessibility} | ` +
+        `Best Practices: ${results.value?.bestPractices} | ` +
+        `SEO: ${results.value?.seo}`
+    })
+  
+    defineOgImageComponent('Lighthouse', {
+      performance: results.value?.performance,
+      accessibility: results.value?.accessibility,
+      bestPractices: results.value?.bestPractices,
+      seo: results.value?.seo,
+      domain: domain.value,
+    })
+  }
 }
 
 function navigateToNewDomain () {
