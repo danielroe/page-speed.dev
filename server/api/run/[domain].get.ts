@@ -35,5 +35,8 @@ export default defineCachedEventHandler(async event => {
   }
 }, {
   base: 'pagespeed',
-  getKey: (event) => 'domain:' + getRouterParam(event, 'domain')
+  swr: true,
+  getKey: (event) => 'domain:' + getRouterParam(event, 'domain'),
+  maxAge: 60 * 60,
+  staleMaxAge: 24 * 60 * 60,
 })
