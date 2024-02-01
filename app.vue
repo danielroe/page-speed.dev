@@ -92,15 +92,21 @@ const favicon = computed(() => {
   const normalizedRadius = radius - stroke * 2
   const circumference = normalizedRadius * 2 * Math.PI
 
-  const value = (results.value ? Math.floor((results.value.performance + results.value.accessibility + results.value.bestPractices + results.value.seo) / 4) : 97)
-  const color = value >= 90 ? '#23c55e' : value >= 50 ? '#fbbf24' : '#ef4444'
+  const value = status.value === 'pending' || (domain.value && !results.value)
+    ? undefined
+    : (results.value ? Math.floor((results.value.performance + results.value.accessibility + results.value.bestPractices + results.value.seo) / 4) : 100)
+  const color = !value ? '#6b7280' : value >= 90 ? '#23c55e' : value >= 50 ? '#fbbf24' : '#ef4444'
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" height="${radius * 2}" width="${radius * 2}">
+    <style>@keyframes spin {
+  from {transform: rotate(0deg)}
+  to {transform: rotate(360deg)}
+}</style>
     <circle
       stroke="${color}"
       fill="transparent"
       stroke-linecap="round"
       stroke-dasharray="${circumference + ' ' + circumference}"
-      style="transform-origin:center;stroke-dashoffset: ${circumference - (Math.floor(value / 4) * 4) / 100 * circumference};transform: rotate(270deg)"
+      style="transform-origin:center;stroke-dashoffset:${circumference - (Math.floor((value || 85) / 4) * 4) / 100 * circumference};transform:rotate(270deg)${!value ? ';animation:spin 1s linear infinite' : ''}"
       stroke-width="${stroke}"
       r="${normalizedRadius}"
       cx="${radius}"
@@ -119,13 +125,16 @@ const favicon = computed(() => {
 
 useHead({
   link: [
-    {
+    () => ({
+      key: 'favicon',
       rel: 'icon',
       type: 'image/svg',
-      href: () => favicon.value
-    }
+      href: favicon.value
+    })
   ]
 })
+
+
 
 useServerHead({
   htmlAttrs: {
@@ -167,31 +176,17 @@ useServerSeoMeta({
   ogUrl: joinURL(`https://page-speed.dev`, domain.value)
 })
 
+useSeoMeta({
+  title: () => domain.value ? `page-speed.dev - ${domain.value}` : 'page-speed.dev',
+})
+
 if (!domain.value) {
   defineOgImageComponent('Home')
   useServerSeoMeta({
-    title: 'page-speed.dev',
     description: 'See and share PageSpeed Insights results simply and easily.',
-  })
-  useHead({
-    link: [
-      {
-        rel: 'icon',
-        type: 'image/png',
-        sizes: '32x32',
-        href: '/favicon-32x32.png'
-      },
-      {
-        rel: 'icon',
-        type: 'image/png',
-        sizes: '16x16',
-        href: '/favicon-16x16.png'
-      },
-    ]
   })
 } else if (results.value) {
   useServerSeoMeta({
-    title: 'page-speed.dev - ' + domain.value,
     description:
       `Performance: ${results.value?.performance} | ` +
       `Accessibility: ${results.value?.accessibility} | ` +
