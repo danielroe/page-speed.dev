@@ -211,7 +211,7 @@ function navigateToNewDomain () {
   return navigateTo('/' + withoutLeadingSlash(host).toLowerCase().replace(/(\/|\?).*$/, '').trim())
 }
 
-const shareLink = computed(() => `https://twitter.com/intent/tweet?text=${encodeURIComponent(`Check out the Page Speed results for ${domain.value.replace(/\./g, '.\x00')}` + `\n\nhttps://page-speed.dev/${domain.value}`)}`)
+const shareLink = computed(() => domain.value ? `https://twitter.com/intent/tweet?text=${encodeURIComponent(`Check out the Page Speed results for ${domain.value.replace(/\./g, '.\x00')}` + `\n\nhttps://page-speed.dev/${domain.value}`)}` : 'See and share PageSpeed Insights results simply and easily.')
 
 async function nativeShare () {
   try {
