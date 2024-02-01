@@ -33,14 +33,14 @@
             :href="shareLink" @click.prevent="nativeShare">
             Share results
           </NuxtLink>
-          <span v-if="results?.timestamp" class="text-gray-400">
-            Last updated at
-            <NuxtTime :datetime="results.timestamp" dateStyle="full" timeStyle="medium" />.
-          </span>
           <a :href="`https://pagespeed.web.dev/analysis?url=https://${domain}`"
             class="self-start underline text-gray-400 hover:text-green-400 focus:text-green-400 active:text-green-400">
             See full results on PageSpeed Insights &raquo;
           </a>
+          <span v-if="results?.timestamp" class="text-gray-400">
+            Last updated at
+            <NuxtTime :datetime="results.timestamp" dateStyle="full" timeStyle="medium" />.
+          </span>
         </div>
       </template>
     </div>
