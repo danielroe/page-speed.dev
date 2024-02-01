@@ -1,6 +1,6 @@
 <template>
   <div class="font-sans text-white min-h-screen min-w-screen flex flex-col items-start justify-start bg-[#212121]">
-    <div class="flex flex-col justify-start mt-8 md:my-12 p-4 gap-8 md:gap-12 flex-grow">
+    <div class="flex flex-col justify-start mt-4 sm:mt-8 md:my-12 p-4 gap-8 md:gap-12 flex-grow">
       <h1 class="flex flex-row gap-4 text-white text-3xl md:text-5xl">
         <span class="text-green-400">&raquo;</span>
         <button v-if="domain && !editing" class="bg-transparent" @click="enableEditing">{{ domain }}</button>
@@ -28,6 +28,11 @@
           No results could be fetched. Is it a valid domain?
         </div>
         <div class="flex flex-col gap-2 mt-auto md:mt-8">
+          <NuxtLink type="submit"
+            class="bg-green-400 text-black hover: hover:bg-white focus:bg-white active:bg-white text-xl md:text-2xl py-2 px-6 md:self-start mb-8"
+            :href="shareLink" @click.prevent="nativeShare">
+            Share results
+          </NuxtLink>
           <span v-if="results?.timestamp" class="text-gray-400">
             Last updated at
             <NuxtTime :datetime="results.timestamp" dateStyle="full" />.
@@ -37,9 +42,6 @@
             See full results on PageSpeed Insights &raquo;
           </a>
         </div>
-        <NuxtLink type="submit"
-          class="bg-green-400 text-black hover: hover:bg-white focus:bg-white active:bg-white text-xl md:text-2xl py-2 px-6 md:self-start"
-          :href="shareLink" @click.prevent="nativeShare">Share results</NuxtLink>
       </template>
     </div>
     <footer class="mt-auto p-3 text-gray-400">
