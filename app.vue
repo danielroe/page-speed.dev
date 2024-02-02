@@ -99,7 +99,7 @@ const favicon = computed(() => {
 
   const value = status.value === 'pending' || (domain.value && !results.value)
     ? undefined
-    : (results.value ? Math.floor((results.value.performance + results.value.accessibility + results.value.bestPractices + results.value.seo) / 4) : 100)
+    : (results.value ? results.value.performance : 100)
   const color = !value ? '#6b7280' : value >= 90 ? '#23c55e' : value >= 50 ? '#fbbf24' : '#ef4444'
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" height="${radius * 2}" width="${radius * 2}">
     <style>@keyframes spin {
