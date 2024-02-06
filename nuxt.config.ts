@@ -53,7 +53,7 @@ export default defineNuxtConfig({
   },
   runtimeConfig: {
     google: {
-      apiToken: process.env.NUXT_GOOGLE_API_TOKEN || ''
+      apiToken: ''
     }
   },
   ogImage: {
