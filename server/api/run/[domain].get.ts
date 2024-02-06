@@ -1,22 +1,3 @@
-interface PagespeedInsightsResult {
-  lighthouseResult: {
-    categories: {
-      performance: {
-        score: number
-      }
-      seo: {
-        score: number
-      }
-      accessibility: {
-        score: number
-      }
-      'best-practices': {
-        score: number
-      }
-    }
-  }
-}
-
 export default defineCachedEventHandler(async event => {
   const domain = getRouterParam(event, 'domain')
   if (!domain || domain.includes('/') || domain.includes('%')) {
@@ -40,3 +21,24 @@ export default defineCachedEventHandler(async event => {
   maxAge: 60 * 60,
   staleMaxAge: 24 * 60 * 60,
 })
+
+/** Helpers */
+
+interface PagespeedInsightsResult {
+  lighthouseResult: {
+    categories: {
+      performance: {
+        score: number
+      }
+      seo: {
+        score: number
+      }
+      accessibility: {
+        score: number
+      }
+      'best-practices': {
+        score: number
+      }
+    }
+  }
+}

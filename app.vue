@@ -14,16 +14,52 @@
         </form>
       </h1>
       <template v-if="!editing && domain">
-        <div v-if="status === 'pending' || results"
-          class="flex flex-row flex-wrap gap-4 lg:flex-row justify-around w-full">
-          <ProgressRing size="normal" :value="results && status !== 'pending' ? results.performance : undefined"
-            caption="performance" />
-          <ProgressRing size="normal" :value="results && status !== 'pending' ? results.accessibility : undefined"
-            caption="accessibility" />
-          <ProgressRing size="normal" :value="results && status !== 'pending' ? results.bestPractices : undefined"
-            caption="best practices" />
-          <ProgressRing size="normal" :value="results && status !== 'pending' ? results.seo : undefined" caption="SEO" />
-        </div>
+        <template v-if="status === 'pending' || results">
+          <div class="flex flex-row flex-wrap gap-4 lg:flex-row justify-around w-full">
+            <template v-if="status === 'pending' || results?.crux">
+              <ProgressRing size="normal" :value="results?.crux && status !== 'pending' ? results.crux.cwv : undefined"
+                caption="core web vitals" />
+              <Histogram size="normal" :value="results?.crux && status !== 'pending' ? results.crux.lcp : undefined"
+                caption="LCP" />
+              <Histogram size="normal" :value="results?.crux && status !== 'pending' ? results.crux.cls : undefined"
+                caption="CLS" />
+              <Histogram size="normal" :value="results?.crux && status !== 'pending' ? results.crux.inp : undefined"
+                caption="INP" />
+            </template>
+            <template v-else-if="results">
+              <ProgressRing size="normal" :value="results.lighthouse.performance" caption="performance" />
+              <ProgressRing size="normal" :value="results.lighthouse.accessibility" caption="accessibility" />
+              <ProgressRing size="normal" :value="results.lighthouse.bestPractices" caption="best practices" />
+              <ProgressRing size="normal" :value="results.lighthouse.seo" caption="SEO" />
+            </template>
+          </div>
+          <div v-if="status === 'pending' || (results && results.crux)"
+            class="flex flex-row flex-wrap gap-4 lg:flex-row justify-around w-full border border-green-700 border-2 rounded-lg p-4">
+            <span class="flex flex-row gap-2">
+              <span class="font-bold">{{ results && status !== 'pending' ? results.lighthouse.performance.toFixed(0) :
+                undefined
+              }}</span>
+              <span>performance</span>
+            </span>
+            <span class="flex flex-row gap-2">
+              <span class="font-bold">{{ results && status !== 'pending' ? results.lighthouse.accessibility.toFixed(0) :
+                undefined
+              }}</span>
+              <span>accessibility</span>
+            </span>
+            <span class="flex flex-row gap-2">
+              <span class="font-bold">{{ results && status !== 'pending' ? results.lighthouse.bestPractices.toFixed(0) :
+                undefined
+              }}</span>
+              <span>best practices</span>
+            </span>
+            <span class="flex flex-row gap-2">
+              <span class="font-bold">{{ results && status !== 'pending' ? results.lighthouse.seo.toFixed(0) : undefined
+              }}</span>
+              <span>SEO</span>
+            </span>
+          </div>
+        </template>
         <div v-else-if="domain">
           No results could be fetched. Is it a valid domain?
         </div>
@@ -33,13 +69,19 @@
             :href="shareLink" @click.prevent="nativeShare">
             Share results
           </NuxtLink>
-          <a :href="`https://pagespeed.web.dev/analysis?url=https://${domain}`"
+          <a v-if="results?.crux"
+            :href="`https://lookerstudio.google.com/c/u/0/reporting/bbc5698d-57bb-4969-9e07-68810b9fa348/page/keDQB?params=%7B%22origin%22:%22https://${domain}%22%7D`"
+            class="self-start underline text-gray-400 hover:text-green-400 focus:text-green-400 active:text-green-400">
+            Explore full results in the CrUX Dashboard &raquo;
+          </a>
+          <a v-else :href="`https://pagespeed.web.dev/analysis?url=https://${domain}`"
             class="self-start underline text-gray-400 hover:text-green-400 focus:text-green-400 active:text-green-400">
             See full results on PageSpeed Insights &raquo;
           </a>
-          <span v-if="results?.timestamp" class="text-gray-400">
+          <span v-if="results?.crux?.timestamp || results?.lighthouse?.timestamp" class="text-gray-400">
             Last updated at
-            <NuxtTime :datetime="results.timestamp" dateStyle="full" timeStyle="medium" />.
+            <NuxtTime :datetime="results.crux?.timestamp || results.lighthouse.timestamp" dateStyle="full"
+              timeStyle="medium" />.
           </span>
         </div>
       </template>
@@ -83,7 +125,14 @@ function enableEditing () {
   }, { once: true })
 }
 
-const { data: results, status, refresh } = await useFetch(() => `/api/run/${domain.value}`, {
+const { data: results, status, refresh } = await useAsyncData(async () => {
+  const [lighthouse, crux] = await Promise.all([
+    $fetch(`/api/run/${domain.value}`),
+    $fetch(`/api/crux/${domain.value}`).catch(() => null)
+  ])
+  return { lighthouse, crux }
+}, {
+  watch: [domain],
   immediate: !!domain.value,
 })
 
@@ -99,7 +148,7 @@ const favicon = computed(() => {
 
   const value = status.value === 'pending' || (domain.value && !results.value)
     ? undefined
-    : (results.value ? results.value.performance : 100)
+    : (results.value ? results.value.crux?.cwv || results.value.lighthouse.performance : 100)
   const color = !value ? '#6b7280' : value >= 90 ? '#23c55e' : value >= 50 ? '#fbbf24' : '#ef4444'
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" height="${radius * 2}" width="${radius * 2}">
     <style>@keyframes spin {
@@ -186,22 +235,20 @@ useServerSeoMeta({
 if (!domain.value) {
   defineOgImageComponent('Home')
   useServerSeoMeta({
-    description: 'See and share PageSpeed Insights results simply and easily.',
+    description: 'See and share Core Web Vitals and Page Speed Insights results simply and easily.',
   })
 } else if (results.value) {
   useServerSeoMeta({
     description:
-      `Performance: ${results.value?.performance} | ` +
-      `Accessibility: ${results.value?.accessibility} | ` +
-      `Best Practices: ${results.value?.bestPractices} | ` +
-      `SEO: ${results.value?.seo}`
+      `Performance: ${results.value?.lighthouse.performance} | ` +
+      `Accessibility: ${results.value?.lighthouse.accessibility} | ` +
+      `Best Practices: ${results.value?.lighthouse.bestPractices} | ` +
+      `SEO: ${results.value?.lighthouse.seo}`
   })
 
   defineOgImageComponent('Lighthouse', {
-    performance: results.value?.performance,
-    accessibility: results.value?.accessibility,
-    bestPractices: results.value?.bestPractices,
-    seo: results.value?.seo,
+    lighthouse: results.value.lighthouse,
+    crux: results.value?.crux,
     domain: domain.value,
   })
 }

@@ -13,6 +13,7 @@
     "@azure/identity": "^4.0.1",
     "@azure/storage-blob": "^12.17.0",
     "@unocss/nuxt": "^0.58.4",
+    "nitropack": "^2.8.1",
     "nuxt": "^3.10.0",
     "nuxt-og-image": "^3.0.0-rc.30",
     "nuxt-time": "^0.1.2",
