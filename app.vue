@@ -240,10 +240,17 @@ if (!domain.value) {
 } else if (results.value) {
   useServerSeoMeta({
     description:
-      `Performance: ${results.value?.lighthouse.performance} | ` +
-      `Accessibility: ${results.value?.lighthouse.accessibility} | ` +
-      `Best Practices: ${results.value?.lighthouse.bestPractices} | ` +
-      `SEO: ${results.value?.lighthouse.seo}`
+      results.value?.crux
+        ?
+        `Core Web Vitals: ${results.value?.crux.cwv} | ` +
+        `LCP: ${results.value?.crux.lcp.caption} | ` +
+        `CLS: ${results.value?.crux.cls.caption} | ` +
+        `INP: ${results.value?.crux.inp.caption}`
+        :
+        `Performance: ${results.value?.lighthouse.performance} | ` +
+        `Accessibility: ${results.value?.lighthouse.accessibility} | ` +
+        `Best Practices: ${results.value?.lighthouse.bestPractices} | ` +
+        `SEO: ${results.value?.lighthouse.seo}`
   })
 
   defineOgImageComponent('Lighthouse', {
