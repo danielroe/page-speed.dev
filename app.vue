@@ -17,8 +17,20 @@
         <template v-if="status === 'pending' || results">
           <div class="flex flex-row flex-wrap gap-4 lg:flex-row justify-around w-full">
             <template v-if="status === 'pending' || results?.crux">
-              <ProgressRing size="normal" :value="results?.crux && status !== 'pending' ? results.crux.cwv : undefined"
-                caption="core web vitals" />
+              <Histogram v-if="results?.crux?.cwv" size="normal" caption="core vitals" :value="{ caption: '', segments: [100, 100, 100] }">
+                <svg xmlns="http://www.w3.org/2000/svg" class="text-green-500" width="6rem" height="6rem" viewBox="0 0 24 24">
+                  <path fill="currentColor"
+                    d="m10 13.6l5.9-5.9q.275-.275.7-.275t.7.275q.275.275.275.7t-.275.7l-6.6 6.6q-.3.3-.7.3t-.7-.3l-2.6-2.6q-.275-.275-.275-.7t.275-.7q.275-.275.7-.275t.7.275z" />
+                </svg>
+              </Histogram>
+              <Histogram v-else-if="status !== 'pending'" size="normal"
+                caption="core vitals" 
+                :value="{ caption: '', segments: [100] }">
+                <svg xmlns="http://www.w3.org/2000/svg" class="text-red-500" width="6rem" height="6rem"  viewBox="0 0 24 24"><path fill="currentColor" d="M16.066 8.995a.75.75 0 1 0-1.06-1.061L12 10.939L8.995 7.934a.75.75 0 1 0-1.06 1.06L10.938 12l-3.005 3.005a.75.75 0 0 0 1.06 1.06L12 13.06l3.005 3.006a.75.75 0 0 0 1.06-1.06L13.062 12z"/></svg>
+              </Histogram>
+              <Histogram v-else size="normal"
+                caption="core vitals" 
+                :value="undefined" />
               <Histogram size="normal" :value="results?.crux && status !== 'pending' ? results.crux.lcp : undefined"
                 caption="LCP" />
               <Histogram size="normal" :value="results?.crux && status !== 'pending' ? results.crux.cls : undefined"

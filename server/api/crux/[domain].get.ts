@@ -18,7 +18,7 @@ export default defineCachedEventHandler(async event => {
     })
 
     return {
-      cwv: computeCWVScore(results.record.metrics),
+      cwv: cwvKeys.every(key => Number(results.record.metrics[key].percentiles.p75) < (Number(results.record.metrics[key].histogram[0].end || 0))),
       lcp: normalizeHistogram(results.record.metrics['largest_contentful_paint']),
       cls: normalizeHistogram(results.record.metrics['cumulative_layout_shift']),
       inp: normalizeHistogram(results.record.metrics['interaction_to_next_paint']),
@@ -60,16 +60,7 @@ interface CrUXResult {
   }
 }
 
-const cwvKeys = ['cumulative_layout_shift', 'first_contentful_paint', 'interaction_to_next_paint', 'largest_contentful_paint', 'experimental_time_to_first_byte'] satisfies Array<keyof CrUXResult['record']['metrics']>
-
-function computeCWVScore (metrics: CrUXResult['record']['metrics']) {
-  const scores: number[] = []
-  for (const key of cwvKeys) {
-    const passes = Number(metrics[key].percentiles.p75) < (Number(metrics[key].histogram[0].end || 0))
-    scores.push(passes ? 100 : 0)
-  }
-  return scores.reduce((a, b) => a + b) / scores.length
-}
+const cwvKeys = ['largest_contentful_paint', 'cumulative_layout_shift', 'interaction_to_next_paint'] as const
 
 function normalizeHistogram (metric: CrUXResult['record']['metrics'][keyof CrUXResult['record']['metrics']]) {
   const segments = [] as number[]
