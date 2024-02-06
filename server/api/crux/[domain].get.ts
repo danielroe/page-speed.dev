@@ -24,9 +24,9 @@ export default defineCachedEventHandler(async event => {
       inp: normalizeHistogram(results.record.metrics['interaction_to_next_paint']),
       timestamp: Date.now(),
     }
-  } catch (e) {
+  } catch (e: any) {
     console.error(e)
-    throw createError({ message: 'No CrUX report available', statusCode: 404 })
+    throw createError({ message: 'No CrUX report available:' + e.toString(), statusCode: 404 })
   }
 }, {
   base: 'pagespeed',
