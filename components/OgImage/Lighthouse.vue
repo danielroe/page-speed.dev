@@ -1,5 +1,5 @@
 <script setup lang="ts">
-defineProps({
+const props = defineProps({
   domain: {
     type: String,
     required: true,
@@ -12,6 +12,9 @@ defineProps({
     type: Object
   },
 })
+
+const { data: crux } = await useFetch(() => `/api/crux/${props.domain}`)
+const { data: lighthouse } = await useFetch(() => `/api/run/${props.domain}`)
 </script>
 
 <template>

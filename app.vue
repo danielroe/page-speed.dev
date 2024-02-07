@@ -20,8 +20,8 @@
               <ProgressRing size="normal" :value="lighthouseStatus !== 'pending' && lighthouse?.seo" caption="SEO" />
             </template>
           </div>
-          <LighthouseTable v-if="cruxStatus === 'pending' || crux" :loading="lighthouseStatus === 'pending'"
-            v-bind="lighthouse || {}" />
+          <LighthouseTable v-if="cruxStatus === 'pending' || crux"
+            :loading="lighthouseStatus === 'pending' || !lighthouse" v-bind="lighthouse || {}" />
         </template>
         <div v-else-if="domain">
           No results could be fetched. Is it a valid domain?
@@ -81,6 +81,7 @@ const { data: crux, status: cruxStatus, refresh: cruxRefresh } = await useFetch(
 
 const { data: lighthouse, status: lighthouseStatus, refresh: lighthouseRefresh } = await useFetch(() => `/api/run/${domain.value}`, {
   immediate: !!domain.value,
+  server: false,
 })
 
 if (!domain.value) {
@@ -141,27 +142,28 @@ if (!domain.value) {
   useServerSeoMeta({
     description: 'See and share Core Web Vitals and Page Speed Insights results simply and easily.',
   })
-} else if (crux.value || lighthouse.value) {
-  useServerSeoMeta({
-    description:
-      crux.value
-        ?
-        `Core Web Vitals: ${crux.value?.cwv ? 'pass' : 'fail'} | ` +
-        `LCP: ${crux.value?.lcp.caption} | ` +
-        `CLS: ${crux.value?.cls.caption} | ` +
-        `INP: ${crux.value?.inp.caption}`
-        :
-        `Performance: ${lighthouse.value!.performance} | ` +
-        `Accessibility: ${lighthouse.value!.accessibility} | ` +
-        `Best Practices: ${lighthouse.value!.bestPractices} | ` +
-        `SEO: ${lighthouse.value!.seo}`
-  })
+} else {
+  if (!crux.value) await lighthouseRefresh()
+  if (crux.value || lighthouse.value) {
+    useServerSeoMeta({
+      description:
+        crux.value
+          ?
+          `Core Web Vitals: ${crux.value?.cwv ? 'pass' : 'fail'} | ` +
+          `LCP: ${crux.value?.lcp.caption} | ` +
+          `CLS: ${crux.value?.cls.caption} | ` +
+          `INP: ${crux.value?.inp.caption}`
+          :
+          `Performance: ${lighthouse.value!.performance} | ` +
+          `Accessibility: ${lighthouse.value!.accessibility} | ` +
+          `Best Practices: ${lighthouse.value!.bestPractices} | ` +
+          `SEO: ${lighthouse.value!.seo}`
+    })
 
-  defineOgImageComponent('Lighthouse', {
-    lighthouse: lighthouse.value,
-    crux: crux.value,
-    domain: domain.value,
-  })
+    defineOgImageComponent('Lighthouse', {
+      domain: domain.value,
+    })
+  }
 }
 
 </script>
