@@ -29,7 +29,7 @@ const circumference = normalizedRadius * 2 * Math.PI
           :cy="radius"
         />
       </svg>
-      <span v-else class="font-bold tabular-nums">{{ loading ? undefined : metric?.toFixed(0) }}</span>
+      <span v-else class="font-bold tabular-nums min-w-[2.25rem] md:min-w-0 text-right mr-1">{{ loading ? undefined : metric?.toFixed(0) }}</span>
       <span>
         {{ caption }}
       </span>
