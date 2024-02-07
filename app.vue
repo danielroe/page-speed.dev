@@ -254,7 +254,7 @@ if (!domain.value) {
     description:
       results.value?.crux
         ?
-        `Core Web Vitals: ${results.value?.crux.cwv} | ` +
+        `Core Web Vitals: ${results.value?.crux.cwv ? '✅' : '❌'} | ` +
         `LCP: ${results.value?.crux.lcp.caption} | ` +
         `CLS: ${results.value?.crux.cls.caption} | ` +
         `INP: ${results.value?.crux.inp.caption}`
