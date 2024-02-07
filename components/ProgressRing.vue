@@ -2,7 +2,7 @@
 
 const props = defineProps({
   value: {
-    type: Number,
+    type: Number as () => number | false | undefined,
   },
   caption: {
     type: String,
@@ -45,7 +45,7 @@ const color = computed(() => {
           stroke-linecap="round"
           :stroke-dasharray="circumference + ' ' + circumference"
           :style="{
-            strokeDashoffset: circumference - (Math.floor((value ?? 80) / 4) * 4) / 100 * circumference,
+            strokeDashoffset: circumference - (Math.floor((typeof value === 'number' ? value : 80) / 4) * 4) / 100 * circumference,
             transform: 'rotate(270deg)'
           }"
           :stroke-width="stroke"
@@ -54,7 +54,7 @@ const color = computed(() => {
           :cy="radius"
         />
       </svg>
-      {{ value?.toFixed(0) }}
+      {{ typeof value === 'number' ? value.toFixed(0) : '' }}
     </span>
     <span :class="size === 'large' ? 'text-4xl' : 'text-2xl'">{{ caption }}</span>
   </span>
