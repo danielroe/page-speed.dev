@@ -1,6 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
+  components: ['~/components/graphs', '~/components'],
   modules: ['@unocss/nuxt', 'nuxt-og-image', 'nuxt-time'],
   experimental: {
     appManifest: false,

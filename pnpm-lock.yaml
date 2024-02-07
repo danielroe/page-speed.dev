@@ -19,6 +19,9 @@ dependencies:
   '@unocss/nuxt':
     specifier: ^0.58.4
     version: 0.58.4(postcss@8.4.33)(vite@5.0.12)(webpack@5.89.0)
+  nitropack:
+    specifier: ^2.8.1
+    version: 2.8.1(patch_hash=jdedpmim4eg6suuv47a2qwj2pe)(@azure/identity@4.0.1)(@azure/storage-blob@12.17.0)
   nuxt:
     specifier: ^3.10.0
     version: 3.10.0(@azure/identity@4.0.1)(@azure/storage-blob@12.17.0)(vite@5.0.12)
