@@ -4,7 +4,8 @@ defineProps({
   accessibility: Number,
   bestPractices: Number,
   seo: Number,
-  loading: Boolean
+  loading: Boolean,
+  row: Boolean
 })
 
 const radius = 11
@@ -15,7 +16,7 @@ const circumference = normalizedRadius * 2 * Math.PI
 
 <template>
   <div class="flex flex-row flex-wrap gap-4 lg:flex-row justify-around w-full border border-green-700 border-2 rounded-lg p-4">
-    <span v-for="[metric, caption] of ([[performance, 'performance'], [accessibility, 'accessibility'], [bestPractices, 'best practices'], [seo, 'SEO']] as const)" class="flex flex-row gap-2 flex-[40%] md:flex-auto">
+    <span v-for="[metric, caption] of ([[performance, 'performance'], [accessibility, 'accessibility'], [bestPractices, 'best practices'], [seo, 'SEO']] as const)" class="flex flex-row gap-2" :class="{ 'flex-[40%] md:flex-auto': !row }">
       <svg v-if="loading" :height="radius * 2" :width="radius * 2" class="animate-spin">
         <circle
           stroke="#6b7280"

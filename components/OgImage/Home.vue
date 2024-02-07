@@ -5,7 +5,7 @@
         <span class="text-green-400">&raquo;</span> page-speed.dev
       </div>
       <div class="text-gray-400 text-4xl mt-8">
-        See and share PageSpeed Insights results simply and easily.
+        See and share web performance metrics simply and easily.
       </div>
     </div>
   </div>
