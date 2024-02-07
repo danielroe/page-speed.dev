@@ -67,12 +67,6 @@ export default defineNuxtConfig({
       accountKey: process.env.AZURE_STORAGE_ACCOUNT_KEY
       // containerName: 'images-v1'
     },
-    fonts: [
-      {
-        name: 'Roboto',
-        weight: 500,
-        path: 'https://fonts.gstatic.com/s/roboto/v30/KFOlCnqEu92Fr1MmEU9vAw.ttf',
-      }
-    ]
+    fonts: ['Roboto:500']
   }
 })
