@@ -8,13 +8,15 @@
       <template v-if="!editing && domain">
         <template v-if="cruxStatus === 'pending' || crux || lighthouse">
           <div class="flex flex-row flex-wrap gap-4 lg:flex-row justify-around w-full">
-            <CoreWebVitals v-if="cruxStatus === 'pending' || crux" :pass="crux?.cwv"
-              :lcp="crux?.lcp" :cls="crux?.cls" :inp="crux?.inp"
-              :loading="cruxStatus === 'pending'" size="normal" show-p75 />
+            <CoreWebVitals v-if="cruxStatus === 'pending' || crux" :pass="crux?.cwv" :lcp="crux?.lcp" :cls="crux?.cls"
+              :inp="crux?.inp" :loading="cruxStatus === 'pending'" size="normal" show-p75 />
             <template v-else>
-              <ProgressRing size="normal" :value="lighthouseStatus !== 'pending' && lighthouse?.performance" caption="performance" />
-              <ProgressRing size="normal" :value="lighthouseStatus !== 'pending' && lighthouse?.accessibility" caption="accessibility" />
-              <ProgressRing size="normal" :value="lighthouseStatus !== 'pending' && lighthouse?.bestPractices" caption="best practices" />
+              <ProgressRing size="normal" :value="lighthouseStatus !== 'pending' && lighthouse?.performance"
+                caption="performance" />
+              <ProgressRing size="normal" :value="lighthouseStatus !== 'pending' && lighthouse?.accessibility"
+                caption="accessibility" />
+              <ProgressRing size="normal" :value="lighthouseStatus !== 'pending' && lighthouse?.bestPractices"
+                caption="best practices" />
               <ProgressRing size="normal" :value="lighthouseStatus !== 'pending' && lighthouse?.seo" caption="SEO" />
             </template>
           </div>
@@ -26,6 +28,25 @@
         </div>
         <TheShareLink v-if="crux || lighthouse" :domain="domain" :type="crux ? 'crux' : 'pagespeed-insights'"
           :timestamp="crux?.timestamp || lighthouse!.timestamp" />
+        <details class="max-w-[500px] text-gray-400">
+          <summary class="cursor-pointer">
+            About these results
+          </summary>
+          <p class="mt-4">
+            This tool uses the <a class="underline hover:text-green-400 focus:text-green-400 active:text-green-400"
+              href="https://developers.google.com/web/tools/chrome-user-experience-report">Chrome User Experience
+              Report</a> and
+            <a class="underline hover:text-green-400 focus:text-green-400 active:text-green-400"
+              href="https://developers.google.com/web/tools/lighthouse">Lighthouse</a> APIs to fetch and display Core Web
+            Vitals and Page Speed Insights results.
+          </p>
+          <p class="mt-4">
+            Results are cached for a minimum of one day plus the first following request.
+          </p>
+          <p class="mt-4">
+            The numbers you see are for <b>mobile devices</b>.
+          </p>
+        </details>
       </template>
     </div>
     <footer class="mt-auto p-3 text-gray-400">
