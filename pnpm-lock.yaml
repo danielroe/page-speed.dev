@@ -16,6 +16,9 @@ dependencies:
   '@azure/storage-blob':
     specifier: ^12.17.0
     version: 12.17.0
+  '@nuxtjs/plausible':
+    specifier: ^0.2.4
+    version: 0.2.4
   '@unocss/nuxt':
     specifier: ^0.58.5
     version: 0.58.5(postcss@8.4.33)(vite@5.0.12)(webpack@5.89.0)
@@ -1780,6 +1783,18 @@ packages:
       '@nuxt/kit': 3.10.1
       lodash.template: 4.5.0
       pathe: 1.1.2
+    transitivePeerDependencies:
+      - rollup
+      - supports-color
+    dev: false
+
+  /@nuxtjs/plausible@0.2.4:
+    resolution: {integrity: sha512-9HrSl9ZGKS/7bULAt8uzAGo9BJyIZebzRSLQD8ZhiODaGyRdEQlgcJBw5JgUzjcC5n4T0ZlX3FC6C3Wyp7opgA==}
+    dependencies:
+      '@nuxt/kit': 3.10.1
+      defu: 6.1.4
+      pathe: 1.1.2
+      plausible-tracker: 0.3.8
     transitivePeerDependencies:
       - rollup
       - supports-color
@@ -6479,6 +6494,11 @@ packages:
       jsonc-parser: 3.2.0
       mlly: 1.5.0
       pathe: 1.1.2
+    dev: false
+
+  /plausible-tracker@0.3.8:
+    resolution: {integrity: sha512-lmOWYQ7s9KOUJ1R+YTOR3HrjdbxIS2Z4de0P/Jx2dQPteznJl2eX3tXxKClpvbfyGP59B5bbhW8ftN59HbbFSg==}
+    engines: {node: '>=10'}
     dev: false
 
   /playwright-core@1.41.2:

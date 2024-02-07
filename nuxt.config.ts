@@ -2,13 +2,20 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
   components: ['~/components/graphs', '~/components'],
-  modules: ['@unocss/nuxt', 'nuxt-og-image', 'nuxt-time'],
+  modules: ['@unocss/nuxt', 'nuxt-og-image', 'nuxt-time', '@nuxtjs/plausible'],
   experimental: {
     appManifest: false,
+    headNext: true,
     payloadExtraction: false,
   },
   site: {
     url: 'https://page-speed.dev',
+  },
+  routeRules: {
+    '/': { prerender: true },
+    '/_v/**': { proxy: 'https://v.roe.dev/**' },
+    '/api/**': { swr: false, cache: false },
+    '/__og-image__/**': { swr: false, cache: false }
   },
   nitro: {
     azure: {
@@ -30,7 +37,6 @@ export default defineNuxtConfig({
       }
     },
     routeRules: {
-      '/': { prerender: true },
       '/**': {
         cache: {
           swr: true,
@@ -38,8 +44,6 @@ export default defineNuxtConfig({
           staleMaxAge: 60,
         }
       },
-      '/api/**': { swr: false, cache: false },
-      '/__og-image__/**': { swr: false, cache: false }
     },
   },
   $development: {
@@ -56,6 +60,10 @@ export default defineNuxtConfig({
     google: {
       apiToken: ''
     }
+  },
+  plausible: {
+    domain: 'page-speed.dev',
+    apiHost: '/_v',
   },
   ogImage: {
     defaults: {
