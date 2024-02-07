@@ -65,6 +65,7 @@ export default defineNuxtConfig({
       driver: 'azureStorageBlob',
       accountName: 'pagespeedcache',
       accountKey: process.env.AZURE_STORAGE_ACCOUNT_KEY
+      // containerName: 'images-v1'
     },
     fonts: [
       {
