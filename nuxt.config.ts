@@ -13,7 +13,6 @@ export default defineNuxtConfig({
   },
   routeRules: {
     '/': { prerender: true },
-    '/_v/**': { proxy: 'https://v.roe.dev/**', swr: false, cache: false },
     '/api/**': { swr: false, cache: false },
     '/__og-image__/**': { swr: false, cache: false }
   },
@@ -63,7 +62,7 @@ export default defineNuxtConfig({
   },
   plausible: {
     domain: 'page-speed.dev',
-    apiHost: '/_v',
+    apiHost: 'https://v.roe.dev',
   },
   ogImage: {
     defaults: {
