@@ -46,6 +46,10 @@ pnpm build
 pnpm preview
 ```
 
+## Credits
+
+Many thanks to [Barry Pollard](https://twitter.com/tunetheweb) for providing essential review and suggestions! ❤️
+
 ## License
 
 Made with ❤️
