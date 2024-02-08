@@ -27,7 +27,7 @@
           No results could be fetched. Is it a valid domain?
         </div>
         <TheShareLink v-if="crux || lighthouse" :domain="domain" :type="crux ? 'crux' : 'pagespeed-insights'"
-          :timestamp="crux?.timestamp || lighthouse!.timestamp" />
+          :timestamp="cruxStatus === 'pending' ? undefined : crux?.timestamp || lighthouse!.timestamp" />
         <details class="max-w-[500px] text-gray-400">
           <summary class="cursor-pointer">
             About these results
