@@ -76,10 +76,12 @@ if (domain.value && !/^[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$/g.test(domain.value)) {
 const editing = ref(!domain.value)
 
 const { data: crux, status: cruxStatus, refresh: cruxRefresh } = await useFetch(() => `/api/crux/${domain.value}`, {
+  key: 'crux',
   immediate: !!domain.value,
 })
 
 const { data: lighthouse, status: lighthouseStatus, refresh: lighthouseRefresh } = await useFetch(() => `/api/run/${domain.value}`, {
+  key: 'lighthouse',
   immediate: !!domain.value,
   server: false,
 })
