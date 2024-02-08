@@ -134,6 +134,7 @@ useServerHead({
 useServerSeoMeta({
   ogTitle: domain.value ? domain.value : 'page-speed.dev',
   ogUrl: canonicalURL.value,
+  twitterTitle: domain.value ? domain.value : 'page-speed.dev',
   twitterCard: 'summary_large_image',
   twitterSite: '@danielcroe',
 })
