@@ -132,6 +132,7 @@ useServerHead({
 })
 
 useServerSeoMeta({
+  ogTitle: domain.value ? domain.value : 'page-speed.dev',
   ogUrl: canonicalURL.value,
   twitterCard: 'summary_large_image',
   twitterSite: '@danielcroe',
@@ -141,23 +142,26 @@ if (!domain.value) {
   defineOgImageComponent('Home')
   useServerSeoMeta({
     description: 'See and share Core Web Vitals and Page Speed Insights results simply and easily.',
+    ogDescription: 'See and share Core Web Vitals and Page Speed Insights results simply and easily.',
   })
 } else {
   if (!crux.value) await lighthouseRefresh()
   if (crux.value || lighthouse.value) {
+    const description = crux.value
+      ?
+      `Core Web Vitals: ${crux.value?.cwv ? 'pass' : 'fail'} | ` +
+      `LCP: ${crux.value?.lcp.caption} | ` +
+      `CLS: ${crux.value?.cls.caption} | ` +
+      `INP: ${crux.value?.inp.caption}`
+      :
+      `Performance: ${lighthouse.value!.performance} | ` +
+      `Accessibility: ${lighthouse.value!.accessibility} | ` +
+      `Best Practices: ${lighthouse.value!.bestPractices} | ` +
+      `SEO: ${lighthouse.value!.seo}`
+
     useServerSeoMeta({
-      description:
-        crux.value
-          ?
-          `Core Web Vitals: ${crux.value?.cwv ? 'pass' : 'fail'} | ` +
-          `LCP: ${crux.value?.lcp.caption} | ` +
-          `CLS: ${crux.value?.cls.caption} | ` +
-          `INP: ${crux.value?.inp.caption}`
-          :
-          `Performance: ${lighthouse.value!.performance} | ` +
-          `Accessibility: ${lighthouse.value!.accessibility} | ` +
-          `Best Practices: ${lighthouse.value!.bestPractices} | ` +
-          `SEO: ${lighthouse.value!.seo}`
+      description,
+      ogDescription: description,
     })
 
     defineOgImageComponent('Lighthouse', {
