@@ -8,6 +8,9 @@ patchedDependencies:
   nitropack@2.8.1:
     hash: jdedpmim4eg6suuv47a2qwj2pe
     path: patches/nitropack@2.8.1.patch
+  nuxt-og-image@3.0.0-rc.38:
+    hash: 3w76rbikcg6haaeojjxqijqjmq
+    path: patches/nuxt-og-image@3.0.0-rc.38.patch
 
 dependencies:
   '@azure/identity':
@@ -30,7 +33,7 @@ dependencies:
     version: 3.10.1(@azure/identity@4.0.1)(@azure/storage-blob@12.17.0)(vite@5.0.12)
   nuxt-og-image:
     specifier: ^3.0.0-rc.38
-    version: 3.0.0-rc.38(@lezer/common@1.2.1)(@nuxt/devtools@1.0.8)(@vue/compiler-core@3.4.15)(nuxt@3.10.1)(postcss@8.4.33)(vite@5.0.12)(vue@3.4.15)(webpack@5.89.0)
+    version: 3.0.0-rc.38(patch_hash=3w76rbikcg6haaeojjxqijqjmq)(@lezer/common@1.2.1)(@nuxt/devtools@1.0.8)(@vue/compiler-core@3.4.15)(nuxt@3.10.1)(postcss@8.4.33)(vite@5.0.12)(vue@3.4.15)(webpack@5.89.0)
   nuxt-time:
     specifier: ^0.1.2
     version: 0.1.2
@@ -6012,7 +6015,7 @@ packages:
       - vue
     dev: false
 
-  /nuxt-og-image@3.0.0-rc.38(@lezer/common@1.2.1)(@nuxt/devtools@1.0.8)(@vue/compiler-core@3.4.15)(nuxt@3.10.1)(postcss@8.4.33)(vite@5.0.12)(vue@3.4.15)(webpack@5.89.0):
+  /nuxt-og-image@3.0.0-rc.38(patch_hash=3w76rbikcg6haaeojjxqijqjmq)(@lezer/common@1.2.1)(@nuxt/devtools@1.0.8)(@vue/compiler-core@3.4.15)(nuxt@3.10.1)(postcss@8.4.33)(vite@5.0.12)(vue@3.4.15)(webpack@5.89.0):
     resolution: {integrity: sha512-c+nlxmhblI4jw0EXvHp7Yi5aOug4AxcppGJ2kO/SlpJcziYMV0kRFmWIjnXp1MjIbSFFniItAvA0vEkris3TYA==}
     dependencies:
       '@css-inline/css-inline': 0.12.1
@@ -6077,6 +6080,7 @@ packages:
       - vue
       - webpack
     dev: false
+    patched: true
 
   /nuxt-site-config-kit@2.2.9(vue@3.4.15):
     resolution: {integrity: sha512-K3Pi7OBeztfjTxEpk0kEpbRwyhKQf15MIJQUAeqep9K2RbAdzhSygfpHZUcWc0KL2l0E5qKrvdcM14Gc/9dZdg==}

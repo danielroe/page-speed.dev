@@ -23,7 +23,8 @@
   },
   "pnpm": {
     "patchedDependencies": {
-      "nitropack@2.8.1": "patches/nitropack@2.8.1.patch"
+      "nitropack@2.8.1": "patches/nitropack@2.8.1.patch",
+      "nuxt-og-image@3.0.0-rc.38": "patches/nuxt-og-image@3.0.0-rc.38.patch"
     }
   }
 }

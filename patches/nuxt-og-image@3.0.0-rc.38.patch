@@ -1,0 +1,14 @@
+diff --git a/dist/runtime/pure.mjs b/dist/runtime/pure.mjs
+index a86d1faa6feda4badec7a83394c41b5d04b63fdc..5440c2eaa8c6d9a5bd20f1a04a5534606b58e692 100644
+--- a/dist/runtime/pure.mjs
++++ b/dist/runtime/pure.mjs
+@@ -10,8 +10,7 @@ export function toBase64Image(fileName, data) {
+   return `data:${type};base64,${base64}`;
+ }
+ export function isInternalRoute(path) {
+-  const lastSegment = path.split("/").pop() || path;
+-  return lastSegment.includes(".") || path.startsWith("/__") || path.startsWith("@");
++  return path.startsWith("/__") || path.startsWith("@");
+ }
+ function filterIsOgImageOption(key) {
+   const keys = [
