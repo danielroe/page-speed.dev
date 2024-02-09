@@ -65,6 +65,7 @@ export default defineNuxtConfig({
     apiHost: 'https://v.roe.dev',
   },
   ogImage: {
+    componentDirs: ['opengraph'],
     defaults: {
       cacheMaxAgeSeconds: 60 * 60 * 24
     },
