@@ -4,13 +4,6 @@ const props = defineProps({
     type: String,
     required: true,
   },
-  lighthouse: {
-    type: Object,
-    required: true
-  },
-  crux: {
-    type: Object
-  },
 })
 
 const { data: crux } = await useFetch(() => `/api/crux/${props.domain}`)
