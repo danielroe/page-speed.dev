@@ -9,8 +9,8 @@ const props = defineProps({
 
 const resultType = computed(() => props.type === 'crux' ? 'Core Web Vitals' : 'PageSpeed Insights')
 const text = computed(() => props.domain
-  ? `Check out the ${resultType.value} performance of ${props.domain.replace(/\./g, '.​')}.`
-  : `See and share ${resultType.value} results simply and easily.`
+  ? `👉 Check out the ${resultType.value} performance of ${props.domain.replace(/\./g, '.​')}.`
+  : `Check out page-speed.dev - a quick, cached way to see and share web performance results.`
 )
 
 const canonicalURL = computed(() => props.domain ? joinURL(`https://page-speed.dev`, props.domain) : 'https://page-speed.dev')
