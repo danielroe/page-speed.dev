@@ -6,7 +6,7 @@
         <TheDomainForm v-model:domain="domain" v-model:editing="editing" />
       </h1>
       <template v-if="!editing && domain">
-        <template v-if="cruxStatus === 'pending' || crux || lighthouse">
+        <template v-if="cruxStatus === 'pending' || lighthouseStatus === 'pending' || crux || lighthouse">
           <div class="flex flex-row flex-wrap gap-4 lg:flex-row justify-around w-full">
             <CoreWebVitals v-if="cruxStatus === 'pending' || crux" :pass="crux?.cwv" :lcp="crux?.lcp" :cls="crux?.cls"
               :inp="crux?.inp" :loading="cruxStatus === 'pending'" size="normal" show-p75 />
