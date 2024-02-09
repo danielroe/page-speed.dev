@@ -30,7 +30,7 @@
           :timestamp="crux && cruxStatus !== 'pending' ? crux.timestamp : lighthouse && lighthouseStatus !== 'pending' ? lighthouse.timestamp : undefined" />
         <details class="max-w-[500px] text-gray-400">
           <summary class="cursor-pointer">
-            About these results
+            about these results
           </summary>
           <p class="mt-4">
             This tool uses the <a class="underline hover:text-green-400 focus:text-green-400 active:text-green-400"
