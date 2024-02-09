@@ -34,7 +34,7 @@ function navigateToNewDomain () {
       class="md:-mt-1 rounded-none py-0 bg-transparent outline-none border-b-2 border-b-solid border-transparent focus:border-green-500 underline-dashed"
       autofocus inputmode="url" autocapitalize="none" placeholder="enter a domain" required />
     <button type="submit"
-      class="bg-green-400 text-black hover: hover:bg-white focus:bg-white active:bg-white text-xl md:text-2xl py-2 px-6 md:self-start">See
+      class="bg-green-400 text-black hover: hover:bg-white focus:bg-white active:bg-white text-xl md:text-2xl py-2 px-6 md:self-start">see
       results</button>
   </form>
 </template>
