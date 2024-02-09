@@ -34,7 +34,7 @@ const descriptions = {
   cls: {
     title: 'Cumulative Layout Shift',
     abbreviation: 'CLS',
-    description: 'measures visual stability. To provide a good user experience, must should maintain a CLS of 0.1. or less.',
+    description: 'measures visual stability. To provide a good user experience, must maintain a CLS of 0.1. or less.',
     // link: 'https://web.dev/articles/cls'
   },
   inp: {
