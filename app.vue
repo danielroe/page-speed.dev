@@ -38,7 +38,7 @@
               Report</a> and
             <a class="underline hover:text-green-400 focus:text-green-400 active:text-green-400"
               href="https://developers.google.com/web/tools/lighthouse">Lighthouse</a> APIs to fetch and display Core Web
-            Vitals and Page Speed Insights results.
+            Vitals and PageSpeed Insights results.
           </p>
           <p class="mt-4">
             Results are cached for a minimum of one day plus the first following request.
@@ -144,8 +144,8 @@ useServerSeoMeta({
 if (!domain.value) {
   defineOgImageComponent('Home')
   useServerSeoMeta({
-    description: 'See and share Core Web Vitals and Page Speed Insights results simply and easily.',
-    ogDescription: 'See and share Core Web Vitals and Page Speed Insights results simply and easily.',
+    description: 'See and share Core Web Vitals and PageSpeed Insights results simply and easily.',
+    ogDescription: 'See and share Core Web Vitals and PageSpeed Insights results simply and easily.',
   })
 } else {
   if (!crux.value) await lighthouseRefresh()

@@ -7,16 +7,25 @@ const props = defineProps({
   type: String as () => 'crux' | 'pagespeed-insights',
 })
 
+const resultType = computed(() => props.type === 'crux' ? 'Core Web Vitals' : 'PageSpeed Insights')
+const text = computed(() => props.domain
+  ? `Check out the ${resultType.value} performance of ${props.domain.replace(/\./g, '.​')}.`
+  : `See and share ${resultType.value} results simply and easily.`
+)
+
 const canonicalURL = computed(() => props.domain ? joinURL(`https://page-speed.dev`, props.domain) : 'https://page-speed.dev')
-const shareLink = computed(() => props.domain ? `https://twitter.com/intent/tweet?text=${encodeURIComponent(`Check out the Page Speed results for ${props.domain.replace(/\./g, '.​')}` + `\n\nhttps://page-speed.dev/${props.domain}`)}` : 'See and share PageSpeed Insights results simply and easily.')
+const shareLink = computed(() =>
+  'https://twitter.com/intent/tweet?text=' +
+  (props.domain ? encodeURIComponent([text.value, canonicalURL.value].join('\n\n')) : text.value)
+)
 
 async function nativeShare () {
   if (!props.domain) { return }
   try {
     if (navigator.share) {
       return await navigator.share({
-        title: 'page-speed.dev',
-        text: `See page speed results for ${props.domain.replace(/\./g, '.​')}`,
+        title: props.domain ? `page-speed.dev - ${props.domain}` : 'page-speed.dev',
+        text: text.value,
         url: canonicalURL.value,
       })
     }

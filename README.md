@@ -1,6 +1,6 @@
 # page-speed.dev
 
-> See and share Core Web Vitals and Page Speed Insights results simply and easily.
+> See and share Core Web Vitals and PageSpeed Insights results simply and easily.
 
 <p align="center">
   <a href="https://page-speed.dev/" target="_blank">
