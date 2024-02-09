@@ -16,25 +16,7 @@ export default defineNuxtConfig({
     '/api/**': { swr: false, cache: false },
     '/__og-image__/**': { swr: false, cache: false }
   },
-  nitro: {
-    azure: {
-      config: {
-        platform: {
-          apiRuntime: 'node:18'
-        }
-      }
-    },
-  },
   $production: {
-    nitro: {
-      storage: {
-        pagespeed: {
-          driver: 'azureStorageBlob',
-          accountName: 'pagespeedcache',
-          accountKey: process.env.AZURE_STORAGE_ACCOUNT_KEY
-        }
-      }
-    },
     routeRules: {
       '/**': {
         cache: {
@@ -45,15 +27,14 @@ export default defineNuxtConfig({
       },
     },
   },
-  $development: {
-    nitro: {
-      storage: {
-        pagespeed: {
-          driver: 'fs',
-          base: 'cache'
+  nitro: {
+    azure: {
+      config: {
+        platform: {
+          apiRuntime: 'node:18'
         }
       }
-    }
+    },
   },
   runtimeConfig: {
     google: {
@@ -68,12 +49,6 @@ export default defineNuxtConfig({
     componentDirs: ['opengraph'],
     defaults: {
       cacheMaxAgeSeconds: 60 * 60 * 24
-    },
-    runtimeCacheStorage: {
-      driver: 'azureStorageBlob',
-      accountName: 'pagespeedcache',
-      accountKey: process.env.AZURE_STORAGE_ACCOUNT_KEY
-      // containerName: 'images-v1'
     },
     fonts: ['Roboto:500']
   }
