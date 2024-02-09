@@ -152,7 +152,7 @@ if (!domain.value) {
   if (crux.value || lighthouse.value) {
     const description = crux.value
       ?
-      `Core Web Vitals ${crux.value?.cwv ? 'pass' : 'fail'}: ` +
+      `Core Web Vitals ${crux.value?.cwv ? '✅' : '❌'}: ` +
       `LCP: ${crux.value?.lcp.caption} | ` +
       `CLS: ${crux.value?.cls.caption} | ` +
       `INP: ${crux.value?.inp.caption}`
