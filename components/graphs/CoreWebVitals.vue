@@ -38,7 +38,7 @@ const descriptions = {
     // link: 'https://web.dev/articles/cls'
   },
   inp: {
-    title: 'Input Delay',
+    title: 'Interaction to Next Paint',
     abbreviation: 'INP',
     description: 'measures overall responsiveness to user interactions. To provide a good user experience, must be below or at 200 milliseconds.',
     // link: 'https://web.dev/articles/inp'
