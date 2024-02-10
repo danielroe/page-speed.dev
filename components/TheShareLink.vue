@@ -18,7 +18,21 @@ const shareLink = computed(() =>
   'https://twitter.com/intent/tweet?text=' +
   (props.domain ? encodeURIComponent([text.value, canonicalURL.value].join('\n\n')) : text.value)
 )
+const copied = ref(false);
 
+async function copyShare(link) {
+  try {
+    await navigator.clipboard.writeText(link);
+
+    copied.value = true;
+
+    setTimeout(() => {
+      copied.value = false;
+    }, 5000);
+  } catch (error) {
+    console.error(error.message);
+  }
+  
 async function nativeShare () {
   if (!props.domain) { return }
   try {
@@ -43,6 +57,12 @@ async function nativeShare () {
       :href="shareLink" @click.prevent="nativeShare">
       share results
     </NuxtLink>
+      <button type="submit"
+      class="bg-green-400 text-black hover: hover:bg-white focus:bg-white active:bg-white text-xl md:text-2xl py-2 px-6 md:self-start mb-8"
+       @click="copyShare(prop.domain)">
+      <span v-if="!copied">copy link to share</span>
+      <span v-else>link copied</span>
+    </button>
     <a v-if="type === 'crux'"
       :href="`https://lookerstudio.google.com/c/u/0/reporting/bbc5698d-57bb-4969-9e07-68810b9fa348/page/keDQB?params=%7B%22origin%22:%22https://${domain}%22%7D`"
       class="self-start underline text-gray-400 hover:text-green-400 focus:text-green-400 active:text-green-400">
