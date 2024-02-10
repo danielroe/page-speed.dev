@@ -71,7 +71,7 @@ const descriptions = {
     <template #caption>
       <div
         class="group cursor-pointer border-b-1 border-b-dashed hover:border-green-400 hover:text-green-400 focus:text-green-400"
-        tabindex="0" :aria-describedby="`tooltip-${key}`" @mouseover="() => showTooltip = true" @mouseleave="() => showTooltip = false">
+        tabindex="0" :aria-describedby="`tooltip-${key}`" @mousedown="() => showTooltip = true" @mouseover="() => showTooltip = true" @mouseleave="() => showTooltip = false" @blur="() => showTooltip = false" @mouseout="() => showTooltip = false">
         {{ descriptions[key].abbreviation }}
         <div :id="`tooltip-${key}`" aria-role="tooltip" v-if="showTooltip"
           class="hidden group-hover:block group-focus:block absolute z-1 left-[10vw] p-6 text-gray-400 -mt-2">
