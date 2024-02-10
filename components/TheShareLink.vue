@@ -59,7 +59,7 @@ async function nativeShare () {
     </NuxtLink>
       <button type="submit"
       class="bg-green-400 text-black hover: hover:bg-white focus:bg-white active:bg-white text-xl md:text-2xl py-2 px-6 md:self-start mb-8"
-       @click="copyShare(prop.domain)">
+       @click.prevent="copyShare(prop.domain)">
       <span v-if="!copied">copy link to share</span>
       <span v-else>link copied</span>
     </button>
