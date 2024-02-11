@@ -25,9 +25,6 @@ dependencies:
   '@unocss/nuxt':
     specifier: ^0.58.5
     version: 0.58.5(postcss@8.4.33)(vite@5.0.12)(webpack@5.89.0)
-  defu:
-    specifier: ^6.1.4
-    version: 6.1.4
   nitropack:
     specifier: ^2.8.1
     version: 2.8.1(patch_hash=jdedpmim4eg6suuv47a2qwj2pe)(@azure/identity@4.0.1)(@azure/storage-blob@12.17.0)
@@ -40,12 +37,6 @@ dependencies:
   nuxt-time:
     specifier: ^0.1.2
     version: 0.1.2
-  purgecss:
-    specifier: ^5.0.0
-    version: 5.0.0
-  purgecss-from-html:
-    specifier: 6.0.0-alpha.0
-    version: 6.0.0-alpha.0
   ufo:
     specifier: ^1.4.0
     version: 1.4.0
@@ -3764,11 +3755,6 @@ packages:
     engines: {node: '>= 12'}
     dev: false
 
-  /commander@9.5.0:
-    resolution: {integrity: sha512-KRs7WVDKg86PWiuAqhDrAQnTXZKraVcCc6vFdL14qrZ/DcWwuRo7VoiYXalXO7S5GKpqYiVEwCbgFDfxNHKJBQ==}
-    engines: {node: ^12.20.0 || >=14}
-    dev: false
-
   /commondir@1.0.1:
     resolution: {integrity: sha512-W9pAhw0ja1Edb5GVdIF1mjZw/ASI0AlShXM83UUGe2DVr5TdAPEA1OA8m/g8zWp9x6On7gqufY+FatDbC3MDQg==}
     dev: false
@@ -6433,19 +6419,6 @@ packages:
       parse-path: 7.0.0
     dev: false
 
-  /parse5-htmlparser2-tree-adapter@7.0.0:
-    resolution: {integrity: sha512-B77tOZrqqfUfnVcOrUvfdLbz4pu4RopLD/4vmu3HUPswwTA8OH0EMW9BlWR2B0RCoiZRAHEUu7IxeP1Pd1UU+g==}
-    dependencies:
-      domhandler: 5.0.3
-      parse5: 7.1.2
-    dev: false
-
-  /parse5@7.1.2:
-    resolution: {integrity: sha512-Czj1WaSVpaoj0wbhMzLmWD69anp2WH7FXMB9n1Sy8/ZFF9jolSQVMu1Ij5WIyGmcBmhk7EOndpO4mIpihVqAXw==}
-    dependencies:
-      entities: 4.5.0
-    dev: false
-
   /parseurl@1.3.3:
     resolution: {integrity: sha512-CiyeOxFT/JZyN5m0z9PfXw4SCBJ6Sygz1Dpl0wqjlhDEGGBP1GnsUVEL0p63hoG1fcj3fHynXi9NYO4nWOL+qQ==}
     engines: {node: '>= 0.8'}
@@ -6900,23 +6873,6 @@ packages:
   /punycode@2.3.1:
     resolution: {integrity: sha512-vYt7UD1U9Wg6138shLtLOvdAu+8DsC/ilFtEVHcH+wydcSpNE20AfSOduf6MkRFahL5FY7X1oU7nKVZFtfq8Fg==}
     engines: {node: '>=6'}
-    dev: false
-
-  /purgecss-from-html@6.0.0-alpha.0:
-    resolution: {integrity: sha512-wuxwcO/n9BLnG8n6f5X2A5+XRC+D3Xcw9WBSdfMS2Doa6kczE5d1i0TG0RNbQrTajSVWDAq0smMG5WQnTnJH3Q==}
-    dependencies:
-      parse5: 7.1.2
-      parse5-htmlparser2-tree-adapter: 7.0.0
-    dev: false
-
-  /purgecss@5.0.0:
-    resolution: {integrity: sha512-RAnuxrGuVyLLTr8uMbKaxDRGWMgK5CCYDfRyUNNcaz5P3kGgD2b7ymQGYEyo2ST7Tl/ScwFgf5l3slKMxHSbrw==}
-    hasBin: true
-    dependencies:
-      commander: 9.5.0
-      glob: 8.1.0
-      postcss: 8.4.33
-      postcss-selector-parser: 6.0.15
     dev: false
 
   /queue-microtask@1.2.3:
