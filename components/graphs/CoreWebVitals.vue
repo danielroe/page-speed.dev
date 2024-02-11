@@ -21,10 +21,6 @@ defineProps({
   showP75: {
     type: Boolean,
     default: false
-  },
-  showTooltip: {
-    type: Boolean,
-    default: false
   }
 })
 
@@ -50,7 +46,7 @@ const descriptions = {
 }
 </script>
 
-<template>
+<template tabindex="0">
   <Histogram v-if="loading" :size="size" caption="core vitals" />
   <Histogram v-else-if="pass" :size="size" caption="core vitals" :value="{ segments: [100, 0, 0] }">
     <svg xmlns="http://www.w3.org/2000/svg" class="text-green-500" :width="size == 'normal' ? '6rem' : '12rem'"
@@ -71,9 +67,9 @@ const descriptions = {
     <template #caption>
       <div
         class="group cursor-pointer border-b-1 border-b-dashed hover:border-green-400 hover:text-green-400 focus:text-green-400"
-        tabindex="0" :aria-describedby="`tooltip-${key}`" @mousedown="() => showTooltip = true" @mouseover="() => showTooltip = true" @mouseleave="() => showTooltip = false" @blur="() => showTooltip = false" @mouseout="() => showTooltip = false">
+        tabindex="1" :aria-describedby="`tooltip-${key}`">
         {{ descriptions[key].abbreviation }}
-        <div :id="`tooltip-${key}`" aria-role="tooltip" v-if="showTooltip"
+        <div :id="`tooltip-${key}`" aria-role="tooltip"
           class="hidden group-hover:block group-focus:block absolute z-1 left-[10vw] p-6 text-gray-400 -mt-2">
           <div class="p-4 border-green-500 border w-[80vw] max-w-[500px]  rounded-lg bg-[#212121]">
             <strong class="text-white">{{ descriptions[key].title }}</strong>
