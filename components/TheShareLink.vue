@@ -31,7 +31,7 @@ async function copyShare(link) {
   } catch (error) {
     copyButtonText.value = "link could not be copied";
   }
-  
+}
 async function nativeShare () {
   if (!props.domain) { return }
   try {
