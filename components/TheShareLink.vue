@@ -52,12 +52,12 @@ async function nativeShare () {
 <template>
   <div class="flex flex-col gap-2 mt-auto md:mt-8">
     <NuxtLink type="submit"
-      class="bg-green-400 text-black hover: hover:bg-white focus:bg-white active:bg-white text-xl md:text-2xl py-2 px-6 md:self-start mb-8"
+      class="bg-green-400 text-black hover: hover:bg-white focus:bg-white active:bg-white text-xl md:text-2xl py-2 px-6 md:self-start mb-5"
       :href="shareLink" @click.prevent="nativeShare">
       share results
     </NuxtLink>
       <button type="submit"
-      class="bg-green-400 text-black hover: hover:bg-white focus:bg-white active:bg-white text-xl md:text-2xl py-2 px-6 md:self-start mb-8"
+      class="bg-green-400 text-black hover: hover:bg-white focus:bg-white active:bg-white text-xl md:text-2xl py-2 px-6 md:self-start mb-5"
        @click.prevent="copyShare(canonicalURL)">
      {{ copyButtonText }}
     </button>
