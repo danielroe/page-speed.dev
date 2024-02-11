@@ -40,7 +40,7 @@ function navigateToNewDomain (event: Event) {
 </template>
 
 <style>
-input:-webkit-autofill{
+input:-webkit-autofill {
   -webkit-background-clip: text;
   -webkit-text-fill-color: #ffffff;
   caret-color: #ffffff;
