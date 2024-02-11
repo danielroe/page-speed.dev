@@ -8,10 +8,12 @@ const props = defineProps({
 
 const { data: crux } = await useFetch(() => `/api/crux/${props.domain}`)
 const { data: lighthouse } = await useFetch(() => `/api/run/${props.domain}`)
+import { vConfetti } from '@neoconfetti/vue';
 </script>
 
 <template>
   <div class="h-full w-full flex items-start justify-start border-solid bg-[#212121] text-white px-8">
+    <div v-if="crux.cwv && [lighthouse.performance, lighthouse.seo, lighthouse.accessibility, lighthouse.bestPractices].every(v => v === 100)" v-confetti />
     <div class="flex flex-col items-center justify-between h-full w-full">
       <div class="flex flex-col justify-center gap-8 pt-12 pb-6 w-full">
         <div class="flex flex-row flex-wrap gap-4 lg:flex-row justify-around w-full">
