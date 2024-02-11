@@ -46,7 +46,7 @@ const descriptions = {
 }
 </script>
 
-<template tabindex="0">
+<template>
   <Histogram v-if="loading" :size="size" caption="core vitals" />
   <Histogram v-else-if="pass" :size="size" caption="core vitals" :value="{ segments: [100, 0, 0] }">
     <svg xmlns="http://www.w3.org/2000/svg" class="text-green-500" :width="size == 'normal' ? '6rem' : '12rem'"
