@@ -95,7 +95,7 @@ useFavicon(() => lighthouseStatus.value !== 'pending' && !!domain.value && (ligh
 useHead({
   title: () => domain.value ? domain.value : 'page-speed.dev',
   bodyAttrs: {
-    tabIndex: "0"
+    tabIndex: '0'
   }
 })
 
