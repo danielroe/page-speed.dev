@@ -36,6 +36,10 @@ export default defineNuxtConfig({
     },
   },
   nitro: {
+    compressPublicAssets: {
+      brotli: true,
+      gzip: true,
+    },
     azure: {
       config: {
         platform: {
