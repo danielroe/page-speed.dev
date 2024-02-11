@@ -18,19 +18,18 @@ const shareLink = computed(() =>
   'https://twitter.com/intent/tweet?text=' +
   (props.domain ? encodeURIComponent([text.value, canonicalURL.value].join('\n\n')) : text.value)
 )
-const copied = ref(false);
-
+var copyButtonText = ref("copy link to share")
 async function copyShare(link) {
   try {
     await navigator.clipboard.writeText(link);
 
-    copied.value = true;
+    copyButtonText.value = "link copied";
 
     setTimeout(() => {
-      copied.value = false;
+    copyButtonText.value = "copy link to share";
     }, 5000);
   } catch (error) {
-    console.error(error.message);
+    copyButtonText.value = "link could not be copied";
   }
   
 async function nativeShare () {
@@ -60,8 +59,7 @@ async function nativeShare () {
       <button type="submit"
       class="bg-green-400 text-black hover: hover:bg-white focus:bg-white active:bg-white text-xl md:text-2xl py-2 px-6 md:self-start mb-8"
        @click.prevent="copyShare(canonicalURL)">
-      <span v-if="!copied">copy link to share</span>
-      <span v-else>link copied</span>
+     {{ copyButtonText }}
     </button>
     <a v-if="type === 'crux'"
       :href="`https://lookerstudio.google.com/c/u/0/reporting/bbc5698d-57bb-4969-9e07-68810b9fa348/page/keDQB?params=%7B%22origin%22:%22https://${domain}%22%7D`"
