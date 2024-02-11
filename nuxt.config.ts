@@ -2,7 +2,7 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
   components: ['~/components/graphs', '~/components'],
-  modules: ['@unocss/nuxt', 'nuxt-og-image', 'nuxt-time', '@nuxtjs/plausible'],
+  modules: ['@unocss/nuxt', 'nuxt-og-image', 'nuxt-time', '@nuxtjs/plausible', '@stefanobartoletti/nuxt-social-share'],
   experimental: {
     appManifest: false,
     headNext: true,

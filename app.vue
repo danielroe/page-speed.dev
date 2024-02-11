@@ -26,7 +26,7 @@
         <div v-else-if="domain">
           No results could be fetched. Is it a valid domain?
         </div>
-        <TheShareLink v-if="crux || lighthouse" :domain="domain" :type="crux ? 'crux' : 'pagespeed-insights'"
+        <ShareLinks v-if="crux || lighthouse" :domain="domain" :type="crux ? 'crux' : 'pagespeed-insights'"
           :timestamp="crux && cruxStatus !== 'pending' ? crux.timestamp : lighthouse && lighthouseStatus !== 'pending' ? lighthouse.timestamp : undefined" />
         <details class="max-w-[500px] text-gray-400">
           <summary class="cursor-pointer">

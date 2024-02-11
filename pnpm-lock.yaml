@@ -22,6 +22,9 @@ dependencies:
   '@nuxtjs/plausible':
     specifier: ^0.2.4
     version: 0.2.4
+  '@stefanobartoletti/nuxt-social-share':
+    specifier: ^0.5.2
+    version: 0.5.2
   '@unocss/nuxt':
     specifier: ^0.58.5
     version: 0.58.5(postcss@8.4.33)(vite@5.0.12)(webpack@5.89.0)
@@ -2417,6 +2420,16 @@ packages:
 
   /@sphinxxxx/color-conversion@2.2.2:
     resolution: {integrity: sha512-XExJS3cLqgrmNBIP3bBw6+1oQ1ksGjFh0+oClDKFYpCCqx/hlqwWO5KO/S63fzUo67SxI9dMrF0y5T/Ey7h8Zw==}
+    dev: false
+
+  /@stefanobartoletti/nuxt-social-share@0.5.2:
+    resolution: {integrity: sha512-Ojg+exR9c2f54O7f1yJC973m5n2qdQdnEi4P9DsDDUu6e8ee5Gi3KHbuCF+vKfftHhQQ+ZEDqD5HheRbDDad8g==}
+    dependencies:
+      '@nuxt/kit': 3.10.1
+      defu: 6.1.4
+    transitivePeerDependencies:
+      - rollup
+      - supports-color
     dev: false
 
   /@tootallnate/once@2.0.0:
