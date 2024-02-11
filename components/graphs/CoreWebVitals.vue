@@ -67,7 +67,7 @@ const descriptions = {
     <template #caption>
       <div
         class="group cursor-pointer border-b-1 border-b-dashed hover:border-green-400 hover:text-green-400 focus:text-green-400"
-        tabindex="1" :aria-describedby="`tooltip-${key}`">
+        tabindex="0" :aria-describedby="`tooltip-${key}`">
         {{ descriptions[key].abbreviation }}
         <div :id="`tooltip-${key}`" aria-role="tooltip"
           class="hidden group-hover:block group-focus:block absolute z-1 left-[10vw] p-6 text-gray-400 -mt-2">
