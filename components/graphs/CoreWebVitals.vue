@@ -74,9 +74,11 @@ const descriptions = {
           <div class="p-4 border-green-500 border w-[80vw] max-w-[500px]  rounded-lg bg-[#212121]">
             <strong class="text-white">{{ descriptions[key].title }}</strong>
             {{ descriptions[key].description }}
-            <NuxtLink :href="descriptions[key].link" target="_blank" class="text-white hover:text-green-500 focus:text-green-500 underline">Learn more &raquo;</NuxtLink>
+            <NuxtLink :href="descriptions[key].link" target="_blank"
+              class="text-white hover:text-green-500 focus:text-green-500 underline">Learn more &raquo;</NuxtLink>
           </div>
         </div>
       </div>
     </template>
-</Histogram></template>
+  </Histogram>
+</template>

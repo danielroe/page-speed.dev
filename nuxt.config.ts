@@ -10,7 +10,11 @@ export default defineNuxtConfig({
     'nuxt-og-image',
     'nuxt-time',
     '@nuxtjs/plausible',
+    '@nuxtjs/html-validator'
   ],
+  htmlValidator: {
+    failOnError: true,
+  },
   experimental: {
     appManifest: false,
     headNext: true,

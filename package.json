@@ -12,6 +12,7 @@
   "dependencies": {
     "@azure/identity": "^4.0.1",
     "@azure/storage-blob": "^12.17.0",
+    "@nuxtjs/html-validator": "^1.6.0",
     "@nuxtjs/plausible": "^0.2.4",
     "@unocss/nuxt": "^0.58.5",
     "nitropack": "^2.8.1",

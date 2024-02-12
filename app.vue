@@ -1,10 +1,10 @@
 <template>
   <div class="md:pl-[5vw] font-sans text-white min-h-screen min-w-screen flex flex-col items-start justify-start">
     <div class="flex flex-col justify-start mt-4 sm:mt-8 md:my-12 p-4 gap-8 md:gap-12 flex-grow max-w-full">
-      <h1 class="flex flex-row gap-4 text-white text-3xl md:text-5xl">
+      <div class="flex flex-row gap-4 text-white text-3xl md:text-5xl">
         <span class="text-green-400">&raquo;</span>
         <TheDomainForm v-model:domain="domain" v-model:editing="editing" />
-      </h1>
+      </div>
       <template v-if="!editing && domain">
         <template v-if="cruxStatus === 'pending' || lighthouseStatus === 'pending' || crux || lighthouse">
           <div class="flex flex-row flex-wrap gap-4 lg:flex-row justify-around w-full">
