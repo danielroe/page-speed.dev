@@ -29,19 +29,19 @@ const descriptions = {
     title: 'Largest Contentful Paint',
     abbreviation: 'LCP',
     description: 'measures loading performance. To provide a good user experience, LCP must occur within 2.5 seconds of when the page first starts loading.',
-    // link: 'https://web.dev/articles/lcp'
+    link: 'https://web.dev/articles/lcp'
   },
   cls: {
     title: 'Cumulative Layout Shift',
     abbreviation: 'CLS',
     description: 'measures visual stability. To provide a good user experience, must maintain a CLS of 0.1. or less.',
-    // link: 'https://web.dev/articles/cls'
+    link: 'https://web.dev/articles/cls'
   },
   inp: {
     title: 'Interaction to Next Paint',
     abbreviation: 'INP',
     description: 'measures overall responsiveness to user interactions. To provide a good user experience, must be below or at 200 milliseconds.',
-    // link: 'https://web.dev/articles/inp'
+    link: 'https://web.dev/articles/inp'
   },
 }
 </script>
@@ -70,11 +70,11 @@ const descriptions = {
         tabindex="0" :aria-describedby="`tooltip-${key}`">
         {{ descriptions[key].abbreviation }}
         <div :id="`tooltip-${key}`" aria-role="tooltip"
-          class="hidden group-hover:block group-focus:block absolute z-1 left-[10vw] p-6 text-gray-400 -mt-2">
+          class="hidden group-hover:block group-focus:block group-focus-within:block absolute z-1 left-[10vw] p-6 text-gray-400 -mt-2">
           <div class="p-4 border-green-500 border w-[80vw] max-w-[500px]  rounded-lg bg-[#212121]">
             <strong class="text-white">{{ descriptions[key].title }}</strong>
             {{ descriptions[key].description }}
-            <!-- <NuxtLink :href="descriptions[key].link" target="_blank" class="text-white hover:text-green-500 focus:text-green-500 underline">Learn more &raquo;</NuxtLink> -->
+            <NuxtLink :href="descriptions[key].link" target="_blank" class="text-white hover:text-green-500 focus:text-green-500 underline">Learn more &raquo;</NuxtLink>
           </div>
         </div>
       </div>
