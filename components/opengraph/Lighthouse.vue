@@ -25,7 +25,7 @@ const showConfetti = computed(() => {
 })
 </script>
 
-<style>
+<style scoped>
 /* https://stackoverflow.blog/2021/05/31/shipping-confetti-to-stack-overflows-design-system */
 .bg-confetti {
   background-repeat: repeat-x;
