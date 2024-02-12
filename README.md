@@ -82,4 +82,4 @@ Many thanks to [Barry Pollard](https://twitter.com/tunetheweb) for providing ess
 
 Made with ❤️
 
-Published under [MIT License](./LICENCE).
+Published under [MIT License](./LICENSE).
