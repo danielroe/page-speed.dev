@@ -53,12 +53,12 @@ async function nativeShare () {
 <template>
   <div class="flex flex-col gap-2 mt-auto md:mt-8">
     <NuxtLink type="submit" v-if="isNativeShareAvailable"
-      class="bg-green-400 text-black hover: hover:bg-white focus:bg-white active:bg-white text-xl md:text-2xl py-2 px-6 md:self-start mb-5"
+      class="bg-green-400 text-black hover: hover:bg-white focus:bg-white active:bg-white text-xl md:text-2xl py-2 px-6 md:self-start mb-8"
        @click.prevent="nativeShare">
       share results
     </NuxtLink>
       <button v-else type="submit"
-      class="bg-green-400 text-black hover: hover:bg-white focus:bg-white active:bg-white text-xl md:text-2xl py-2 px-6 md:self-start mb-5"
+      class="bg-green-400 text-black hover: hover:bg-white focus:bg-white active:bg-white text-xl md:text-2xl py-2 px-6 md:self-start mb-8"
        @click.prevent="copyShare(canonicalURL)">
      {{ copyButtonText }}
     </button>
