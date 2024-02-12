@@ -55,7 +55,7 @@
       &middot;
       made with ❤️ by <a class="underline hover:text-green-400 focus:text-green-400 active:text-green-400"
         href="https://roe.dev">
-        Daniel Roe
+        daniel roe
       </a>
     </footer>
   </div>
