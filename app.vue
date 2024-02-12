@@ -111,15 +111,16 @@ useFavicon(() => lighthouseStatus.value !== 'pending' && !!domain.value && (ligh
 
 useHead({
   title: () => domain.value ? domain.value : 'page-speed.dev',
-  bodyAttrs: {
-    tabIndex: '0'
-  }
 })
 
 useServerHead({
   htmlAttrs: {
     lang: 'en',
     class: 'bg-[#212121]'
+  },
+  bodyAttrs: {
+    // @ts-expect-error allow escaping focus from tooltips on mobile
+    tabindex: '0'
   },
   link: [
     {

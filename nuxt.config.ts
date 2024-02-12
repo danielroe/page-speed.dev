@@ -2,7 +2,15 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
   components: ['~/components/graphs', '~/components'],
-  modules: ['@unocss/nuxt', 'nuxt-og-image', 'nuxt-time', '@nuxtjs/plausible'],
+  features: {
+    inlineStyles: false
+  },
+  modules: [
+    '@unocss/nuxt',
+    'nuxt-og-image',
+    'nuxt-time',
+    '@nuxtjs/plausible',
+  ],
   experimental: {
     appManifest: false,
     headNext: true,
@@ -12,7 +20,7 @@ export default defineNuxtConfig({
     url: 'https://page-speed.dev',
   },
   routeRules: {
-    '/': { prerender: true },
+    '/': { prerender: true, swr: true },
     '/api/**': { swr: false, cache: false },
     '/__og-image__/**': { swr: false, cache: false }
   },
@@ -28,6 +36,10 @@ export default defineNuxtConfig({
     },
   },
   nitro: {
+    compressPublicAssets: {
+      brotli: true,
+      gzip: true,
+    },
     azure: {
       config: {
         platform: {
