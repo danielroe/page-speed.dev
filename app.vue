@@ -54,8 +54,8 @@
         href="https://github.com/danielroe/page-speed.dev">source</a>
       &middot;
       made with ❤️ by <a class="underline hover:text-green-400 focus:text-green-400 active:text-green-400"
-        href="https://x.com/danielcroe">
-        @danielcroe
+        href="https://roe.dev">
+        Daniel Roe
       </a>
     </footer>
   </div>
