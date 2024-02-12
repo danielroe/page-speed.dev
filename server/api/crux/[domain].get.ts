@@ -31,6 +31,7 @@ export default defineCachedEventHandler(async event => {
 }, {
   base: 'pagespeed',
   swr: true,
+  shouldBypassCache: () => !!import.meta.dev,
   getKey: (event) => 'crux:domain:' + getRouterParam(event, 'domain'),
   maxAge: 60 * 60,
   staleMaxAge: 24 * 60 * 60,
