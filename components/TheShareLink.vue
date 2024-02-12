@@ -14,10 +14,12 @@ const text = computed(() => props.domain
 )
 
 const canonicalURL = computed(() => props.domain ? joinURL(`https://page-speed.dev`, props.domain) : 'https://page-speed.dev')
-const shareLink = computed(() =>
-  'https://twitter.com/intent/tweet?text=' +
-  (props.domain ? encodeURIComponent([text.value, canonicalURL.value].join('\n\n')) : text.value)
-)
+
+
+  const isNativeShareAvailable = computed(() => {
+  return !!navigator.share;
+});
+  
 var copyButtonText = ref("copy link to share")
 async function copyShare(link) {
   try {
@@ -43,20 +45,19 @@ async function nativeShare () {
       })
     }
   } catch {
-    // ignore errors sharing to native share and fall back directly to Twitter
+    // ignore errors sharing to native share and fall back directly to Copy Link
   }
-  return await navigateTo(shareLink.value, { external: true, open: { target: '_blank' } })
 }
 </script>
 
 <template>
   <div class="flex flex-col gap-2 mt-auto md:mt-8">
-    <NuxtLink type="submit"
+    <NuxtLink type="submit" v-if="isNativeShareAvailable"
       class="bg-green-400 text-black hover: hover:bg-white focus:bg-white active:bg-white text-xl md:text-2xl py-2 px-6 md:self-start mb-5"
-      :href="shareLink" @click.prevent="nativeShare">
+       @click.prevent="nativeShare">
       share results
     </NuxtLink>
-      <button type="submit"
+      <button v-else type="submit"
       class="bg-green-400 text-black hover: hover:bg-white focus:bg-white active:bg-white text-xl md:text-2xl py-2 px-6 md:self-start mb-5"
        @click.prevent="copyShare(canonicalURL)">
      {{ copyButtonText }}
