@@ -2,7 +2,7 @@
 
 const props = defineProps({
   value: {
-    type: Number as () => number | false | undefined,
+    type: [Boolean, Number] as unknown as () => number | false | undefined,
   },
   caption: {
     type: String,
