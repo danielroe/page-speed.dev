@@ -18,7 +18,7 @@ export default defineCachedEventHandler(async event => {
     })
 
     return {
-      cwv: cwvKeys.every(key => Number(results.record.metrics[key].percentiles.p75) < (Number(results.record.metrics[key].histogram[0].end || 0))),
+      cwv: cwvKeys.every(key => Number(results.record.metrics[key].percentiles.p75) <= (Number(results.record.metrics[key].histogram[0].end || 0))),
       lcp: normalizeHistogram(results.record.metrics['largest_contentful_paint'], { timeBased: true }),
       cls: normalizeHistogram(results.record.metrics['cumulative_layout_shift']),
       inp: normalizeHistogram(results.record.metrics['interaction_to_next_paint'], { timeBased: true }),
@@ -31,7 +31,7 @@ export default defineCachedEventHandler(async event => {
 }, {
   base: 'pagespeed',
   swr: true,
-  shouldBypassCache: () => true,
+  shouldBypassCache: () => !!import.meta.dev,
   getKey: (event) => 'crux:domain:' + getRouterParam(event, 'domain'),
   maxAge: 60 * 60,
   staleMaxAge: 24 * 60 * 60,

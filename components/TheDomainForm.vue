@@ -28,9 +28,12 @@ function navigateToNewDomain (event: Event) {
 </script>
 
 <template>
-  <button v-if="domain && !editing" class="bg-transparent" @click="enableEditing">{{ domain }}</button>
+  <h1 v-if="domain && !editing">
+    <button class="bg-transparent" type="button" @click="enableEditing">{{ domain }}</button>
+  </h1>
   <form v-else class="flex flex-col gap-4 overflow-hidden" @submit.prevent="navigateToNewDomain">
-    <input ref="input" name="domain" type="text"
+    <label class="sr-only" for="domain">Enter a domain</label>
+    <input ref="input" id="domain" name="domain" type="text"
       class="md:-mt-1 rounded-none py-0 bg-transparent outline-none border-b-2 border-b-solid border-transparent focus:border-green-500 underline-dashed"
       autofocus autocomplete="url" inputmode="url" autocapitalize="none" placeholder="enter a domain" required />
     <button type="submit"
