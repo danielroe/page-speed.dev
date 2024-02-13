@@ -3,7 +3,7 @@
     <div class="flex flex-col justify-start mt-4 sm:mt-8 md:my-12 p-4 gap-8 md:gap-12 flex-grow max-w-full">
       <div class="flex flex-row gap-4 text-white text-3xl md:text-5xl">
         <span class="text-green-400">&raquo;</span>
-        <TheDomainForm v-model:domain="domain" v-model:editing="editing" />
+        <TheDomainForm :domain="domain" v-model:editing="editing" />
       </div>
       <template v-if="!editing && domain">
         <template v-if="cruxStatus === 'pending' || lighthouseStatus === 'pending' || crux || lighthouse">
@@ -67,33 +67,25 @@ import { joinURL, withoutLeadingSlash } from 'ufo'
 
 const route = useRoute()
 const domain = computed(() => withoutLeadingSlash(route.path).toLowerCase().replace(/(\/|\?).*$/, '').trim())
+const hasValidDomain = computed(() => !!domain.value && isValidDomain(domain.value))
 const canonicalURL = computed(() => domain.value ? joinURL(`https://page-speed.dev`, domain.value) : 'https://page-speed.dev')
 
-if (domain.value && !/^[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$/g.test(domain.value)) {
-  throw new Error('Invalid domain')
-}
-
 const editing = ref(!domain.value)
-
-const { data: crux, status: cruxStatus, refresh: cruxRefresh } = await useFetch(() => `/api/crux/${domain.value}`, {
-  key: 'crux',
-  immediate: !!domain.value,
+const { data: crux, status: cruxStatus, refresh: cruxRefresh } = await useAsyncData(() => $fetch(`/api/crux/${domain.value}`), {
+  watch: [hasValidDomain],
+  immediate: hasValidDomain.value,
 })
 
-const { data: lighthouse, status: lighthouseStatus, refresh: lighthouseRefresh } = await useFetch(() => `/api/run/${domain.value}`, {
-  key: 'lighthouse',
-  immediate: !!domain.value,
+const { data: lighthouse, status: lighthouseStatus, refresh: lighthouseRefresh } = await useAsyncData(() => $fetch(`/api/run/${domain.value}`), {
+  watch: [hasValidDomain],
+  immediate: hasValidDomain.value,
   server: false,
 })
 
-if (!domain.value) {
-  watch(domain, () => [lighthouseRefresh(), cruxRefresh()], { once: true })
-}
-
-useFavicon(() => lighthouseStatus.value !== 'pending' && !!domain.value && (lighthouse.value ? lighthouse.value.performance : 100))
+useFavicon(() => lighthouseStatus.value !== 'pending' && !!hasValidDomain.value && (lighthouse.value ? lighthouse.value.performance : 100))
 
 useHead({
-  title: () => domain.value ? domain.value : 'page-speed.dev',
+  title: () => hasValidDomain.value ? domain.value : 'page-speed.dev',
 })
 
 useServerHead({
@@ -138,14 +130,14 @@ useServerHead({
 })
 
 useServerSeoMeta({
-  ogTitle: domain.value ? domain.value : 'page-speed.dev',
+  ogTitle: hasValidDomain.value ? domain.value : 'page-speed.dev',
   ogUrl: canonicalURL.value,
-  twitterTitle: domain.value ? domain.value : 'page-speed.dev',
+  twitterTitle: hasValidDomain.value ? domain.value : 'page-speed.dev',
   twitterCard: 'summary_large_image',
   twitterSite: '@danielcroe',
 })
 
-if (!domain.value) {
+if (!hasValidDomain.value) {
   defineOgImageComponent('Home')
   useServerSeoMeta({
     description: 'See and share Core Web Vitals and PageSpeed Insights results simply and easily.',
