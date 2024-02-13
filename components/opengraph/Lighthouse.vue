@@ -6,22 +6,13 @@ const props = defineProps({
   },
 })
 
-const { data: crux, status: cruxStatus } = await useFetch(() => `/api/crux/${props.domain}`)
-const { data: lighthouse } = await useFetch(() => `/api/run/${props.domain}`)
+const [crux, lighthouse] = await Promise.all([$fetch(`/api/crux/${props.domain}`), $fetch(`/api/run/${props.domain}`)])
 
-const keys = [
-  'performance',
-  'accessibility',
-  'bestPractices',
-  'seo',
-] as const
-
+const keys = ['performance', 'accessibility', 'bestPractices', 'seo'] as const
 const showConfetti = computed(() => {
   // CWV fail, but ignore if there is now CrUX data
-  if (cruxStatus.value !== 'pending' && crux.value && !crux.value.cwv) {
-    return false
-  }
-  return lighthouse.value && keys.every(key => lighthouse.value![key] === 100)
+  if (crux && !crux.cwv) { return false }
+  return lighthouse && keys.every(key => lighthouse[key] === 100)
 })
 </script>
 
