@@ -101,7 +101,7 @@ const showConfetti = computed(() => {
   return lighthouse.value && keys.every(key => lighthouse.value![key] === 100)
 })
 
-useFavicon(() => lighthouseStatus.value !== 'pending' && !!hasValidDomain.value && (lighthouse.value ? lighthouse.value.performance : 100))
+useFavicon(() => lighthouseStatus.value !== 'pending' && hasValidDomain.value && (lighthouse.value ? lighthouse.value.performance : false))
 
 useHead({
   title: () => hasValidDomain.value ? domain.value : 'page-speed.dev',
