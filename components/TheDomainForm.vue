@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { withoutLeadingSlash, parseURL } from 'ufo'
+import { parseURL } from 'ufo'
 
 const props = defineProps({ domain: String })
 const editing = defineModel('editing', { type: Boolean })
@@ -23,7 +23,7 @@ function navigateToNewDomain (event: Event) {
 
   const host = parseURL(newDomain).host || newDomain
   editing.value = false
-  return navigateTo('/' + withoutLeadingSlash(host).toLowerCase().replace(/(\/|\?).*$/, '').trim())
+  return navigateTo('/' + sanitizeDomain(host))
 }
 </script>
 

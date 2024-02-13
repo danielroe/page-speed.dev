@@ -64,11 +64,11 @@
 
 <script lang="ts" setup>
 import '@unocss/reset/tailwind-compat.css'
-import { joinURL, withoutLeadingSlash } from 'ufo'
+import { joinURL } from 'ufo'
 import { vConfetti } from '@neoconfetti/vue'
 
 const route = useRoute()
-const domain = computed(() => withoutLeadingSlash(route.path).toLowerCase().replace(/(\/|\?).*$/, '').trim())
+const domain = computed(() => sanitizeDomain(route.path))
 const hasValidDomain = computed(() => !!domain.value && isValidDomain(domain.value))
 const canonicalURL = computed(() => domain.value ? joinURL(`https://page-speed.dev`, domain.value) : 'https://page-speed.dev')
 
