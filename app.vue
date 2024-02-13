@@ -84,13 +84,7 @@ const { data: lighthouse, status: lighthouseStatus, refresh: lighthouseRefresh }
   server: false,
 })
 
-const keys = [
-  'performance',
-  'accessibility',
-  'bestPractices',
-  'seo',
-] as const
-
+const keys = ['performance', 'accessibility', 'bestPractices', 'seo'] as const
 const showConfetti = computed(() => {
   // CWV fail, but ignore if there is now CrUX data
   if (cruxStatus.value !== 'pending' && crux.value && !crux.value.cwv) {
