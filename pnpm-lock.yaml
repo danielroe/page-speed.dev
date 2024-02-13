@@ -19,6 +19,9 @@ dependencies:
   '@azure/storage-blob':
     specifier: ^12.17.0
     version: 12.17.0
+  '@neoconfetti/vue':
+    specifier: ^2.2.1
+    version: 2.2.1
   '@nuxtjs/html-validator':
     specifier: ^1.6.0
     version: 1.6.0
@@ -1400,6 +1403,10 @@ packages:
     transitivePeerDependencies:
       - encoding
       - supports-color
+    dev: false
+
+  /@neoconfetti/vue@2.2.1:
+    resolution: {integrity: sha512-GXe5XoHlMK8VIxmxKuAgF9QQwRoDLmtiwVhONA9rzF+zOLGfOVLxo4OEDZqU9F0gJkB7U23BLlGJ3ouOb+kguw==}
     dev: false
 
   /@netlify/functions@2.5.1:
