@@ -70,7 +70,7 @@ const descriptions = {
         tabindex="0" :aria-describedby="`tooltip-${key}`">
         {{ descriptions[key].abbreviation }}
         <div :id="`tooltip-${key}`" aria-role="tooltip"
-          class="hidden group-hover:block group-focus:block group-focus-within:block absolute z-1 left-[10vw] p-6 text-gray-400 -mt-2">
+          class="hidden group-hover:block group-focus:block group-focus-within:block absolute z-[1] left-[10vw] p-6 text-gray-400 -mt-2">
           <div class="p-4 border-green-500 border w-[80vw] max-w-[500px]  rounded-lg bg-[#212121]">
             <strong class="text-white">{{ descriptions[key].title }}</strong>
             {{ descriptions[key].description }}
