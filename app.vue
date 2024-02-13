@@ -70,7 +70,7 @@ const domain = computed(() => withoutLeadingSlash(route.path).toLowerCase().repl
 const canonicalURL = computed(() => domain.value ? joinURL(`https://page-speed.dev`, domain.value) : 'https://page-speed.dev')
 
 if (domain.value && !/^[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$/g.test(domain.value)) {
-  throw new Error('Invalid domain')
+  //throw new Error('Invalid domain')
 }
 
 const editing = ref(!domain.value)
