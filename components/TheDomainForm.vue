@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { withoutLeadingSlash, parseURL } from 'ufo'
 
-const domain = defineModel('domain', { type: String, default: '' })
+const props = defineProps({ domain: String })
 const editing = defineModel('editing', { type: Boolean })
 
 const input = ref<HTMLInputElement>()
@@ -10,7 +10,7 @@ function enableEditing () {
   editing.value = true
   watch(input, (input) => {
     if (input) {
-      input.value = domain.value
+      input.value = props.domain || ''
       input.focus()
       input.setSelectionRange(0, input.value.length)
     }
