@@ -7,6 +7,6 @@ index 2ed72eb8e5f5f6b740d909bb12f62cf761599569..310d61dd705adf9237af5d95f931465b
      cookies: getAzureParsedCookiesFromHeaders(headers),
      headers: normalizeLambdaOutgoingHeaders(headers, true),
 -    body: body ? body.toString() : statusText
-+    body: body ? Buffer.from(body) : statusText
++    body: body ? body : statusText
    };
  }
