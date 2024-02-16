@@ -30,6 +30,13 @@
     }
   },
   "devDependencies": {
-    "@antfu/eslint-config": "latest"
+    "@antfu/eslint-config": "latest",
+    "eslint": "latest",
+    "lint-staged": "latest"
+  },
+  "lint-staged": {
+    "*.{js,ts,mjs,cjs,json,.*rc}": [
+      "pnpm eslint --fix"
+    ]
   }
 }
