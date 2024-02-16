@@ -4,7 +4,7 @@ export default defineNuxtModule({
   meta: {
     name: 'style-inlining',
   },
-  setup () {
+  setup() {
     const nuxt = useNuxt()
     const resolver = createResolver(import.meta.url)
 
@@ -12,7 +12,7 @@ export default defineNuxtModule({
 
     addVitePlugin({
       name: 'entry-css',
-      writeBundle (_options, bundle) {
+      writeBundle(_options, bundle) {
         for (const name in bundle) {
           const asset = bundle[name]
           if (asset.type === 'asset' && asset.fileName.match(/entry.*\.css$/)) {
@@ -20,14 +20,13 @@ export default defineNuxtModule({
             return
           }
         }
-      }
+      },
     }, { server: false })
 
-    nuxt.hook('build:manifest', manifest => {
+    nuxt.hook('build:manifest', (manifest) => {
       for (const key in manifest) {
-        if (manifest[key].css) {
+        if (manifest[key].css)
           manifest[key].css = []
-        }
       }
     })
 
@@ -37,5 +36,5 @@ export default defineNuxtModule({
 
     nuxt.options.nitro.plugins ||= []
     nuxt.options.nitro.plugins.push(resolver.resolve('./inline-css/nitro-plugin'))
-  }
+  },
 })

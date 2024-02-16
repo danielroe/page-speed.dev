@@ -1,5 +1,4 @@
 <script setup lang="ts">
-
 const props = defineProps({
   value: {
     type: [Boolean, Number] as unknown as () => number | false | undefined,
@@ -10,8 +9,8 @@ const props = defineProps({
   },
   size: {
     type: String as () => 'large' | 'normal',
-    default: 'large'
-  }
+    default: 'large',
+  },
 })
 
 const radius = props.size === 'large' ? 132 : 75
@@ -27,9 +26,12 @@ const colorMap = {
 }
 
 const color = computed(() => {
-  if (!props.value) return colorMap.gray
-  if (props.value >= 90) return colorMap.green
-  if (props.value >= 50) return colorMap.yellow
+  if (!props.value)
+    return colorMap.gray
+  if (props.value >= 90)
+    return colorMap.green
+  if (props.value >= 50)
+    return colorMap.yellow
   return colorMap.red
 })
 </script>
@@ -43,10 +45,10 @@ const color = computed(() => {
           fill="transparent"
           class="transform-origin-center"
           stroke-linecap="round"
-          :stroke-dasharray="circumference + ' ' + circumference"
+          :stroke-dasharray="`${circumference} ${circumference}`"
           :style="{
             strokeDashoffset: circumference - (Math.floor((typeof value === 'number' ? value : 80) / 4) * 4) / 100 * circumference,
-            transform: 'rotate(270deg)'
+            transform: 'rotate(270deg)',
           }"
           :stroke-width="stroke"
           :r="normalizedRadius"
@@ -59,4 +61,3 @@ const color = computed(() => {
     <span :class="size === 'large' ? 'text-4xl' : 'text-2xl'">{{ caption }}</span>
   </span>
 </template>
-

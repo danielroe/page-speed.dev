@@ -1,4 +1,4 @@
-export function useFavicon (getValue: () => number | false) {
+export function useFavicon(getValue: () => number | false) {
   const favicon = computed(() => {
     const radius = 80
     const stroke = 14
@@ -17,7 +17,7 @@ export function useFavicon (getValue: () => number | false) {
       stroke="${color}"
       fill="transparent"
       stroke-linecap="round"
-      stroke-dasharray="${circumference + ' ' + circumference}"
+      stroke-dasharray="${`${circumference} ${circumference}`}"
       style="transform-origin:center;stroke-dashoffset:${circumference - (Math.floor((value || 85) / 4) * 4) / 100 * circumference};transform:rotate(270deg)${!value ? ';animation:spin 1s linear infinite' : ''}"
       stroke-width="${stroke}"
       r="${normalizedRadius}"
@@ -41,8 +41,8 @@ export function useFavicon (getValue: () => number | false) {
         key: 'favicon',
         rel: 'icon',
         type: 'image/svg',
-        href: favicon.value
-      })
-    ]
+        href: favicon.value,
+      }),
+    ],
   })
 }

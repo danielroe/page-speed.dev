@@ -5,20 +5,20 @@ const props = defineProps({
       caption?: string | number
       segments: number[]
     },
-    required: false
+    required: false,
   },
   caption: {
     type: String,
-    required: false
+    required: false,
   },
   size: {
     type: String as () => 'large' | 'normal',
-    default: 'large'
+    default: 'large',
   },
   showP75: {
     type: Boolean,
-    default: false
-  }
+    default: false,
+  },
 })
 
 const radius = props.size === 'large' ? 132 : 75
@@ -29,16 +29,15 @@ const circumference = normalizedRadius * 2 * Math.PI
 const colours = [
   '#ef4444',
   '#fbbf24',
-  '#23c55e'
+  '#23c55e',
 ]
 
 const p75Color = computed(() => {
   let count = 0
   for (const [index, segment] of props.value?.segments?.entries() || []) {
     count += segment
-    if (count >= 75) {
+    if (count >= 75)
       return colours[colours.length - index - 1]
-    }
   }
   return '#6b7280'
 })
@@ -50,10 +49,11 @@ const p75Color = computed(() => {
       <svg class="absolute -right-0 -bottom-0" :height="radius * 2" :width="radius * 2" :class="{ 'animate-spin': !value }">
         <circle
           v-for="segment, index of [...value?.segments || [80]].reverse()"
+          :key="index"
           :stroke="value ? colours[index] : '#6b7280'"
           fill="transparent"
           class="transform-origin-center"
-          :stroke-dasharray="circumference + ' ' + circumference"
+          :stroke-dasharray="`${circumference} ${circumference}`"
           :style="{
             strokeDashoffset: circumference - segment / 100 * circumference,
             transform: `rotate(270deg)`,
@@ -63,7 +63,7 @@ const p75Color = computed(() => {
           :cx="radius"
           :cy="radius"
         />
-        <circle v-if="value && showP75" :fill="p75Color" stroke="#fff" stroke-width="5" cx="20" cy="20" r="10" style="transform: translateX(-2px) translateY(calc(50% - 20px))"></circle>
+        <circle v-if="value && showP75" :fill="p75Color" stroke="#fff" stroke-width="5" cx="20" cy="20" r="10" style="transform: translateX(-2px) translateY(calc(50% - 20px))" />
       </svg>
       <slot>
         <span v-if="value?.caption" class="flex flex-row items-baseline gap-1">
@@ -77,4 +77,3 @@ const p75Color = computed(() => {
     </slot>
   </div>
 </template>
-

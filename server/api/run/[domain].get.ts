@@ -1,8 +1,8 @@
-export default defineCachedEventHandler(async event => {
+export default defineCachedEventHandler(async (event) => {
   const domain = getRouterParam(event, 'domain')
-  if (!domain || domain.includes('/') || domain.includes('%')) {
+  if (!domain || domain.includes('/') || domain.includes('%'))
     throw createError({ message: 'Invalid domain', statusCode: 422 })
-  }
+
   const token = useRuntimeConfig().google.apiToken
   const results = await $fetch<PagespeedInsightsResult>(`/runPagespeed?url=${encodeURIComponent(`https://${domain}`)}&category=ACCESSIBILITY&category=BEST_PRACTICES&category=PERFORMANCE&category=SEO&strategy=mobile&key=${token}`, {
     baseURL: 'https://www.googleapis.com/pagespeedonline/v5',
@@ -17,7 +17,7 @@ export default defineCachedEventHandler(async event => {
 }, {
   base: 'pagespeed',
   swr: true,
-  getKey: (event) => 'domain:' + getRouterParam(event, 'domain'),
+  getKey: event => `domain:${getRouterParam(event, 'domain')}`,
   maxAge: 60 * 60,
   staleMaxAge: 24 * 60 * 60,
 })
@@ -27,13 +27,13 @@ export default defineCachedEventHandler(async event => {
 interface PagespeedInsightsResult {
   lighthouseResult: {
     categories: {
-      performance: {
+      'performance': {
         score: number
       }
-      seo: {
+      'seo': {
         score: number
       }
-      accessibility: {
+      'accessibility': {
         score: number
       }
       'best-practices': {

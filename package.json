@@ -1,12 +1,13 @@
 {
   "name": "page-speed",
-  "private": true,
   "type": "module",
+  "private": true,
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
+    "lint": "eslint . --fix",
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
@@ -23,16 +24,16 @@
     "ufo": "^1.4.0",
     "vue": "^3.4.15"
   },
+  "devDependencies": {
+    "@antfu/eslint-config": "latest",
+    "eslint": "latest",
+    "lint-staged": "latest"
+  },
   "pnpm": {
     "patchedDependencies": {
       "nitropack@2.8.1": "patches/nitropack@2.8.1.patch",
       "nuxt-og-image@3.0.0-rc.38": "patches/nuxt-og-image@3.0.0-rc.38.patch"
     }
-  },
-  "devDependencies": {
-    "@antfu/eslint-config": "latest",
-    "eslint": "latest",
-    "lint-staged": "latest"
   },
   "lint-staged": {
     "*.{js,ts,mjs,cjs,json,.*rc}": [

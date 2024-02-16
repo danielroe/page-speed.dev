@@ -3,14 +3,14 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   components: ['~/components/graphs', '~/components'],
   features: {
-    inlineStyles: false
+    inlineStyles: false,
   },
   modules: [
     '@unocss/nuxt',
     'nuxt-og-image',
     'nuxt-time',
     '@nuxtjs/plausible',
-    '@nuxtjs/html-validator'
+    '@nuxtjs/html-validator',
   ],
   htmlValidator: {
     failOnError: true,
@@ -26,7 +26,7 @@ export default defineNuxtConfig({
   routeRules: {
     '/': { prerender: true, swr: true },
     '/api/**': { swr: false, cache: false },
-    '/__og-image__/**': { swr: false, cache: false }
+    '/__og-image__/**': { swr: false, cache: false },
   },
   $production: {
     routeRules: {
@@ -35,7 +35,7 @@ export default defineNuxtConfig({
           swr: true,
           maxAge: 60,
           staleMaxAge: 60,
-        }
+        },
       },
     },
   },
@@ -47,15 +47,15 @@ export default defineNuxtConfig({
     azure: {
       config: {
         platform: {
-          apiRuntime: 'node:18'
-        }
-      }
+          apiRuntime: 'node:18',
+        },
+      },
     },
   },
   runtimeConfig: {
     google: {
-      apiToken: ''
-    }
+      apiToken: '',
+    },
   },
   plausible: {
     domain: 'page-speed.dev',
@@ -64,8 +64,8 @@ export default defineNuxtConfig({
   ogImage: {
     componentDirs: ['opengraph'],
     defaults: {
-      cacheMaxAgeSeconds: 60 * 60 * 24
+      cacheMaxAgeSeconds: 60 * 60 * 24,
     },
-    fonts: ['Roboto:500']
-  }
+    fonts: ['Roboto:500'],
+  },
 })
