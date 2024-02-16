@@ -28,5 +28,15 @@
       "nitropack@2.8.1": "patches/nitropack@2.8.1.patch",
       "nuxt-og-image@3.0.0-rc.38": "patches/nuxt-og-image@3.0.0-rc.38.patch"
     }
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "latest",
+    "eslint": "latest",
+    "lint-staged": "latest"
+  },
+  "lint-staged": {
+    "*.{js,ts,mjs,cjs,json,.*rc}": [
+      "pnpm eslint --fix"
+    ]
   }
 }
