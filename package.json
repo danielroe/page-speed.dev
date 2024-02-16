@@ -8,7 +8,7 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "lint": "eslint . --fix",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare && simple-git-hooks"
   },
   "dependencies": {
     "@azure/identity": "^4.0.1",
@@ -27,13 +27,17 @@
   "devDependencies": {
     "@antfu/eslint-config": "latest",
     "eslint": "latest",
-    "lint-staged": "latest"
+    "lint-staged": "latest",
+    "simple-git-hooks": "^2.9.0"
   },
   "pnpm": {
     "patchedDependencies": {
       "nitropack@2.8.1": "patches/nitropack@2.8.1.patch",
       "nuxt-og-image@3.0.0-rc.38": "patches/nuxt-og-image@3.0.0-rc.38.patch"
     }
+  },
+  "simple-git-hooks": {
+    "pre-commit": "npx lint-staged"
   },
   "lint-staged": {
     "*.{js,ts,mjs,cjs,json,.*rc}": [
