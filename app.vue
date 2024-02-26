@@ -169,6 +169,9 @@ else {
           v-if="crux || lighthouse" :domain="domain" :type="crux ? 'crux' : 'pagespeed-insights'"
           :timestamp="crux && cruxStatus !== 'pending' ? crux.timestamp : lighthouse && lighthouseStatus !== 'pending' ? lighthouse.timestamp : undefined"
         />
+         <div class="max-w-[500px] text-gray-400" v-if="useRuntimeConfig().public.NUXT_GOOGLE_API_TOKEN === '' || useRuntimeConfig().public.NUXT_GOOGLE_API_TOKEN === undefined">
+        No Google API Token Provided. Please remember to set your Google API Token in your .env file (for development). To obtain a token visit <a class="underline" href="https://console.cloud.google.com/apis/credentials">here</a>
+        </div>
         <details class="max-w-[500px] text-gray-400">
           <summary class="cursor-pointer">
             about these results
