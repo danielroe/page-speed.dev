@@ -16,6 +16,10 @@ export default defineNuxtConfig({
     failOnError: true,
   },
   experimental: {
+    defaults: {
+
+      useAsyncData: { deep: true },
+    },
     appManifest: false,
     headNext: true,
     payloadExtraction: false,
