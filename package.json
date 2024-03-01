@@ -28,7 +28,7 @@
     "@antfu/eslint-config": "latest",
     "eslint": "latest",
     "lint-staged": "latest",
-    "simple-git-hooks": "^2.9.0"
+    "simple-git-hooks": "2.9.0"
   },
   "pnpm": {
     "patchedDependencies": {
