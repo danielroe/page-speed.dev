@@ -1,9 +1,25 @@
 const cwvKeys = ['largest_contentful_paint', 'cumulative_layout_shift', 'interaction_to_next_paint'] as const
 
 export default defineCachedEventHandler(async (event) => {
-  const domain = getRouterParam(event, 'domain')
+  let redirected = false
+  let domain = getRouterParam(event, 'domain')
   if (!domain || domain.includes('/') || domain.includes('%'))
     throw createError({ message: 'Invalid domain', statusCode: 422 })
+  try {
+    const response = await fetch(`https://${domain}`, { method: 'HEAD' })
+    if (response.redirected) {
+      // console.log(`Original URL: ${domain}`);
+      // console.log(`Final URL: ${response.url}`);
+      redirected = true
+      domain = response.url
+    }
+    else {
+      domain = `https://${domain}`
+    }
+  }
+  catch (error) {
+    throw createError({ message: 'Invalid domain', statusCode: 422 })
+  }
 
   try {
     const results = await $fetch<CrUXResult>(`/records:queryRecord`, {
@@ -13,12 +29,14 @@ export default defineCachedEventHandler(async (event) => {
         key: useRuntimeConfig().google.apiToken,
       },
       body: {
-        origin: `https://${domain}`,
+        origin: domain,
         formFactor: 'PHONE',
       },
     })
 
     return {
+      redirected,
+      domain,
       cwv: cwvKeys.every(key => Number(results.record.metrics[key].percentiles.p75) <= (Number(results.record.metrics[key].histogram[0].end || 0))),
       lcp: normalizeHistogram(results.record.metrics.largest_contentful_paint, { timeBased: true }),
       cls: normalizeHistogram(results.record.metrics.cumulative_layout_shift),
