@@ -12,6 +12,11 @@ export default defineNuxtConfig({
     '@nuxtjs/plausible',
     '@nuxtjs/html-validator',
   ],
+  unocss: {
+    rules: [
+      ['min-h-screen', { 'min-height': '100vh' }, { layer: '_fallback' }],
+    ],
+  },
   htmlValidator: {
     failOnError: true,
   },
