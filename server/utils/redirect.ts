@@ -1,6 +1,6 @@
 import { parseURL } from 'ufo'
 
-export async function followRedirect(domain?: string) {
+export async function validateDomain(domain?: string) {
   if (!domain || domain.includes('/') || domain.includes('%'))
     throw createError({ message: 'Invalid domain', statusCode: 422 })
 

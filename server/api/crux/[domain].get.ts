@@ -2,7 +2,7 @@ const cwvKeys = ['largest_contentful_paint', 'cumulative_layout_shift', 'interac
 
 export default defineCachedEventHandler(async (event) => {
   const originalDomain = getRouterParam(event, 'domain')
-  const domain = await followRedirect(originalDomain)
+  const domain = await validateDomain(originalDomain)
 
   try {
     const results = await $fetch<CrUXResult>(`/records:queryRecord`, {
