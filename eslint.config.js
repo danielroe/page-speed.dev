@@ -1,5 +1,8 @@
-import antfu from '@antfu/eslint-config'
+import withNuxt from './.nuxt/eslint.config.mjs'
 
-export default antfu({
-  typescript: true,
+export default withNuxt({
+  files: ['components/opengraph/**'],
+  rules: {
+    'vue/multi-word-component-names': 'off',
+  },
 })

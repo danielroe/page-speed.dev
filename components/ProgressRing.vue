@@ -37,9 +37,20 @@ const color = computed(() => {
 </script>
 
 <template>
-  <span class="flex flex-col items-center" :class="size === 'large' ? 'gap-10' : 'gap-4'">
-    <span class="relative rounded-full flex items-center justify-center overflow-hidden" :class="[size === 'large' ? 'text-7xl h-60 w-60' : 'text-3xl h-36 w-36', color]">
-      <svg class="absolute -right-0 -bottom-0" :height="radius * 2" :width="radius * 2" :class="{ 'animate-spin': !value }">
+  <span
+    class="flex flex-col items-center"
+    :class="size === 'large' ? 'gap-10' : 'gap-4'"
+  >
+    <span
+      class="relative rounded-full flex items-center justify-center overflow-hidden"
+      :class="[size === 'large' ? 'text-7xl h-60 w-60' : 'text-3xl h-36 w-36', color]"
+    >
+      <svg
+        class="absolute -right-0 -bottom-0"
+        :height="radius * 2"
+        :width="radius * 2"
+        :class="{ 'animate-spin': !value }"
+      >
         <circle
           stroke="currentColor"
           fill="transparent"

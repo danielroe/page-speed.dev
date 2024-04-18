@@ -127,12 +127,18 @@ else {
 </script>
 
 <template>
-  <div class="md:pl-[5vw] font-sans text-white min-h-screen min-w-screen flex flex-col items-start justify-start">
-    <div v-if="showConfetti" v-confetti />
+  <div class="md:pl-[5vw] font-sans text-white min-h-screen min-h-dvh min-w-screen flex flex-col items-start justify-start">
+    <div
+      v-if="showConfetti"
+      v-confetti
+    />
     <div class="flex flex-col justify-start mt-4 sm:mt-8 md:my-12 p-4 gap-8 md:gap-12 flex-grow max-w-full">
       <div class="flex flex-row gap-4 text-white text-3xl md:text-5xl">
         <span class="text-green-400">&raquo;</span>
-        <TheDomainForm v-model:editing="editing" :domain="domain" />
+        <TheDomainForm
+          v-model:editing="editing"
+          :domain="domain"
+        />
       </div>
       <template v-if="!editing && domain">
         <span v-if="(crux && crux.redirected) || (lighthouse && lighthouse.redirected)" class="text-gray-400">
@@ -141,38 +147,57 @@ else {
         <template v-if="cruxStatus === 'pending' || lighthouseStatus === 'pending' || crux || lighthouse">
           <div class="flex flex-row flex-wrap gap-4 lg:flex-row justify-around w-full">
             <CoreWebVitals
-              v-if="cruxStatus === 'pending' || crux" :pass="crux?.cwv" :lcp="crux?.lcp" :cls="crux?.cls"
-              :inp="crux?.inp" :loading="cruxStatus === 'pending'" size="normal" show-p75
+              v-if="cruxStatus === 'pending' || crux"
+              :pass="crux?.cwv"
+              :lcp="crux?.lcp"
+              :cls="crux?.cls"
+              :inp="crux?.inp"
+              :loading="cruxStatus === 'pending'"
+              size="normal"
+              show-p75
             />
             <template v-else>
               <ProgressRing
-                size="normal" :value="lighthouseStatus !== 'pending' && lighthouse?.performance"
+                size="normal"
+                :value="lighthouseStatus !== 'pending' && lighthouse?.performance"
                 caption="performance"
               />
               <ProgressRing
-                size="normal" :value="lighthouseStatus !== 'pending' && lighthouse?.accessibility"
+                size="normal"
+                :value="lighthouseStatus !== 'pending' && lighthouse?.accessibility"
                 caption="accessibility"
               />
               <ProgressRing
-                size="normal" :value="lighthouseStatus !== 'pending' && lighthouse?.bestPractices"
+                size="normal"
+                :value="lighthouseStatus !== 'pending' && lighthouse?.bestPractices"
                 caption="best practices"
               />
-              <ProgressRing size="normal" :value="lighthouseStatus !== 'pending' && lighthouse?.seo" caption="SEO" />
+              <ProgressRing
+                size="normal"
+                :value="lighthouseStatus !== 'pending' && lighthouse?.seo"
+                caption="SEO"
+              />
             </template>
           </div>
           <LighthouseTable
             v-if="cruxStatus === 'pending' || crux"
-            :loading="lighthouseStatus === 'pending' || !lighthouse" v-bind="lighthouse || {}"
+            :loading="lighthouseStatus === 'pending' || !lighthouse"
+            v-bind="lighthouse || {}"
           />
         </template>
         <div v-else-if="domain">
           No results could be fetched. Is it a valid domain?
         </div>
         <TheShareLink
-          v-if="crux || lighthouse" :domain="domain" :type="crux ? 'crux' : 'pagespeed-insights'"
+          v-if="crux || lighthouse"
+          :domain="domain"
+          :type="crux ? 'crux' : 'pagespeed-insights'"
           :timestamp="crux && cruxStatus !== 'pending' ? crux.timestamp : lighthouse && lighthouseStatus !== 'pending' ? lighthouse.timestamp : undefined"
         />
-        <details v-if="crux || lighthouse" class="max-w-[500px] text-gray-400">
+        <details
+          v-if="crux || lighthouse"
+          class="max-w-[500px] text-gray-400"
+        >
           <summary class="cursor-pointer">
             about these results
           </summary>

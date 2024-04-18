@@ -43,7 +43,8 @@ async function nativeShare() {
     <NuxtLink
       type="submit"
       class="bg-green-400 text-black hover: hover:bg-white focus:bg-white active:bg-white text-xl md:text-2xl py-2 px-6 md:self-start mb-8"
-      :href="shareLink" @click.prevent="nativeShare"
+      :href="shareLink"
+      @click.prevent="nativeShare"
     >
       share results
     </NuxtLink>
@@ -55,14 +56,22 @@ async function nativeShare() {
       explore full results in the CrUX Dashboard &raquo;
     </a>
     <a
-      v-else :href="`https://pagespeed.web.dev/analysis?url=https://${domain}`"
+      v-else
+      :href="`https://pagespeed.web.dev/analysis?url=https://${domain}`"
       class="self-start underline text-gray-400 hover:text-green-400 focus:text-green-400 active:text-green-400"
     >
       see full results on PageSpeed Insights &raquo;
     </a>
-    <span v-if="timestamp" class="text-gray-400">
+    <span
+      v-if="timestamp"
+      class="text-gray-400"
+    >
       last updated at
-      <NuxtTime :datetime="timestamp" date-style="full" time-style="medium" />.
+      <NuxtTime
+        :datetime="timestamp"
+        date-style="full"
+        time-style="medium"
+      />.
     </span>
   </div>
 </template>
