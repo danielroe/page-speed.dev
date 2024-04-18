@@ -141,9 +141,12 @@ else {
         />
       </div>
       <template v-if="!editing && domain">
-        <span v-if="(crux && crux.redirected) || (lighthouse && lighthouse.redirected)" class="text-gray-400">
-            Showing results for {{ crux?.domain }} {{ lighthouse?.domain }}
-          </span>
+        <span
+          v-if="(crux && crux.redirected) || (lighthouse && lighthouse.redirected)"
+          class="text-gray-400"
+        >
+          Showing results for {{ crux?.domain }} {{ lighthouse?.domain }}
+        </span>
         <template v-if="cruxStatus === 'pending' || lighthouseStatus === 'pending' || crux || lighthouse">
           <div class="flex flex-row flex-wrap gap-4 lg:flex-row justify-around w-full">
             <CoreWebVitals
