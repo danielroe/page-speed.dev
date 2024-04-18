@@ -26,9 +26,9 @@ export default defineCachedEventHandler(async (event) => {
       timestamp: Date.now(),
     }
   }
-  catch (e: any) {
+  catch (e: unknown) {
     console.error(e)
-    throw createError({ message: `No CrUX report available:${e.toString()}`, statusCode: 404 })
+    throw createError({ message: `No CrUX report available:${(e as Error).toString()}`, statusCode: 404 })
   }
 }, {
   base: 'pagespeed',

@@ -18,9 +18,21 @@ const metrics = computed(() => [[props.performance, 'performance'], [props.acces
 
 <template>
   <div class="flex flex-row flex-wrap gap-4 lg:flex-row justify-around w-full border border-green-700 border-2 rounded-lg p-4">
-    <div v-for="[metric, caption] of metrics" :key="caption" class="flex flex-row gap-2" :class="{ 'flex-[40%] md:flex-auto': !row }">
-      <div v-if="loading" class="min-w-8 mr-1 flex justify-end">
-        <svg :height="radius * 2" :width="radius * 2" class="animate-spin">
+    <div
+      v-for="[metric, caption] of metrics"
+      :key="caption"
+      class="flex flex-row gap-2"
+      :class="{ 'flex-[40%] md:flex-auto': !row }"
+    >
+      <div
+        v-if="loading"
+        class="min-w-8 mr-1 flex justify-end"
+      >
+        <svg
+          :height="radius * 2"
+          :width="radius * 2"
+          class="animate-spin"
+        >
           <circle
             stroke="#6b7280"
             fill="transparent"
@@ -34,7 +46,10 @@ const metrics = computed(() => [[props.performance, 'performance'], [props.acces
           />
         </svg>
       </div>
-      <span v-else class="font-bold tabular-nums min-w-8 text-right mr-1">{{ loading ? undefined : metric?.toFixed(0) }}</span>
+      <span
+        v-else
+        class="font-bold tabular-nums min-w-8 text-right mr-1"
+      >{{ loading ? undefined : metric?.toFixed(0) }}</span>
       <span>
         {{ caption }}
       </span>

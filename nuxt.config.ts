@@ -6,12 +6,18 @@ export default defineNuxtConfig({
     inlineStyles: false,
   },
   modules: [
+    '@nuxt/eslint',
     '@unocss/nuxt',
     'nuxt-og-image',
     'nuxt-time',
     '@nuxtjs/plausible',
     '@nuxtjs/html-validator',
   ],
+  eslint: {
+    config: {
+      stylistic: true,
+    },
+  },
   unocss: {
     rules: [
       ['min-h-screen', { 'min-height': '100vh' }, { layer: '_fallback' }],
