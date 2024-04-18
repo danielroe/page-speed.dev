@@ -1,8 +1,7 @@
 const cwvKeys = ['largest_contentful_paint', 'cumulative_layout_shift', 'interaction_to_next_paint'] as const
 
 export default defineCachedEventHandler(async (event) => {
-  const originalDomain = getRouterParam(event, 'domain')
-  const domain = await validateDomain(originalDomain)
+  const domain = await validateDomain(getRouterParam(event, 'domain'))
 
   try {
     const results = await $fetch<CrUXResult>(`/records:queryRecord`, {
@@ -18,7 +17,6 @@ export default defineCachedEventHandler(async (event) => {
     })
 
     return {
-      redirected: domain !== originalDomain,
       domain,
       cwv: cwvKeys.every(key => Number(results.record.metrics[key].percentiles.p75) <= (Number(results.record.metrics[key].histogram[0].end || 0))),
       lcp: normalizeHistogram(results.record.metrics.largest_contentful_paint, { timeBased: true }),

@@ -1,13 +1,11 @@
 export default defineCachedEventHandler(async (event) => {
-  const originalDomain = getRouterParam(event, 'domain')
-  const domain = await validateDomain(originalDomain)
+  const domain = await validateDomain(getRouterParam(event, 'domain'))
 
   const token = useRuntimeConfig().google.apiToken
   const results = await $fetch<PagespeedInsightsResult>(`/runPagespeed?url=${encodeURIComponent(`https://${domain}`)}&category=ACCESSIBILITY&category=BEST_PRACTICES&category=PERFORMANCE&category=SEO&strategy=mobile&key=${token}`, {
     baseURL: 'https://www.googleapis.com/pagespeedonline/v5',
   })
   return {
-    redirected: domain !== originalDomain,
     domain,
     performance: results.lighthouseResult.categories.performance.score * 100,
     seo: results.lighthouseResult.categories.seo.score * 100,

@@ -29,6 +29,12 @@ watch(domain, () => {
   }
 })
 
+if (import.meta.server) {
+  const validatedDomain = crux.value?.domain || lighthouse.value?.domain
+  if (validatedDomain && validatedDomain !== domain.value)
+    await navigateTo(`/${validatedDomain}`)
+}
+
 const keys = ['performance', 'accessibility', 'bestPractices', 'seo'] as const
 const showConfetti = computed(() => {
   // CWV fail, but ignore if there is now CrUX data
@@ -127,7 +133,9 @@ else {
 </script>
 
 <template>
-  <div class="md:pl-[5vw] font-sans text-white min-h-screen min-h-dvh min-w-screen flex flex-col items-start justify-start">
+  <div
+    class="md:pl-[5vw] font-sans text-white min-h-screen min-h-dvh min-w-screen flex flex-col items-start justify-start"
+  >
     <div
       v-if="showConfetti"
       v-confetti
@@ -141,12 +149,6 @@ else {
         />
       </div>
       <template v-if="!editing && domain">
-        <span
-          v-if="(crux && crux.redirected) || (lighthouse && lighthouse.redirected)"
-          class="text-gray-400"
-        >
-          Showing results for {{ crux?.domain }} {{ lighthouse?.domain }}
-        </span>
         <template v-if="cruxStatus === 'pending' || lighthouseStatus === 'pending' || crux || lighthouse">
           <div class="flex flex-row flex-wrap gap-4 lg:flex-row justify-around w-full">
             <CoreWebVitals
@@ -213,7 +215,8 @@ else {
             <a
               class="underline hover:text-green-400 focus:text-green-400 active:text-green-400"
               href="https://developers.google.com/web/tools/lighthouse"
-            >Lighthouse</a> APIs to fetch and display Core Web
+            >Lighthouse</a> APIs to fetch and display Core
+            Web
             Vitals and PageSpeed Insights results.
           </p>
           <p class="mt-4">
