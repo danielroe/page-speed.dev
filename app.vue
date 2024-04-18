@@ -35,6 +35,14 @@ if (import.meta.server) {
     await navigateTo(`/${validatedDomain}`)
 }
 
+if (import.meta.client) {
+  watch([crux, lighthouse], ([crux, lighthouse]) => {
+    const validatedDomain = crux?.domain || lighthouse?.domain
+    if (validatedDomain && validatedDomain !== domain.value)
+      navigateTo(`/${validatedDomain}`)
+  })
+}
+
 const keys = ['performance', 'accessibility', 'bestPractices', 'seo'] as const
 const showConfetti = computed(() => {
   // CWV fail, but ignore if there is now CrUX data
