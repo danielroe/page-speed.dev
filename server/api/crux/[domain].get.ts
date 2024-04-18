@@ -18,7 +18,7 @@ export default defineCachedEventHandler(async (event) => {
 
     return {
       domain,
-      cwv: cwvKeys.every(key => Number(results.record.metrics[key].percentiles.p75) <= (Number(results.record.metrics[key].histogram[0].end || 0))),
+      cwv: cwvKeys.every(key => key in results.record.metrics ? Number(results.record.metrics[key].percentiles.p75) <= (Number(results.record.metrics[key].histogram[0].end || 0)) : true),
       lcp: normalizeHistogram(results.record.metrics.largest_contentful_paint, { timeBased: true }),
       cls: normalizeHistogram(results.record.metrics.cumulative_layout_shift),
       inp: normalizeHistogram(results.record.metrics.interaction_to_next_paint, { timeBased: true }),
@@ -33,7 +33,7 @@ export default defineCachedEventHandler(async (event) => {
   base: 'pagespeed',
   swr: true,
   shouldBypassCache: () => !!import.meta.dev,
-  getKey: event => `crux:domain:v1:${getRouterParam(event, 'domain')}`,
+  getKey: event => `crux:domain:v2:${getRouterParam(event, 'domain')}`,
   maxAge: 60 * 60,
   staleMaxAge: 24 * 60 * 60,
 })
@@ -62,6 +62,12 @@ interface CrUXResult {
 }
 
 function normalizeHistogram(metric: CrUXResult['record']['metrics'][keyof CrUXResult['record']['metrics']], options: { timeBased?: boolean } = {}) {
+  if (!metric) {
+    return {
+      caption: 'n/a',
+      segments: [],
+    }
+  }
   const segments = [] as number[]
   let count = 0
   for (const item of metric.histogram) {

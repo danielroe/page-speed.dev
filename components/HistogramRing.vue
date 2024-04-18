@@ -4,12 +4,12 @@ const props = defineProps({
     type: Object as () => {
       caption?: string | number
       segments: number[]
-    },
-    required: false,
+    } | null,
+    default: null,
   },
   caption: {
     type: String,
-    required: false,
+    default: '',
   },
   size: {
     type: String as () => 'large' | 'normal',
@@ -30,6 +30,7 @@ const colours = [
   '#ef4444',
   '#fbbf24',
   '#23c55e',
+  '#6b7280',
 ]
 
 const p75Color = computed(() => {
@@ -59,7 +60,7 @@ const p75Color = computed(() => {
         :class="{ 'animate-spin': !value }"
       >
         <circle
-          v-for="segment, index of [...value?.segments || [80]].reverse()"
+          v-for="segment, index of value?.segments.length === 0 ? [0, 0, 0, 100] : [...value?.segments || [80]].reverse()"
           :key="index"
           :stroke="value ? colours[index] : '#6b7280'"
           fill="transparent"
@@ -75,7 +76,7 @@ const p75Color = computed(() => {
           :cy="radius"
         />
         <circle
-          v-if="value && showP75"
+          v-if="value && value.segments.length > 0 && showP75"
           :fill="p75Color"
           stroke="#fff"
           stroke-width="5"
