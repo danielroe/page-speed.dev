@@ -29,6 +29,20 @@ watch(domain, () => {
   }
 })
 
+if (import.meta.server) {
+  const validatedDomain = crux.value?.domain || lighthouse.value?.domain
+  if (validatedDomain && validatedDomain !== domain.value)
+    await navigateTo(`/${validatedDomain}`)
+}
+
+if (import.meta.client) {
+  watch([crux, lighthouse], ([crux, lighthouse]) => {
+    const validatedDomain = crux?.domain || lighthouse?.domain
+    if (validatedDomain && validatedDomain !== domain.value)
+      navigateTo(`/${validatedDomain}`)
+  })
+}
+
 const keys = ['performance', 'accessibility', 'bestPractices', 'seo'] as const
 const showConfetti = computed(() => {
   // CWV fail, but ignore if there is now CrUX data
@@ -127,7 +141,9 @@ else {
 </script>
 
 <template>
-  <div class="md:pl-[5vw] font-sans text-white min-h-screen min-h-dvh min-w-screen flex flex-col items-start justify-start">
+  <div
+    class="md:pl-[5vw] font-sans text-white min-h-screen min-h-dvh min-w-screen flex flex-col items-start justify-start"
+  >
     <div
       v-if="showConfetti"
       v-confetti
@@ -207,7 +223,8 @@ else {
             <a
               class="underline hover:text-green-400 focus:text-green-400 active:text-green-400"
               href="https://developers.google.com/web/tools/lighthouse"
-            >Lighthouse</a> APIs to fetch and display Core Web
+            >Lighthouse</a> APIs to fetch and display Core
+            Web
             Vitals and PageSpeed Insights results.
           </p>
           <p class="mt-4">
