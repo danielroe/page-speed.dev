@@ -30,6 +30,7 @@ const colours = [
   '#ef4444',
   '#fbbf24',
   '#23c55e',
+  '#6b7280',
 ]
 
 const p75Color = computed(() => {
@@ -37,7 +38,7 @@ const p75Color = computed(() => {
   for (const [index, segment] of props.value?.segments?.entries() || []) {
     count += segment
     if (count >= 75)
-      return colours[colours.length - index - 1]
+      return colours[colours.length - index - 2]
   }
   return '#6b7280'
 })
