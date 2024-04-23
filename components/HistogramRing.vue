@@ -30,7 +30,6 @@ const colours = [
   '#ef4444',
   '#fbbf24',
   '#23c55e',
-  '#6b7280',
 ]
 
 const p75Color = computed(() => {
