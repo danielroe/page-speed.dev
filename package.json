@@ -25,7 +25,7 @@
     "vue": "^3.4.23"
   },
   "devDependencies": {
-    "@nuxt/eslint": "0.3.12",
+    "@nuxt/eslint": "0.3.13",
     "eslint": "latest",
     "lint-staged": "latest",
     "simple-git-hooks": "2.11.1"
