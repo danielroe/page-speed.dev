@@ -16,7 +16,7 @@
     "@neoconfetti/vue": "^2.2.1",
     "@nuxtjs/html-validator": "^1.7.2",
     "@nuxtjs/plausible": "^1.0.0",
-    "@unocss/nuxt": "^0.59.4",
+    "@unocss/nuxt": "^0.62.0",
     "nitropack": "^2.9.6",
     "nuxt": "^3.11.2",
     "nuxt-og-image": "^3.0.0-rc.52",
