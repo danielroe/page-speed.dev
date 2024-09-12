@@ -15,7 +15,7 @@ export async function validateDomain(domain?: string) {
     }
     return domain
   }
-  catch (error) {
+  catch {
     throw createError({ message: 'Invalid domain', statusCode: 422 })
   }
 }

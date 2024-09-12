@@ -124,9 +124,9 @@ else {
       + `CLS: ${crux.value?.cls.caption} | `
       + `INP: ${crux.value?.inp.caption}`
       : `Performance: ${lighthouse.value!.performance} | `
-      + `Accessibility: ${lighthouse.value!.accessibility} | `
-      + `Best Practices: ${lighthouse.value!.bestPractices} | `
-      + `SEO: ${lighthouse.value!.seo}`
+        + `Accessibility: ${lighthouse.value!.accessibility} | `
+        + `Best Practices: ${lighthouse.value!.bestPractices} | `
+        + `SEO: ${lighthouse.value!.seo}`
 
     useServerSeoMeta({
       description,

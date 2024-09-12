@@ -16,7 +16,7 @@ const text = computed(() => props.domain
 const canonicalURL = computed(() => props.domain ? joinURL(`https://page-speed.dev`, props.domain) : 'https://page-speed.dev')
 const shareLink = computed(() =>
   `https://twitter.com/intent/tweet?text=${
-  props.domain ? encodeURIComponent([text.value, canonicalURL.value].join('\n\n')) : text.value}`,
+    props.domain ? encodeURIComponent([text.value, canonicalURL.value].join('\n\n')) : text.value}`,
 )
 
 async function nativeShare() {
