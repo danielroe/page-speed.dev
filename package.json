@@ -37,5 +37,6 @@
     "*.{js,ts,mjs,cjs,json,.*rc}": [
       "pnpm eslint --fix"
     ]
-  }
+  },
+  "packageManager": "pnpm@9.9.0"
 }
