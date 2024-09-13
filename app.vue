@@ -9,14 +9,16 @@ const hasValidDomain = computed(() => !!domain.value && isValidDomain(domain.val
 const canonicalURL = computed(() => domain.value ? joinURL(`https://page-speed.dev`, domain.value) : 'https://page-speed.dev')
 
 const editing = ref(!domain.value)
-const { data: crux, status: cruxStatus, refresh: cruxRefresh } = await useAsyncData(() => $fetch(`/api/crux/${domain.value}`), {
-  immediate: hasValidDomain.value,
-})
 
-const { data: lighthouse, status: lighthouseStatus, refresh: lighthouseRefresh } = await useAsyncData(() => $fetch(`/api/run/${domain.value}`), {
-  immediate: hasValidDomain.value,
-  server: false,
-})
+const [{ data: crux, status: cruxStatus, refresh: cruxRefresh }, { data: lighthouse, status: lighthouseStatus, refresh: lighthouseRefresh }] = await Promise.all([
+  useAsyncData(() => $fetch(`/api/crux/${domain.value}`), {
+    immediate: hasValidDomain.value,
+  }),
+  useAsyncData(() => $fetch(`/api/run/${domain.value}`), {
+    immediate: hasValidDomain.value,
+    server: false,
+  }),
+])
 
 watch(domain, () => {
   if (hasValidDomain.value) {
