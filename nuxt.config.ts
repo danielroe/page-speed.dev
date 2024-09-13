@@ -29,7 +29,6 @@ export default defineNuxtConfig({
   },
   experimental: {
     defaults: {
-
       useAsyncData: { deep: true },
     },
     appManifest: false,
@@ -49,8 +48,8 @@ export default defineNuxtConfig({
       '/**': {
         cache: {
           swr: true,
-          maxAge: 60,
-          staleMaxAge: 60,
+          maxAge: 24 * 60 * 60,
+          staleMaxAge: 24 * 60 * 60,
         },
       },
     },
