@@ -58,7 +58,7 @@ importers:
         specifier: 2.11.1
         version: 2.11.1
       typescript:
-        specifier: ^5.6.2
+        specifier: 5.6.2
         version: 5.6.2
 
 packages:
