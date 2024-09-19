@@ -47,6 +47,7 @@ export default defineNuxtConfig({
     routeRules: {
       '/**': {
         cache: {
+          base: 'pagespeed',
           swr: true,
           maxAge: 24 * 60 * 60,
           staleMaxAge: 24 * 60 * 60,
