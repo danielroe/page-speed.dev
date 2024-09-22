@@ -16,13 +16,13 @@
     "@neoconfetti/vue": "^2.2.1",
     "@nuxtjs/html-validator": "^1.8.2",
     "@nuxtjs/plausible": "^1.0.2",
-    "@unocss/nuxt": "^0.62.3",
+    "@unocss/nuxt": "^0.62.4",
     "nitropack": "^2.9.7",
-    "nuxt": "^3.13.1",
+    "nuxt": "^3.13.2",
     "nuxt-og-image": "^3.0.2",
-    "nuxt-time": "^1.0.0",
+    "nuxt-time": "^1.0.2",
     "ufo": "^1.5.4",
-    "vue": "^3.5.4"
+    "vue": "^3.5.8"
   },
   "devDependencies": {
     "@nuxt/eslint": "0.5.7",
@@ -39,5 +39,5 @@
       "pnpm eslint --fix"
     ]
   },
-  "packageManager": "pnpm@9.10.0"
+  "packageManager": "pnpm@9.11.0"
 }
