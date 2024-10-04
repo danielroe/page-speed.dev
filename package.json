@@ -16,7 +16,7 @@
     "@neoconfetti/vue": "^2.2.1",
     "@nuxtjs/html-validator": "^1.8.2",
     "@nuxtjs/plausible": "^1.0.2",
-    "@unocss/nuxt": "^0.62.4",
+    "@unocss/nuxt": "^0.63.0",
     "nitropack": "^2.9.7",
     "nuxt": "^3.13.2",
     "nuxt-og-image": "^3.0.2",
@@ -39,5 +39,5 @@
       "pnpm eslint --fix"
     ]
   },
-  "packageManager": "pnpm@9.11.0"
+  "packageManager": "pnpm@9.12.0"
 }
