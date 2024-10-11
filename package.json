@@ -12,24 +12,24 @@
   },
   "dependencies": {
     "@azure/identity": "^4.4.1",
-    "@azure/storage-blob": "^12.24.0",
+    "@azure/storage-blob": "^12.25.0",
     "@neoconfetti/vue": "^2.2.1",
     "@nuxtjs/html-validator": "^1.8.2",
-    "@nuxtjs/plausible": "^1.0.2",
-    "@unocss/nuxt": "^0.63.0",
+    "@nuxtjs/plausible": "^1.0.3",
+    "@unocss/nuxt": "^0.63.4",
     "nitropack": "^2.9.7",
     "nuxt": "^3.13.2",
-    "nuxt-og-image": "^3.0.2",
+    "nuxt-og-image": "^3.0.4",
     "nuxt-time": "^1.0.2",
     "ufo": "^1.5.4",
-    "vue": "^3.5.8"
+    "vue": "^3.5.11"
   },
   "devDependencies": {
     "@nuxt/eslint": "0.5.7",
-    "eslint": "latest",
-    "lint-staged": "latest",
+    "eslint": "9.12.0",
+    "lint-staged": "15.2.10",
     "simple-git-hooks": "2.11.1",
-    "typescript": "5.6.2"
+    "typescript": "5.6.3"
   },
   "simple-git-hooks": {
     "pre-commit": "npx lint-staged"
@@ -39,5 +39,5 @@
       "npx eslint --fix"
     ]
   },
-  "packageManager": "pnpm@9.12.0"
+  "packageManager": "pnpm@9.12.1"
 }
