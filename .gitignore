@@ -24,3 +24,7 @@ logs
 !.env.example
 
 cache
+
+test-results
+
+.pnpm-store

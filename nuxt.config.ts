@@ -14,6 +14,7 @@ export default defineNuxtConfig({
     'nuxt-time',
     '@nuxtjs/plausible',
     '@nuxtjs/html-validator',
+    '@nuxt/test-utils/module',
   ],
   eslint: {
     config: {

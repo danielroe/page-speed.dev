@@ -1,0 +1,6 @@
+{
+  "name": "mock-driver",
+  "type": "module",
+  "private": true,
+  "main": "index.js"
+}
