@@ -100,16 +100,19 @@ const descriptions = {
     <template #caption>
       <div
         class="group cursor-pointer border-b-1 border-b-dashed hover:border-green-400 hover:text-green-400 focus:text-green-400"
+        :class="{ 'border-transparent': size === 'large' }"
         tabindex="0"
         :aria-describedby="`tooltip-${key}`"
       >
-        {{ descriptions[key].abbreviation }}
+        <span :class="{ 'text-white text-4xl': size === 'large' }">
+          {{ descriptions[key].abbreviation }}
+        </span>
         <div
           :id="`tooltip-${key}`"
           aria-role="tooltip"
           class="hidden group-hover:block group-focus:block group-focus-within:block absolute z-[1] left-[10vw] p-6 text-gray-400 -mt-2"
         >
-          <div class="p-4 border-green-500 border w-[80vw] max-w-[500px]  rounded-lg bg-[#212121]">
+          <div class="p-4 border-green-500 border w-[80vw] max-w-[500px] rounded-lg bg-[#212121]">
             <strong class="text-white">{{ descriptions[key].title }}</strong>
             {{ descriptions[key].description }}
             <NuxtLink
