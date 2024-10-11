@@ -6,7 +6,7 @@ const props = defineProps({
   },
 })
 
-const [crux, lighthouse] = await Promise.all([$fetch(`/api/crux/${props.domain}`), $fetch(`/api/run/${props.domain}`)])
+const [crux, lighthouse] = await Promise.all([$fetch(`/api/crux/${props.domain}`).catch(() => null), $fetch(`/api/run/${props.domain}`)])
 
 const keys = ['performance', 'accessibility', 'bestPractices', 'seo'] as const
 const showConfetti = computed(() => {
