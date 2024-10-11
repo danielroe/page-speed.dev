@@ -1,6 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: '2024-09-12',
+  future: { compatibilityVersion: 4 },
   devtools: { enabled: true },
   components: ['~/components/graphs', '~/components'],
   features: {
