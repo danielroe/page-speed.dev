@@ -50,8 +50,8 @@ const p75Color = computed(() => {
     :class="size === 'large' ? 'gap-10' : 'gap-4'"
   >
     <span
-      class="relative rounded-full flex items-center justify-center"
-      :class="[size === 'large' ? 'text-7xl h-60 w-60' : 'text-3xl h-36 w-36']"
+      class="relative rounded-full flex flex-row items-center justify-center"
+      :class="[size === 'large' ? 'text-7xl h-61 w-61' : 'text-3xl h-36 w-36']"
     >
       <svg
         class="absolute -right-0 -bottom-0"
