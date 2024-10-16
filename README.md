@@ -78,6 +78,10 @@ pnpm preview
 
 Many thanks to [Barry Pollard](https://twitter.com/tunetheweb) for providing essential review and suggestions! ❤️
 
+## Links
+
+- there is a [Raycast extension](https://www.raycast.com/vorillaz/pagespeed) which uses this API as a backend
+
 ## License
 
 Made with ❤️
