@@ -30,7 +30,7 @@ jobs:
   e2e:
     runs-on: ubuntu-latest
     container:
-      image: mcr.microsoft.com/playwright:v1.48.0-focal
+      image: mcr.microsoft.com/playwright:v1.48.2-focal
 
     steps:
       - uses: actions/checkout@v4
