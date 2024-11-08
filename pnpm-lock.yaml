@@ -28,7 +28,7 @@ importers:
         version: 0.64.0(magicast@0.3.5)(postcss@8.4.47)(rollup@4.24.4)(vite@5.4.10(@types/node@22.9.0)(terser@5.36.0))(vue@3.5.12(typescript@5.6.3))(webpack-sources@3.2.3)(webpack@5.96.1(esbuild@0.23.1))
       nitropack:
         specifier: ^2.9.7
-        version: 2.10.3(@azure/identity@4.5.0)(@azure/storage-blob@12.25.0)(typescript@5.6.3)(webpack-sources@3.2.3)
+        version: 2.10.4(@azure/identity@4.5.0)(@azure/storage-blob@12.25.0)(typescript@5.6.3)(webpack-sources@3.2.3)
       nuxt:
         specifier: ^3.13.2
         version: 3.14.159(@azure/identity@4.5.0)(@azure/storage-blob@12.25.0)(@parcel/watcher@2.5.0)(@types/node@22.9.0)(eslint@9.14.0(jiti@2.4.0))(ioredis@5.4.1)(magicast@0.3.5)(optionator@0.9.4)(rollup@4.24.4)(terser@5.36.0)(typescript@5.6.3)(vite@5.4.10(@types/node@22.9.0)(terser@5.36.0))(webpack-sources@3.2.3)
@@ -50,7 +50,7 @@ importers:
         version: 0.6.1(eslint@9.14.0(jiti@2.4.0))(magicast@0.3.5)(rollup@4.24.4)(typescript@5.6.3)(vite@5.4.10(@types/node@22.9.0)(terser@5.36.0))(webpack-sources@3.2.3)
       '@nuxt/test-utils':
         specifier: 3.14.4
-        version: 3.14.4(@playwright/test@1.48.2)(h3@1.13.0)(magicast@0.3.5)(nitropack@2.10.3(@azure/identity@4.5.0)(@azure/storage-blob@12.25.0)(typescript@5.6.3)(webpack-sources@3.2.3))(playwright-core@1.48.2)(rollup@4.24.4)(vite@5.4.10(@types/node@22.9.0)(terser@5.36.0))(vue-router@4.4.5(vue@3.5.12(typescript@5.6.3)))(vue@3.5.12(typescript@5.6.3))(webpack-sources@3.2.3)
+        version: 3.14.4(@playwright/test@1.48.2)(h3@1.13.0)(magicast@0.3.5)(nitropack@2.10.4(@azure/identity@4.5.0)(@azure/storage-blob@12.25.0)(typescript@5.6.3)(webpack-sources@3.2.3))(playwright-core@1.48.2)(rollup@4.24.4)(vite@5.4.10(@types/node@22.9.0)(terser@5.36.0))(vue-router@4.4.5(vue@3.5.12(typescript@5.6.3)))(vue@3.5.12(typescript@5.6.3))(webpack-sources@3.2.3)
       '@playwright/test':
         specifier: 1.48.2
         version: 1.48.2
@@ -3419,8 +3419,8 @@ packages:
   neo-async@2.6.2:
     resolution: {integrity: sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==}
 
-  nitropack@2.10.3:
-    resolution: {integrity: sha512-7n+ITF7RbCMwZZzyacxJ9eMCnWuE60omGJEyLM5PQRKS4Vu5w6OOCvf4C6E3UC0UryFuUIwGbJ3M+tIP9Az9OQ==}
+  nitropack@2.10.4:
+    resolution: {integrity: sha512-sJiG/MIQlZCVSw2cQrFG1H6mLeSqHlYfFerRjLKz69vUfdu0EL2l0WdOxlQbzJr3mMv/l4cOlCCLzVRzjzzF/g==}
     engines: {node: ^16.11.0 || >=17.0.0}
     hasBin: true
     peerDependencies:
@@ -5870,7 +5870,7 @@ snapshots:
       - supports-color
       - webpack-sources
 
-  '@nuxt/test-utils@3.14.4(@playwright/test@1.48.2)(h3@1.13.0)(magicast@0.3.5)(nitropack@2.10.3(@azure/identity@4.5.0)(@azure/storage-blob@12.25.0)(typescript@5.6.3)(webpack-sources@3.2.3))(playwright-core@1.48.2)(rollup@4.24.4)(vite@5.4.10(@types/node@22.9.0)(terser@5.36.0))(vue-router@4.4.5(vue@3.5.12(typescript@5.6.3)))(vue@3.5.12(typescript@5.6.3))(webpack-sources@3.2.3)':
+  '@nuxt/test-utils@3.14.4(@playwright/test@1.48.2)(h3@1.13.0)(magicast@0.3.5)(nitropack@2.10.4(@azure/identity@4.5.0)(@azure/storage-blob@12.25.0)(typescript@5.6.3)(webpack-sources@3.2.3))(playwright-core@1.48.2)(rollup@4.24.4)(vite@5.4.10(@types/node@22.9.0)(terser@5.36.0))(vue-router@4.4.5(vue@3.5.12(typescript@5.6.3)))(vue@3.5.12(typescript@5.6.3))(webpack-sources@3.2.3)':
     dependencies:
       '@nuxt/kit': 3.14.159(magicast@0.3.5)(rollup@4.24.4)(webpack-sources@3.2.3)
       '@nuxt/schema': 3.14.159(magicast@0.3.5)(rollup@4.24.4)(webpack-sources@3.2.3)
@@ -5884,7 +5884,7 @@ snapshots:
       h3: 1.13.0
       local-pkg: 0.5.0
       magic-string: 0.30.12
-      nitropack: 2.10.3(@azure/identity@4.5.0)(@azure/storage-blob@12.25.0)(typescript@5.6.3)(webpack-sources@3.2.3)
+      nitropack: 2.10.4(@azure/identity@4.5.0)(@azure/storage-blob@12.25.0)(typescript@5.6.3)(webpack-sources@3.2.3)
       node-fetch-native: 1.6.4
       ofetch: 1.4.1
       pathe: 1.1.2
@@ -5897,7 +5897,7 @@ snapshots:
       unenv: 1.10.0
       unplugin: 1.15.0(webpack-sources@3.2.3)
       vite: 5.4.10(@types/node@22.9.0)(terser@5.36.0)
-      vitest-environment-nuxt: 1.0.1(@playwright/test@1.48.2)(h3@1.13.0)(magicast@0.3.5)(nitropack@2.10.3(@azure/identity@4.5.0)(@azure/storage-blob@12.25.0)(typescript@5.6.3)(webpack-sources@3.2.3))(playwright-core@1.48.2)(rollup@4.24.4)(vite@5.4.10(@types/node@22.9.0)(terser@5.36.0))(vue-router@4.4.5(vue@3.5.12(typescript@5.6.3)))(vue@3.5.12(typescript@5.6.3))(webpack-sources@3.2.3)
+      vitest-environment-nuxt: 1.0.1(@playwright/test@1.48.2)(h3@1.13.0)(magicast@0.3.5)(nitropack@2.10.4(@azure/identity@4.5.0)(@azure/storage-blob@12.25.0)(typescript@5.6.3)(webpack-sources@3.2.3))(playwright-core@1.48.2)(rollup@4.24.4)(vite@5.4.10(@types/node@22.9.0)(terser@5.36.0))(vue-router@4.4.5(vue@3.5.12(typescript@5.6.3)))(vue@3.5.12(typescript@5.6.3))(webpack-sources@3.2.3)
       vue: 3.5.12(typescript@5.6.3)
       vue-router: 4.4.5(vue@3.5.12(typescript@5.6.3))
     optionalDependencies:
@@ -8670,7 +8670,7 @@ snapshots:
 
   neo-async@2.6.2: {}
 
-  nitropack@2.10.3(@azure/identity@4.5.0)(@azure/storage-blob@12.25.0)(typescript@5.6.3)(webpack-sources@3.2.3):
+  nitropack@2.10.4(@azure/identity@4.5.0)(@azure/storage-blob@12.25.0)(typescript@5.6.3)(webpack-sources@3.2.3):
     dependencies:
       '@cloudflare/kv-asset-handler': 0.3.4
       '@netlify/functions': 2.8.2
@@ -8940,7 +8940,7 @@ snapshots:
       magic-string: 0.30.12
       mlly: 1.7.2
       nanotar: 0.1.1
-      nitropack: 2.10.3(@azure/identity@4.5.0)(@azure/storage-blob@12.25.0)(typescript@5.6.3)(webpack-sources@3.2.3)
+      nitropack: 2.10.4(@azure/identity@4.5.0)(@azure/storage-blob@12.25.0)(typescript@5.6.3)(webpack-sources@3.2.3)
       nuxi: 3.15.0
       nypm: 0.3.12
       ofetch: 1.4.1
@@ -10208,9 +10208,9 @@ snapshots:
       fsevents: 2.3.3
       terser: 5.36.0
 
-  vitest-environment-nuxt@1.0.1(@playwright/test@1.48.2)(h3@1.13.0)(magicast@0.3.5)(nitropack@2.10.3(@azure/identity@4.5.0)(@azure/storage-blob@12.25.0)(typescript@5.6.3)(webpack-sources@3.2.3))(playwright-core@1.48.2)(rollup@4.24.4)(vite@5.4.10(@types/node@22.9.0)(terser@5.36.0))(vue-router@4.4.5(vue@3.5.12(typescript@5.6.3)))(vue@3.5.12(typescript@5.6.3))(webpack-sources@3.2.3):
+  vitest-environment-nuxt@1.0.1(@playwright/test@1.48.2)(h3@1.13.0)(magicast@0.3.5)(nitropack@2.10.4(@azure/identity@4.5.0)(@azure/storage-blob@12.25.0)(typescript@5.6.3)(webpack-sources@3.2.3))(playwright-core@1.48.2)(rollup@4.24.4)(vite@5.4.10(@types/node@22.9.0)(terser@5.36.0))(vue-router@4.4.5(vue@3.5.12(typescript@5.6.3)))(vue@3.5.12(typescript@5.6.3))(webpack-sources@3.2.3):
     dependencies:
-      '@nuxt/test-utils': 3.14.4(@playwright/test@1.48.2)(h3@1.13.0)(magicast@0.3.5)(nitropack@2.10.3(@azure/identity@4.5.0)(@azure/storage-blob@12.25.0)(typescript@5.6.3)(webpack-sources@3.2.3))(playwright-core@1.48.2)(rollup@4.24.4)(vite@5.4.10(@types/node@22.9.0)(terser@5.36.0))(vue-router@4.4.5(vue@3.5.12(typescript@5.6.3)))(vue@3.5.12(typescript@5.6.3))(webpack-sources@3.2.3)
+      '@nuxt/test-utils': 3.14.4(@playwright/test@1.48.2)(h3@1.13.0)(magicast@0.3.5)(nitropack@2.10.4(@azure/identity@4.5.0)(@azure/storage-blob@12.25.0)(typescript@5.6.3)(webpack-sources@3.2.3))(playwright-core@1.48.2)(rollup@4.24.4)(vite@5.4.10(@types/node@22.9.0)(terser@5.36.0))(vue-router@4.4.5(vue@3.5.12(typescript@5.6.3)))(vue@3.5.12(typescript@5.6.3))(webpack-sources@3.2.3)
     transitivePeerDependencies:
       - '@cucumber/cucumber'
       - '@jest/globals'
