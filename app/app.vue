@@ -39,7 +39,7 @@ if (import.meta.server) {
 
 if (import.meta.client) {
   watch([crux, lighthouse], ([crux, lighthouse]) => {
-    const validatedDomain = crux?.domain || lighthouse?.domain
+    const validatedDomain = lighthouse?.domain || crux?.domain
     if (validatedDomain && validatedDomain !== domain.value)
       navigateTo(`/${validatedDomain}`)
   })
