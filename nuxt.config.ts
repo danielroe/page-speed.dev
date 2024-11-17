@@ -1,12 +1,5 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  compatibilityDate: '2024-09-12',
-  future: { compatibilityVersion: 4 },
-  devtools: { enabled: true },
-  components: ['~/components/graphs', '~/components'],
-  features: {
-    inlineStyles: false,
-  },
   modules: [
     '@nuxt/eslint',
     '@unocss/nuxt',
@@ -16,35 +9,6 @@ export default defineNuxtConfig({
     '@nuxtjs/html-validator',
     '@nuxt/test-utils/module',
   ],
-  eslint: {
-    config: {
-      stylistic: true,
-    },
-  },
-  unocss: {
-    rules: [
-      ['min-h-screen', { 'min-height': '100vh' }, { layer: '_fallback' }],
-    ],
-  },
-  htmlValidator: {
-    failOnError: true,
-  },
-  experimental: {
-    defaults: {
-      useAsyncData: { deep: true },
-    },
-    appManifest: false,
-    headNext: true,
-    payloadExtraction: false,
-  },
-  site: {
-    url: 'https://page-speed.dev',
-  },
-  routeRules: {
-    '/': { prerender: true, swr: true },
-    '/api/**': { swr: false, cache: false },
-    '/__og-image__/**': { swr: false, cache: false },
-  },
   $production: {
     routeRules: {
       '/**': {
@@ -56,6 +20,34 @@ export default defineNuxtConfig({
       },
     },
   },
+  components: ['~/components/graphs', '~/components'],
+  devtools: { enabled: true },
+  site: {
+    url: 'https://page-speed.dev',
+  },
+  runtimeConfig: {
+    google: {
+      apiToken: '',
+    },
+  },
+  routeRules: {
+    '/': { prerender: true, swr: true },
+    '/api/**': { swr: false, cache: false },
+    '/__og-image__/**': { swr: false, cache: false },
+  },
+  future: { compatibilityVersion: 4 },
+  features: {
+    inlineStyles: false,
+  },
+  experimental: {
+    defaults: {
+      useAsyncData: { deep: true },
+    },
+    appManifest: false,
+    headNext: true,
+    payloadExtraction: false,
+  },
+  compatibilityDate: '2024-09-12',
   nitro: {
     compressPublicAssets: {
       brotli: true,
@@ -69,14 +61,13 @@ export default defineNuxtConfig({
       },
     },
   },
-  runtimeConfig: {
-    google: {
-      apiToken: '',
+  eslint: {
+    config: {
+      stylistic: true,
     },
   },
-  plausible: {
-    domain: 'page-speed.dev',
-    apiHost: 'https://v.roe.dev',
+  htmlValidator: {
+    failOnError: true,
   },
   ogImage: {
     componentDirs: ['opengraph'],
@@ -84,5 +75,14 @@ export default defineNuxtConfig({
       cacheMaxAgeSeconds: 60 * 60 * 24,
     },
     fonts: ['Roboto:500'],
+  },
+  plausible: {
+    domain: 'page-speed.dev',
+    apiHost: 'https://v.roe.dev',
+  },
+  unocss: {
+    rules: [
+      ['min-h-screen', { 'min-height': '100vh' }, { layer: '_fallback' }],
+    ],
   },
 })

@@ -7,7 +7,7 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "lint": "eslint . --fix",
+    "lint": "eslint",
     "postinstall": "nuxt prepare && simple-git-hooks",
     "test:e2e": "playwright test test/e2e",
     "test:e2e:update": "docker run --rm --network host -v $(pwd):/work/ -w /work/ -it mcr.microsoft.com/playwright:v1.48.0-focal bash -c 'corepack enable && pnpm i && pnpm playwright test test/e2e --update-snapshots'"
