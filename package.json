@@ -34,7 +34,7 @@
     "lint-staged": "15.2.10",
     "mock-driver": "link:./test/mock-driver",
     "simple-git-hooks": "2.11.1",
-    "typescript": "5.6.3",
+    "typescript": "5.7.2",
     "unstorage": "1.13.1"
   },
   "simple-git-hooks": {
