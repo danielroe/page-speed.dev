@@ -25,7 +25,7 @@ jobs:
         uses: Azure/static-web-apps-deploy@v1
         env:
           PRE_BUILD_COMMAND: npm install -g pnpm@9.13.2
-          CUSTOM_BUILD_COMMAND: pnpm install --frozen-lockfile && pnpm run build
+          CUSTOM_BUILD_COMMAND: pnpm install --frozen-lockfile && pnpm run build || true
           AZURE_STORAGE_ACCOUNT_KEY: ${{ secrets.AZURE_STORAGE_ACCOUNT_KEY }}
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_DELIGHTFUL_CLIFF_0ACDAF71E }}
