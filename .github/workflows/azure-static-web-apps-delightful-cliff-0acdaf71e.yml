@@ -53,6 +53,7 @@ jobs:
           ###### End of Repository/Build Configurations ######
 
       - name: Clear Cloudflare cache
+        if: github.event_name == 'push'
         uses: Cyb3r-Jak3/action-cloudflare-cache@v2.0.0
         with:
           zone: ${{ secrets.CLOUDFLARE_ZONE }}
@@ -62,9 +63,29 @@ jobs:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
     runs-on: ubuntu-latest
     name: Close Pull Request Job
+    permissions:
+       id-token: write
+       contents: read
     steps:
+      - uses: actions/checkout@v4
+      - run: corepack enable
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - name: Get Id Token
+        uses: actions/github-script@v6
+        id: idtoken
+        with:
+           script: |
+               const coredemo = require('@actions/core')
+               return await coredemo.getIDToken()
+           result-encoding: string
       - name: Close Pull Request
         id: closepullrequest
         uses: Azure/static-web-apps-deploy@v1
         with:
+          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_DELIGHTFUL_CLIFF_0ACDAF71E }}
+          github_id_token: ${{ steps.idtoken.outputs.result }}
           action: "close"
