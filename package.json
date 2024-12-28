@@ -18,7 +18,7 @@
     "@neoconfetti/vue": "^2.2.1",
     "@nuxtjs/html-validator": "^1.8.2",
     "@nuxtjs/plausible": "^1.0.3",
-    "@unocss/nuxt": "^0.64.1",
+    "@unocss/nuxt": "^0.65.0",
     "nitropack": "^2.10.4",
     "nuxt": "^3.14.159",
     "nuxt-og-image": "^3.0.8",
@@ -27,17 +27,17 @@
     "vue": "^3.5.13"
   },
   "devDependencies": {
-    "@actions/core": "1.9.1",
+    "@actions/core": "1.11.1",
     "@actions/http-client": "2.2.3",
-    "@nuxt/eslint": "0.7.0",
+    "@nuxt/eslint": "0.7.4",
     "@nuxt/test-utils": "3.14.4",
-    "@playwright/test": "1.48.2",
+    "@playwright/test": "1.49.1",
     "eslint": "9.14.0",
-    "lint-staged": "15.2.10",
+    "lint-staged": "15.3.0",
     "mock-driver": "link:./test/mock-driver",
     "simple-git-hooks": "2.11.1",
-    "typescript": "5.6.3",
-    "unstorage": "1.13.1"
+    "typescript": "5.7.2",
+    "unstorage": "1.14.4"
   },
   "simple-git-hooks": {
     "pre-commit": "npx lint-staged"
@@ -47,5 +47,5 @@
       "npx eslint --fix"
     ]
   },
-  "packageManager": "pnpm@9.13.2"
+  "packageManager": "pnpm@9.15.2"
 }
