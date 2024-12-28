@@ -49,7 +49,7 @@ importers:
         specifier: 1.9.1
         version: 1.9.1
       '@actions/http-client':
-        specifier: ^2.2.3
+        specifier: 2.2.3
         version: 2.2.3
       '@nuxt/eslint':
         specifier: 0.7.0
