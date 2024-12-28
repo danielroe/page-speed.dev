@@ -46,8 +46,8 @@ importers:
         version: 3.5.13(typescript@5.6.3)
     devDependencies:
       '@actions/core':
-        specifier: 1.6.0
-        version: 1.6.0
+        specifier: 1.9.1
+        version: 1.9.1
       '@actions/http-client':
         specifier: ^2.2.3
         version: 2.2.3
@@ -81,11 +81,8 @@ importers:
 
 packages:
 
-  '@actions/core@1.6.0':
-    resolution: {integrity: sha512-NB1UAZomZlCV/LmJqkLhNTqtKfFXJZAUPcfl/zqG7EfsQdeUJtaWO98SGbuQ3pydJ3fHl2CvI/51OKYlCYYcaw==}
-
-  '@actions/http-client@1.0.11':
-    resolution: {integrity: sha512-VRYHGQV1rqnROJqdMvGUbY/Kn8vriQe/F9HR2AlYHzmKuM/p3kjNuXhmdBfcVgsvRWTz5C5XW5xvndZrVBuAYg==}
+  '@actions/core@1.9.1':
+    resolution: {integrity: sha512-5ad+U2YGrmmiw6du20AQW5XuWo7UKN2052FjSV7MX+Wfjf8sCqcsZe62NfgHys4QI4/Y+vQvLKYL8jWtA1ZBTA==}
 
   '@actions/http-client@2.2.3':
     resolution: {integrity: sha512-mx8hyJi/hjFvbPokCg4uRd4ZX78t+YyRPtnKWwIl+RzNaVuFpQHfmlGVfsKEJN8LwTCvL+DfVgAM04XaHkm6bA==}
@@ -4898,13 +4895,10 @@ packages:
 
 snapshots:
 
-  '@actions/core@1.6.0':
+  '@actions/core@1.9.1':
     dependencies:
-      '@actions/http-client': 1.0.11
-
-  '@actions/http-client@1.0.11':
-    dependencies:
-      tunnel: 0.0.6
+      '@actions/http-client': 2.2.3
+      uuid: 8.3.2
 
   '@actions/http-client@2.2.3':
     dependencies:
