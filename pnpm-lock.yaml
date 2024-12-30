@@ -4348,8 +4348,8 @@ packages:
   tiny-invariant@1.3.3:
     resolution: {integrity: sha512-+FbBPE1o9QAYvviau/qC5SE3caw21q3xkvWKBtja5vgqOWIHHJ3ioaq1VPfn/Szqctz2bU/oYeKd9/z5BL+PVg==}
 
-  tinyexec@0.3.1:
-    resolution: {integrity: sha512-WiCJLEECkO18gwqIp6+hJg0//p23HXp4S+gGtAKu3mI2F2/sXC4FvHvXvB0zJVVaTPhx1/tOwdbRsa1sOBIKqQ==}
+  tinyexec@0.3.2:
+    resolution: {integrity: sha512-KQQR9yN7R5+OSwaK0XQoj22pwHoTlgYqmUscPYoknOoWCWfj/5/ABTMRi69FrKU5ffPVh5QcFikpWJI/P1ocHA==}
 
   tinyglobby@0.2.10:
     resolution: {integrity: sha512-Zc+8eJlFMvgatPZTl6A9L/yht8QqdmUNtURHaKZLmKBE12hNPSrqNkUp2cs3M/UKmNVVAMFQYSjYIVHDjW5zew==}
@@ -4930,12 +4930,12 @@ snapshots:
   '@antfu/install-pkg@0.4.1':
     dependencies:
       package-manager-detector: 0.2.8
-      tinyexec: 0.3.1
+      tinyexec: 0.3.2
 
   '@antfu/install-pkg@0.5.0':
     dependencies:
       package-manager-detector: 0.2.8
-      tinyexec: 0.3.1
+      tinyexec: 0.3.2
 
   '@antfu/utils@0.7.10': {}
 
@@ -5922,7 +5922,7 @@ snapshots:
       radix3: 1.1.2
       scule: 1.3.0
       std-env: 3.8.0
-      tinyexec: 0.3.1
+      tinyexec: 0.3.2
       ufo: 1.5.4
       unenv: 1.10.0
       unplugin: 2.1.0
@@ -8983,7 +8983,7 @@ snapshots:
       consola: 3.3.3
       pathe: 1.1.2
       pkg-types: 1.3.0
-      tinyexec: 0.3.1
+      tinyexec: 0.3.2
       ufo: 1.5.4
 
   ofetch@1.4.1:
@@ -9839,7 +9839,7 @@ snapshots:
 
   tiny-invariant@1.3.3: {}
 
-  tinyexec@0.3.1: {}
+  tinyexec@0.3.2: {}
 
   tinyglobby@0.2.10:
     dependencies:
