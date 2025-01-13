@@ -21,6 +21,9 @@ const YEAR_FROM_NOW = Date.now() + (1000 * 60 * 60 * 24 * 365)
 
 export default defineDriver(() => {
   return {
+    name: 'mock-driver',
+    watch: () => () => {},
+    dispose: () => {},
     hasItem: id => keys.has(id),
     getKeys: () => [...keys],
     setItem: () => {},
