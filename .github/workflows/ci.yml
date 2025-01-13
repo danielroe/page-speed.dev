@@ -17,7 +17,7 @@ jobs:
       - run: corepack enable
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: lts/*
           cache: pnpm
 
       - name: 📦 Install dependencies
@@ -36,7 +36,7 @@ jobs:
       - run: corepack enable
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: lts/*
           cache: pnpm
 
       - name: 📦 Install dependencies
@@ -44,5 +44,3 @@ jobs:
 
       - name: 🧪 Test project (e2e)
         run: pnpm test:e2e
-        env:
-          NUXT_GOOGLE_API_TOKEN: ${{ secrets.NUXT_GOOGLE_API_TOKEN }}
