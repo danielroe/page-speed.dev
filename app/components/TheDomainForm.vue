@@ -52,7 +52,7 @@ function navigateToNewDomain(event: Event) {
       ref="input"
       name="domain"
       type="text"
-      class="md:-mt-1 rounded-none py-0 bg-transparent outline-none border-b-2 border-b-solid border-transparent focus:border-green-500 underline-dashed"
+      class="md:-mt-1 rounded-none py-0 bg-transparent outline-none border-b-2 border-b-solid border-transparent focus:border-green-500 focus-visible:outline-none underline-dashed"
       autofocus
       autocomplete="url"
       inputmode="url"
