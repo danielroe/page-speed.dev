@@ -8,7 +8,7 @@ export default defineCachedEventHandler(async (event) => {
       baseURL: 'https://chromeuxreport.googleapis.com/v1',
       method: 'POST',
       query: {
-        key: useRuntimeConfig().google.apiToken,
+        key: useRuntimeConfig(event).google.apiToken,
       },
       body: {
         origin: `https://${domain}`,
