@@ -29,14 +29,14 @@
   "devDependencies": {
     "@actions/core": "1.11.1",
     "@actions/http-client": "2.2.3",
-    "@nuxt/eslint": "0.7.4",
+    "@nuxt/eslint": "0.7.5",
     "@nuxt/test-utils": "3.15.1",
     "@playwright/test": "1.49.1",
     "eslint": "9.17.0",
     "lint-staged": "15.3.0",
     "mock-driver": "link:./test/mock-driver",
     "simple-git-hooks": "2.11.1",
-    "typescript": "5.7.2",
+    "typescript": "5.7.3",
     "unstorage": "1.14.4"
   },
   "simple-git-hooks": {
@@ -47,5 +47,5 @@
       "npx eslint --fix"
     ]
   },
-  "packageManager": "pnpm@9.15.3"
+  "packageManager": "pnpm@9.15.4"
 }
