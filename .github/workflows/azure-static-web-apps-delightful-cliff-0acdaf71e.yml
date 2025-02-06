@@ -37,7 +37,7 @@ jobs:
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
         env:
-          PRE_BUILD_COMMAND: corepack enable
+          PRE_BUILD_COMMAND: npm i -g --force corepack && corepack enable
           CUSTOM_BUILD_COMMAND: pnpm install && pnpm build
           AZURE_STORAGE_ACCOUNT_KEY: ${{ secrets.AZURE_STORAGE_ACCOUNT_KEY }}
         with:
