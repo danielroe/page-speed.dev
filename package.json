@@ -16,7 +16,7 @@
     "@azure/identity": "^4.5.0",
     "@azure/storage-blob": "^12.25.0",
     "@neoconfetti/vue": "^2.2.1",
-    "@nuxtjs/html-validator": "^1.8.2",
+    "@nuxtjs/html-validator": "^2.0.0",
     "@nuxtjs/plausible": "^1.0.3",
     "@unocss/nuxt": "^65.0.0",
     "nitropack": "^2.10.4",
