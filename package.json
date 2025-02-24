@@ -29,7 +29,7 @@
   "devDependencies": {
     "@actions/core": "1.11.1",
     "@actions/http-client": "2.2.3",
-    "@nuxt/eslint": "1.0.1",
+    "@nuxt/eslint": "1.1.0",
     "@nuxt/test-utils": "3.17.0",
     "@playwright/test": "1.50.1",
     "eslint": "9.20.1",
@@ -37,7 +37,7 @@
     "mock-driver": "link:./test/mock-driver",
     "simple-git-hooks": "2.11.1",
     "typescript": "5.7.3",
-    "unstorage": "1.14.4"
+    "unstorage": "1.15.0"
   },
   "simple-git-hooks": {
     "pre-commit": "npx lint-staged"
