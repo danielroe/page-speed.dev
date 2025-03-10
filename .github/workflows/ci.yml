@@ -29,7 +29,7 @@ jobs:
   e2e:
     runs-on: ubuntu-latest
     container:
-      image: mcr.microsoft.com/playwright:v1.50.1-noble
+      image: mcr.microsoft.com/playwright:v1.51.0-noble
 
     steps:
       - uses: actions/checkout@v4
