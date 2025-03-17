@@ -17,6 +17,7 @@ jobs:
     permissions:
        id-token: write
        contents: read
+       deployments: write
     steps:
       - uses: actions/checkout@v4
       - run: npm i -g --force corepack && corepack enable
@@ -52,6 +53,53 @@ jobs:
           github_id_token: ${{ steps.idtoken.outputs.result }}
           ###### End of Repository/Build Configurations ######
 
+      - name: Extract deployment URL
+        if: github.event_name == 'pull_request'
+        id: extract_url
+        run: |
+          # Extract URL from builddeploy step output
+          DEPLOYMENT_URL=$(echo '${{ steps.builddeploy.outputs.static_web_app_url }}' | grep -o 'https://[^ ]*')
+          echo "PREVIEW_URL=$DEPLOYMENT_URL" >> $GITHUB_ENV
+          echo "preview_url=$DEPLOYMENT_URL" >> $GITHUB_OUTPUT
+
+      - name: Create GitHub deployment for PR
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const previewUrl = '${{ steps.extract_url.outputs.preview_url }}';
+            if (!previewUrl) {
+              console.log('No preview URL found, skipping deployment creation');
+              return;
+            }
+
+            console.log(`Creating deployment with preview URL: ${previewUrl}`);
+
+            const deployment = await github.rest.repos.createDeployment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              ref: context.payload.pull_request.head.ref,
+              environment: `pr-${context.payload.pull_request.number}`,
+              auto_merge: false,
+              required_contexts: [],
+              description: 'Azure Static Web Apps Preview',
+              task: 'deployment',
+              transient_environment: true,
+              production_environment: false
+            });
+
+            await github.rest.repos.createDeploymentStatus({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              deployment_id: deployment.data.id,
+              state: 'success',
+              environment_url: previewUrl,
+              log_url: previewUrl,
+              description: 'Deployment succeeded',
+              auto_inactive: false
+            });
+
       - name: Clear Cloudflare cache
         if: github.event_name == 'push'
         uses: Cyb3r-Jak3/action-cloudflare-cache@v2.0.0
@@ -66,6 +114,7 @@ jobs:
     permissions:
        id-token: write
        contents: read
+       deployments: write
     steps:
       - uses: actions/checkout@v4
       - run: npm i -g --force corepack && corepack enable
@@ -89,3 +138,32 @@ jobs:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_DELIGHTFUL_CLIFF_0ACDAF71E }}
           github_id_token: ${{ steps.idtoken.outputs.result }}
           action: "close"
+
+      - name: Deactivate GitHub deployment for PR
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const prNumber = context.payload.pull_request.number;
+            const environment = `pr-${prNumber}`;
+
+            console.log(`Deactivating deployment for environment: ${environment}`);
+
+            // Get all deployments for this environment
+            const deployments = await github.rest.repos.listDeployments({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              environment: environment
+            });
+
+            // Mark each deployment as inactive
+            for (const deployment of deployments.data) {
+              await github.rest.repos.createDeploymentStatus({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                deployment_id: deployment.id,
+                state: 'inactive',
+                description: 'Pull request closed',
+                auto_inactive: false
+              });
+            }
