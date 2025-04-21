@@ -12,7 +12,7 @@ export default defineCachedEventHandler(async (event) => {
     accessibility: results.lighthouseResult.categories.accessibility.score * 100,
     bestPractices: results.lighthouseResult.categories['best-practices'].score * 100,
     timestamp: Date.now(),
-  }
+  } satisfies LighthouseData
 }, {
   base: 'pagespeed',
   swr: true,
@@ -22,6 +22,15 @@ export default defineCachedEventHandler(async (event) => {
 })
 
 /** Helpers */
+
+export interface LighthouseData {
+  domain: string
+  performance: number
+  accessibility: number
+  bestPractices: number
+  seo: number
+  timestamp: number
+}
 
 interface PagespeedInsightsResult {
   lighthouseResult: {
