@@ -10,7 +10,7 @@
     "lint": "eslint .",
     "postinstall": "nuxt prepare && simple-git-hooks",
     "test:e2e": "playwright test test/e2e",
-    "test:e2e:update": "docker run --rm --network host -v $(pwd):/work/ -w /work/ -it mcr.microsoft.com/playwright:v1.49.1-noble bash -c 'corepack enable && pnpm i && pnpm playwright test test/e2e --update-snapshots'"
+    "test:e2e:update": "docker run --rm --network host -v $(pwd):/work/ -v /tmp/playwright-nm:/work/node_modules -w /work/ -it mcr.microsoft.com/playwright:v1.52.0-noble bash -c 'corepack enable && pnpm i && pnpm playwright test test/e2e --update-snapshots'"
   },
   "dependencies": {
     "@azure/identity": "^4.5.0",
