@@ -31,12 +31,7 @@ So:
 * **Mobile results** are displayed. (Desktop results are too easy to get good results for and don't adequately reflect a site's performance.)
 * **Core Web Vitals are prioritised** where available as these are a better measure of performance than Lighthouse/PageSpeed Insights results.
 * **Metrics in OpenGraph images** to provide an easy way to share data.
-
-## 🗺️ Roadmap
-
-- [ ] UI improvements and further optimisations
-- [ ] explain (and link out to resources on) the meaning of core web vitals acronyms (LCP, CLS, INP)
-- [ ] compute single web vitals score or make it easier to see what vital 'failed' the site
+* **SVG badges** to display Core Web Vitals metrics in GitHub READMEs or documentation.
 
 ## Features
 
@@ -48,6 +43,48 @@ So:
 - Deployed on [Azure Static Web Apps](https://azure.microsoft.com/en-gb/products/app-service/static/)
 - Using [unjs/unstorage](https://unstorage.unjs.io/) for caching on [Azure Blob Storage](https://azure.microsoft.com/en-us/products/storage/blobs/)
 - Using [route rules](https://nitro.unjs.io/guide/cache#route-rules) to persist images, HTML and API requests
+- SVG badges for displaying Core Web Vitals metrics in GitHub READMEs
+
+## SVG Badges
+
+You can now embed Core Web Vitals metrics in your GitHub README or documentation using our SVG badges:
+
+```markdown
+![Core Web Vitals](https://page-speed.dev/badge/roe.dev)
+```
+
+Example:
+![Core Web Vitals](https://page-speed.dev/badge/roe.dev)
+
+### Badge Options
+
+You can customize the badges with different metrics and styles:
+
+#### Metrics
+
+```markdown
+![LCP](https://page-speed.dev/badge/roe.dev?metric=lcp)
+![CLS](https://page-speed.dev/badge/roe.dev?metric=cls)
+![INP](https://page-speed.dev/badge/roe.dev?metric=inp)
+```
+
+Examples:
+![LCP](https://page-speed.dev/badge/roe.dev?metric=lcp)
+![CLS](https://page-speed.dev/badge/roe.dev?metric=cls)
+![INP](https://page-speed.dev/badge/roe.dev?metric=inp)
+
+#### Styles
+
+```markdown
+![Core Web Vitals](https://page-speed.dev/badge/roe.dev?style=flat)
+![Core Web Vitals](https://page-speed.dev/badge/roe.dev?style=flat-square)
+![Core Web Vitals](https://page-speed.dev/badge/roe.dev?style=plastic)
+```
+
+Examples:
+![Core Web Vitals](https://page-speed.dev/badge/roe.dev?style=flat)
+![Core Web Vitals](https://page-speed.dev/badge/roe.dev?style=flat-square)
+![Core Web Vitals](https://page-speed.dev/badge/roe.dev?style=plastic)
 
 ## Try it out locally
 

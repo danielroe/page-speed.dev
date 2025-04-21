@@ -23,7 +23,7 @@ export default defineCachedEventHandler(async (event) => {
       cls: normalizeHistogram(results.record.metrics.cumulative_layout_shift),
       inp: normalizeHistogram(results.record.metrics.interaction_to_next_paint, { timeBased: true }),
       timestamp: Date.now(),
-    }
+    } satisfies CruxData
   }
   catch (e: unknown) {
     console.error(e)
@@ -39,6 +39,24 @@ export default defineCachedEventHandler(async (event) => {
 })
 
 /** Helpers */
+
+export interface CruxData {
+  domain: string
+  cwv: boolean
+  lcp: {
+    caption: string | number
+    segments: number[]
+  }
+  cls: {
+    caption: string | number
+    segments: number[]
+  }
+  inp: {
+    caption: string | number
+    segments: number[]
+  }
+  timestamp: number
+}
 
 interface CrUXResult {
   record: {
