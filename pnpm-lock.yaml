@@ -10,7 +10,7 @@ importers:
     dependencies:
       '@azure/identity':
         specifier: ^4.5.0
-        version: 4.8.0
+        version: 4.9.0
       '@azure/storage-blob':
         specifier: ^12.25.0
         version: 12.27.0
@@ -28,16 +28,16 @@ importers:
         version: 66.0.0(magicast@0.3.5)(postcss@8.5.3)(vite@6.2.6(@types/node@22.14.1)(jiti@2.4.2)(terser@5.39.0)(yaml@2.7.1))(vue@3.5.13(typescript@5.8.3))(webpack@5.99.5(esbuild@0.25.2))
       nitropack:
         specifier: ^2.10.4
-        version: 2.11.9(@azure/identity@4.8.0)(@azure/storage-blob@12.27.0)
+        version: 2.11.9(@azure/identity@4.9.0)(@azure/storage-blob@12.27.0)
       nuxt:
         specifier: ^3.14.159
-        version: 3.16.2(@azure/identity@4.8.0)(@azure/storage-blob@12.27.0)(@parcel/watcher@2.5.1)(@types/node@22.14.1)(db0@0.3.1)(eslint@9.25.0(jiti@2.4.2))(ioredis@5.6.1)(magicast@0.3.5)(optionator@0.9.4)(rollup@4.40.0)(terser@5.39.0)(typescript@5.8.3)(vite@6.2.6(@types/node@22.14.1)(jiti@2.4.2)(terser@5.39.0)(yaml@2.7.1))(yaml@2.7.1)
+        version: 3.16.2(@azure/identity@4.9.0)(@azure/storage-blob@12.27.0)(@parcel/watcher@2.5.1)(@types/node@22.14.1)(db0@0.3.1)(eslint@9.25.0(jiti@2.4.2))(ioredis@5.6.1)(magicast@0.3.5)(optionator@0.9.4)(rollup@4.40.0)(terser@5.39.0)(typescript@5.8.3)(vite@6.2.6(@types/node@22.14.1)(jiti@2.4.2)(terser@5.39.0)(yaml@2.7.1))(yaml@2.7.1)
       nuxt-og-image:
         specifier: ^5.0.0
-        version: 5.1.1(@unhead/vue@2.0.5(vue@3.5.13(typescript@5.8.3)))(magicast@0.3.5)(unstorage@1.15.0(@azure/identity@4.8.0)(@azure/storage-blob@12.27.0)(db0@0.3.1)(ioredis@5.6.1))(vite@6.2.6(@types/node@22.14.1)(jiti@2.4.2)(terser@5.39.0)(yaml@2.7.1))(vue@3.5.13(typescript@5.8.3))
+        version: 5.1.2(@unhead/vue@2.0.5(vue@3.5.13(typescript@5.8.3)))(magicast@0.3.5)(unstorage@1.15.0(@azure/identity@4.9.0)(@azure/storage-blob@12.27.0)(db0@0.3.1)(ioredis@5.6.1))(vite@6.2.6(@types/node@22.14.1)(jiti@2.4.2)(terser@5.39.0)(yaml@2.7.1))(vue@3.5.13(typescript@5.8.3))
       nuxt-time:
         specifier: ^1.0.2
-        version: 1.0.3(magicast@0.3.5)(nuxt@3.16.2(@azure/identity@4.8.0)(@azure/storage-blob@12.27.0)(@parcel/watcher@2.5.1)(@types/node@22.14.1)(db0@0.3.1)(eslint@9.25.0(jiti@2.4.2))(ioredis@5.6.1)(magicast@0.3.5)(optionator@0.9.4)(rollup@4.40.0)(terser@5.39.0)(typescript@5.8.3)(vite@6.2.6(@types/node@22.14.1)(jiti@2.4.2)(terser@5.39.0)(yaml@2.7.1))(yaml@2.7.1))
+        version: 1.0.3(magicast@0.3.5)(nuxt@3.16.2(@azure/identity@4.9.0)(@azure/storage-blob@12.27.0)(@parcel/watcher@2.5.1)(@types/node@22.14.1)(db0@0.3.1)(eslint@9.25.0(jiti@2.4.2))(ioredis@5.6.1)(magicast@0.3.5)(optionator@0.9.4)(rollup@4.40.0)(terser@5.39.0)(typescript@5.8.3)(vite@6.2.6(@types/node@22.14.1)(jiti@2.4.2)(terser@5.39.0)(yaml@2.7.1))(yaml@2.7.1))
       ufo:
         specifier: ^1.5.4
         version: 1.6.1
@@ -56,10 +56,10 @@ importers:
         version: 1.3.0(@vue/compiler-sfc@3.5.13)(eslint@9.25.0(jiti@2.4.2))(magicast@0.3.5)(typescript@5.8.3)(vite@6.2.6(@types/node@22.14.1)(jiti@2.4.2)(terser@5.39.0)(yaml@2.7.1))
       '@nuxt/test-utils':
         specifier: 3.17.2
-        version: 3.17.2(@playwright/test@1.51.1)(@types/node@22.14.1)(jiti@2.4.2)(magicast@0.3.5)(playwright-core@1.51.1)(terser@5.39.0)(typescript@5.8.3)(yaml@2.7.1)
+        version: 3.17.2(@playwright/test@1.52.0)(@types/node@22.14.1)(jiti@2.4.2)(magicast@0.3.5)(playwright-core@1.52.0)(terser@5.39.0)(typescript@5.8.3)(yaml@2.7.1)
       '@playwright/test':
-        specifier: 1.51.1
-        version: 1.51.1
+        specifier: 1.52.0
+        version: 1.52.0
       eslint:
         specifier: 9.25.0
         version: 9.25.0(jiti@2.4.2)
@@ -77,7 +77,7 @@ importers:
         version: 5.8.3
       unstorage:
         specifier: 1.15.0
-        version: 1.15.0(@azure/identity@4.8.0)(@azure/storage-blob@12.27.0)(db0@0.3.1)(ioredis@5.6.1)
+        version: 1.15.0(@azure/identity@4.9.0)(@azure/storage-blob@12.27.0)(db0@0.3.1)(ioredis@5.6.1)
 
 packages:
 
@@ -147,24 +147,24 @@ packages:
     resolution: {integrity: sha512-gT4H8mTaSXRz7eGTuQyq1aIJnJqeXzpOe9Ay7Z3FrCouer14CbV3VzjnJrNrQfbBpGBLO9oy8BmrY75A0p53cA==}
     engines: {node: '>=18.0.0'}
 
-  '@azure/identity@4.8.0':
-    resolution: {integrity: sha512-l9ALUGHtFB/JfsqmA+9iYAp2a+cCwdNO/cyIr2y7nJLJsz1aae6qVP8XxT7Kbudg0IQRSIMXj0+iivFdbD1xPA==}
+  '@azure/identity@4.9.0':
+    resolution: {integrity: sha512-dz2ZvKxDFoTUmJgmkCBVcyuKckgqE1qVxrRPzUhyKN7FyvUbtNPUrGzqSllOAf1OL9TMGgYqZWbIyD0b/AE15g==}
     engines: {node: '>=18.0.0'}
 
   '@azure/logger@1.1.4':
     resolution: {integrity: sha512-4IXXzcCdLdlXuCG+8UKEwLA1T1NHqUfanhXYHiQTn+6sfWCZXduqbtXDGceg3Ce5QxTGo7EqmbV6Bi+aqKuClQ==}
     engines: {node: '>=18.0.0'}
 
-  '@azure/msal-browser@4.10.0':
-    resolution: {integrity: sha512-48X2VwOtHk8A1CI00E8tAqko0+3qQh53u5bOPySzdojL3T/Ad4GgRnN0c0oLJ1/PcTm4D4QybHYG3LBOX0l3/g==}
+  '@azure/msal-browser@4.11.0':
+    resolution: {integrity: sha512-0p5Ut3wORMP+975AKvaSPIO4UytgsfAvJ7RxaTx+nkP+Hpkmm93AuiMkBWKI2x9tApU/SLgIyPz/ZwLYUIWb5Q==}
     engines: {node: '>=0.8.0'}
 
-  '@azure/msal-common@15.5.0':
-    resolution: {integrity: sha512-u97AJ6m4PB24/Plms9e9iydRcOaxxrHWkan1px5GeWGJfakY1D/r1DmY1+Typ8zWC/5JbNzH1GYpXrorPymz5g==}
+  '@azure/msal-common@15.5.1':
+    resolution: {integrity: sha512-oxK0khbc4Bg1bKQnqDr7ikULhVL2OHgSrIq0Vlh4b6+hm4r0lr6zPMQE8ZvmacJuh+ZZGKBM5iIObhF1q1QimQ==}
     engines: {node: '>=0.8.0'}
 
-  '@azure/msal-node@3.5.0':
-    resolution: {integrity: sha512-9cLUmcOZ5FODz3uAhS2C9A1U7xDUTCHVcaNQBYpOd5qCKdKM6ft/ydAfw27vEntuaDgnh5jytOAKsEzEbtoQ1Q==}
+  '@azure/msal-node@3.5.1':
+    resolution: {integrity: sha512-dkgMYM5B6tI88r/oqf5bYd93WkenQpaWwiszJDk7avVjso8cmuKRTW97dA1RMi6RhihZFLtY1VtWxU9+sW2T5g==}
     engines: {node: '>=16'}
 
   '@azure/storage-blob@12.27.0':
@@ -648,6 +648,11 @@ packages:
     peerDependencies:
       vite: '>=6.0'
 
+  '@nuxt/devtools-kit@2.4.0':
+    resolution: {integrity: sha512-GdxdxEDN1f6uxJOPooYQTLC6X1QUe5kRs83A0PVH/uD0sqoXCjpKHOw+H0vdhkHOwOIsVIsbL+TdaF4k++p9TA==}
+    peerDependencies:
+      vite: '>=6.0'
+
   '@nuxt/devtools-wizard@2.3.2':
     resolution: {integrity: sha512-vrGjcb7O/ojrWM9FXjAyWgMLUTkb9bmQUCXc//wZw8YnJLR/hmmvo0XFwmz31BN7nMLZaMpUclROdlhRSPNf1Q==}
     hasBin: true
@@ -913,8 +918,8 @@ packages:
     resolution: {integrity: sha512-25L86MyPvnlQoX2MTIV2OiUcb6vJ6aRbFa9pbwByn95INKD5mFH2smgjDhq+fwJoqAgvgbdJLj6Tz7V9X5CFAQ==}
     engines: {node: ^12.20.0 || ^14.18.0 || >=16.0.0}
 
-  '@playwright/test@1.51.1':
-    resolution: {integrity: sha512-nM+kEaTSAoVlXmMPH10017vn3FSiFqr/bh4fKg9vmAdMfd9SDqRZNvPSiAHADc/itWak+qPvMPZQOPwCBW7k7Q==}
+  '@playwright/test@1.52.0':
+    resolution: {integrity: sha512-uh6W7sb55hl7D6vsAeA+V2p5JnlAqzhqFyF0VcJkKZXkgnFcVG9PziERRHQfPLfNGx1C292a4JqbWzhR8L4R1g==}
     engines: {node: '>=18'}
     hasBin: true
 
@@ -2391,6 +2396,9 @@ packages:
   exsolve@1.0.4:
     resolution: {integrity: sha512-xsZH6PXaER4XoV+NiT7JHp1bJodJVT+cxeSH1G0f0tlT0lJqYuHUP3bUx2HtfTDvOagMINYp8rsqusxud3RXhw==}
 
+  exsolve@1.0.5:
+    resolution: {integrity: sha512-pz5dvkYYKQ1AHVrgOzBKWeP4u4FRb3a6DNK2ucr0OoNwYIU4QWsJ+NM36LLzORT+z845MzKHHhpXiUF5nvQoJg==}
+
   externality@1.0.2:
     resolution: {integrity: sha512-LyExtJWKxtgVzmgtEHyQtLFpw1KFhQphF9nTG8TpAIVkiI/xQ3FJh75tRFLYl4hkn7BNIIdLJInuDAavX35pMw==}
 
@@ -2888,14 +2896,8 @@ packages:
   jwa@1.4.1:
     resolution: {integrity: sha512-qiLX/xhEEFKUAJ6FiBMbes3w9ATzyk5W7Hvzpa/SLYdxNtng+gcurvrI7TbACjIXlsJyr05/S1oUhZrc63evQA==}
 
-  jwa@2.0.0:
-    resolution: {integrity: sha512-jrZ2Qx916EA+fq9cEAeCROWPTfCwi1IVHqT2tapuqLEVVDKFDENFw1oL+MwrTvH6msKxsd1YTDVw6uKEcsrLEA==}
-
   jws@3.2.2:
     resolution: {integrity: sha512-YHlZCB6lMTllWDtSPHz/ZXTsi8S00usEV6v1tjq8tOUZzw7DpSDWVXjXDre6ed1w/pd495ODpHZYSdkRTsa0HA==}
-
-  jws@4.0.0:
-    resolution: {integrity: sha512-KDncfTmOZoOMTFG4mBlG0qUIOlc03fmzH+ru6RgYVZhPkyiy/92Owlt/8UEN+a4TXR1FQetfIpJE8ApdvdVxTg==}
 
   keyv@4.5.4:
     resolution: {integrity: sha512-oxVHkHR/EJf2CNXnWxRLW6mg7JyCCUcG0DtEGmL2ctUo1PNTin1PUil+r/+4r5MpVgC/fn1kjsx7mjSujKqIpw==}
@@ -3228,12 +3230,12 @@ packages:
   nth-check@2.1.1:
     resolution: {integrity: sha512-lqjrjmaOoAnWfMmBPL+XNnynZh2+swxiX3WUE0s4yEHI6m+AwrK2UZOimIRl3X/4QctVqS8AiZjFqyOGrMXb/w==}
 
-  nuxt-og-image@5.1.1:
-    resolution: {integrity: sha512-QMtkShOmQ4L9QIg6C0zcUOjjkqU19GKGQvkwP9aF0ZrivNtW7cjRSKLy/HtzFTI3rcbP6H5Vkhu6u2hEtNSb3A==}
+  nuxt-og-image@5.1.2:
+    resolution: {integrity: sha512-6cmQJdC33U8Jdi80ib43s4TzT6ADccs2zK9frvPi93Rka0KYsv3meGGzS5m/1/5T1oMv1EIXhkFwTrDDxYB/GQ==}
     engines: {node: '>=18.0.0'}
     peerDependencies:
-      '@unhead/vue': ^2.0.0-rc.1
-      unstorage: ^1.0.0
+      '@unhead/vue': ^2.0.5
+      unstorage: ^1.15.0
 
   nuxt-site-config-kit@3.1.9:
     resolution: {integrity: sha512-bcmpajYJgkNzA0jTq6CmmhKF2wHZUUKeVx/CIGI8lwWuAD81EBUZN0T4iKvVDo54g9UBrUUl8/5GhD65YBBG0A==}
@@ -3288,6 +3290,10 @@ packages:
 
   open@10.1.0:
     resolution: {integrity: sha512-mnkeQ1qP5Ue2wd+aivTD3NHd/lZ96Lu0jgf0pwktLPtx6cTZiH7tyeGRRHs0zX0rbrahXPnXlUnbeXyaBBuIaw==}
+    engines: {node: '>=18'}
+
+  open@10.1.1:
+    resolution: {integrity: sha512-zy1wx4+P3PfhXSEPJNtZmJXfhkkIaxU1VauWIrDZw1O7uJRDRJtKr9n3Ic4NgbA16KyOxOXO2ng9gYwCdXuSXA==}
     engines: {node: '>=18'}
 
   open@8.4.2:
@@ -3418,13 +3424,13 @@ packages:
   pkg-types@2.1.0:
     resolution: {integrity: sha512-wmJwA+8ihJixSoHKxZJRBQG1oY8Yr9pGLzRmSsNms0iNWyHHAlZCa7mmKiFR10YPZuz/2k169JiS/inOjBCZ2A==}
 
-  playwright-core@1.51.1:
-    resolution: {integrity: sha512-/crRMj8+j/Nq5s8QcvegseuyeZPxpQCZb6HNk3Sos3BlZyAknRjoyJPFWkpNn8v0+P3WiwqFF8P+zQo4eqiNuw==}
+  playwright-core@1.52.0:
+    resolution: {integrity: sha512-l2osTgLXSMeuLZOML9qYODUQoPPnUsKsb5/P6LJ2e6uPKXUdPK5WYhN4z03G+YNbWmGDY4YENauNu4ZKczreHg==}
     engines: {node: '>=18'}
     hasBin: true
 
-  playwright@1.51.1:
-    resolution: {integrity: sha512-kkx+MB2KQRkyxjYPc3a0wLZZoDczmppyGJIvQ43l+aZihkaVvmu/21kiyaHeHjiFxjxNNFnUncKmcGIyOojsaw==}
+  playwright@1.52.0:
+    resolution: {integrity: sha512-JAwMNMBlxJ2oD1kce4KPtMkDeKGHQstdpFPcPH3maElAXon/QZeTvtsfXmTMRyO9TslfoYOXkSsvao2nE1ilTw==}
     engines: {node: '>=18'}
     hasBin: true
 
@@ -3922,10 +3928,6 @@ packages:
 
   std-env@3.9.0:
     resolution: {integrity: sha512-UGvjygr6F6tpH7o2qyqR6QYpwraIjKSdtzyBdyytFOHmPZY917kwdwLG0RbOjWOnKmnm3PeHjaoLLMie7kPLQw==}
-
-  stoppable@1.1.0:
-    resolution: {integrity: sha512-KXDYZ9dszj6bzvnEMRYvxgeTHU74QBFL54XKtP3nyMuJ81CFYtABZ3bAzL2EdFUaEwJOBOgENyFj3R7oTzDyyw==}
-    engines: {node: '>=4', npm: '>=6'}
 
   streamx@2.22.0:
     resolution: {integrity: sha512-sLh1evHOzBy/iWRiR6d1zRcLao4gGZr3C1kzNz4fopCOKJb6xD9ub8Mpi9Mr1R6id5o43S+d93fI48UC5uM9aw==}
@@ -4663,7 +4665,7 @@ snapshots:
       fast-xml-parser: 5.2.0
       tslib: 2.8.1
 
-  '@azure/identity@4.8.0':
+  '@azure/identity@4.9.0':
     dependencies:
       '@azure/abort-controller': 2.1.2
       '@azure/core-auth': 1.9.0
@@ -4672,12 +4674,9 @@ snapshots:
       '@azure/core-tracing': 1.2.0
       '@azure/core-util': 1.11.0
       '@azure/logger': 1.1.4
-      '@azure/msal-browser': 4.10.0
-      '@azure/msal-node': 3.5.0
-      events: 3.3.0
-      jws: 4.0.0
-      open: 10.1.0
-      stoppable: 1.1.0
+      '@azure/msal-browser': 4.11.0
+      '@azure/msal-node': 3.5.1
+      open: 10.1.1
       tslib: 2.8.1
     transitivePeerDependencies:
       - supports-color
@@ -4686,15 +4685,15 @@ snapshots:
     dependencies:
       tslib: 2.8.1
 
-  '@azure/msal-browser@4.10.0':
+  '@azure/msal-browser@4.11.0':
     dependencies:
-      '@azure/msal-common': 15.5.0
+      '@azure/msal-common': 15.5.1
 
-  '@azure/msal-common@15.5.0': {}
+  '@azure/msal-common@15.5.1': {}
 
-  '@azure/msal-node@3.5.0':
+  '@azure/msal-node@3.5.1':
     dependencies:
-      '@azure/msal-common': 15.5.0
+      '@azure/msal-common': 15.5.1
       jsonwebtoken: 9.0.2
       uuid: 8.3.2
 
@@ -5241,6 +5240,15 @@ snapshots:
     transitivePeerDependencies:
       - magicast
 
+  '@nuxt/devtools-kit@2.4.0(magicast@0.3.5)(vite@6.2.6(@types/node@22.14.1)(jiti@2.4.2)(terser@5.39.0)(yaml@2.7.1))':
+    dependencies:
+      '@nuxt/kit': 3.16.2(magicast@0.3.5)
+      '@nuxt/schema': 3.16.2
+      execa: 8.0.1
+      vite: 6.2.6(@types/node@22.14.1)(jiti@2.4.2)(terser@5.39.0)(yaml@2.7.1)
+    transitivePeerDependencies:
+      - magicast
+
   '@nuxt/devtools-wizard@2.3.2':
     dependencies:
       consola: 3.4.2
@@ -5363,7 +5371,7 @@ snapshots:
       defu: 6.1.4
       destr: 2.0.5
       errx: 0.1.0
-      exsolve: 1.0.4
+      exsolve: 1.0.5
       globby: 14.1.0
       ignore: 7.0.3
       jiti: 2.4.2
@@ -5407,7 +5415,7 @@ snapshots:
     transitivePeerDependencies:
       - magicast
 
-  '@nuxt/test-utils@3.17.2(@playwright/test@1.51.1)(@types/node@22.14.1)(jiti@2.4.2)(magicast@0.3.5)(playwright-core@1.51.1)(terser@5.39.0)(typescript@5.8.3)(yaml@2.7.1)':
+  '@nuxt/test-utils@3.17.2(@playwright/test@1.52.0)(@types/node@22.14.1)(jiti@2.4.2)(magicast@0.3.5)(playwright-core@1.52.0)(terser@5.39.0)(typescript@5.8.3)(yaml@2.7.1)':
     dependencies:
       '@nuxt/kit': 3.16.2(magicast@0.3.5)
       '@nuxt/schema': 3.16.2
@@ -5433,11 +5441,11 @@ snapshots:
       ufo: 1.6.1
       unplugin: 2.3.2
       vite: 6.2.6(@types/node@22.14.1)(jiti@2.4.2)(terser@5.39.0)(yaml@2.7.1)
-      vitest-environment-nuxt: 1.0.1(@playwright/test@1.51.1)(@types/node@22.14.1)(jiti@2.4.2)(magicast@0.3.5)(playwright-core@1.51.1)(terser@5.39.0)(typescript@5.8.3)(yaml@2.7.1)
+      vitest-environment-nuxt: 1.0.1(@playwright/test@1.52.0)(@types/node@22.14.1)(jiti@2.4.2)(magicast@0.3.5)(playwright-core@1.52.0)(terser@5.39.0)(typescript@5.8.3)(yaml@2.7.1)
       vue: 3.5.13(typescript@5.8.3)
     optionalDependencies:
-      '@playwright/test': 1.51.1
-      playwright-core: 1.51.1
+      '@playwright/test': 1.52.0
+      playwright-core: 1.52.0
     transitivePeerDependencies:
       - '@types/node'
       - jiti
@@ -5651,9 +5659,9 @@ snapshots:
 
   '@pkgr/core@0.2.2': {}
 
-  '@playwright/test@1.51.1':
+  '@playwright/test@1.52.0':
     dependencies:
-      playwright: 1.51.1
+      playwright: 1.52.0
 
   '@polka/url@1.0.0-next.29': {}
 
@@ -7286,6 +7294,8 @@ snapshots:
 
   exsolve@1.0.4: {}
 
+  exsolve@1.0.5: {}
+
   externality@1.0.2:
     dependencies:
       enhanced-resolve: 5.18.1
@@ -7736,20 +7746,9 @@ snapshots:
       ecdsa-sig-formatter: 1.0.11
       safe-buffer: 5.2.1
 
-  jwa@2.0.0:
-    dependencies:
-      buffer-equal-constant-time: 1.0.1
-      ecdsa-sig-formatter: 1.0.11
-      safe-buffer: 5.2.1
-
   jws@3.2.2:
     dependencies:
       jwa: 1.4.1
-      safe-buffer: 5.2.1
-
-  jws@4.0.0:
-    dependencies:
-      jwa: 2.0.0
       safe-buffer: 5.2.1
 
   keyv@4.5.4:
@@ -8003,7 +8002,7 @@ snapshots:
 
   neo-async@2.6.2: {}
 
-  nitropack@2.11.9(@azure/identity@4.8.0)(@azure/storage-blob@12.27.0):
+  nitropack@2.11.9(@azure/identity@4.9.0)(@azure/storage-blob@12.27.0):
     dependencies:
       '@cloudflare/kv-asset-handler': 0.4.0
       '@netlify/functions': 3.0.4
@@ -8071,7 +8070,7 @@ snapshots:
       unenv: 2.0.0-rc.15
       unimport: 5.0.0
       unplugin-utils: 0.2.4
-      unstorage: 1.15.0(@azure/identity@4.8.0)(@azure/storage-blob@12.27.0)(db0@0.3.1)(ioredis@5.6.1)
+      unstorage: 1.15.0(@azure/identity@4.9.0)(@azure/storage-blob@12.27.0)(db0@0.3.1)(ioredis@5.6.1)
       untyped: 2.0.0
       unwasm: 0.3.9
       youch: 4.1.0-beta.7
@@ -8146,9 +8145,9 @@ snapshots:
     dependencies:
       boolbase: 1.0.0
 
-  nuxt-og-image@5.1.1(@unhead/vue@2.0.5(vue@3.5.13(typescript@5.8.3)))(magicast@0.3.5)(unstorage@1.15.0(@azure/identity@4.8.0)(@azure/storage-blob@12.27.0)(db0@0.3.1)(ioredis@5.6.1))(vite@6.2.6(@types/node@22.14.1)(jiti@2.4.2)(terser@5.39.0)(yaml@2.7.1))(vue@3.5.13(typescript@5.8.3)):
+  nuxt-og-image@5.1.2(@unhead/vue@2.0.5(vue@3.5.13(typescript@5.8.3)))(magicast@0.3.5)(unstorage@1.15.0(@azure/identity@4.9.0)(@azure/storage-blob@12.27.0)(db0@0.3.1)(ioredis@5.6.1))(vite@6.2.6(@types/node@22.14.1)(jiti@2.4.2)(terser@5.39.0)(yaml@2.7.1))(vue@3.5.13(typescript@5.8.3)):
     dependencies:
-      '@nuxt/devtools-kit': 2.3.2(magicast@0.3.5)(vite@6.2.6(@types/node@22.14.1)(jiti@2.4.2)(terser@5.39.0)(yaml@2.7.1))
+      '@nuxt/devtools-kit': 2.4.0(magicast@0.3.5)(vite@6.2.6(@types/node@22.14.1)(jiti@2.4.2)(terser@5.39.0)(yaml@2.7.1))
       '@nuxt/kit': 3.16.2(magicast@0.3.5)
       '@resvg/resvg-js': 2.6.2
       '@resvg/resvg-wasm': 2.6.2
@@ -8168,7 +8167,7 @@ snapshots:
       ohash: 2.0.11
       pathe: 2.0.3
       pkg-types: 2.1.0
-      playwright-core: 1.51.1
+      playwright-core: 1.52.0
       radix3: 1.1.2
       satori: 0.12.2
       satori-html: 0.3.2
@@ -8177,7 +8176,7 @@ snapshots:
       strip-literal: 3.0.0
       ufo: 1.6.1
       unplugin: 2.3.2
-      unstorage: 1.15.0(@azure/identity@4.8.0)(@azure/storage-blob@12.27.0)(db0@0.3.1)(ioredis@5.6.1)
+      unstorage: 1.15.0(@azure/identity@4.9.0)(@azure/storage-blob@12.27.0)(db0@0.3.1)(ioredis@5.6.1)
       unwasm: 0.3.9
       yoga-wasm-web: 0.3.3
     transitivePeerDependencies:
@@ -8210,14 +8209,14 @@ snapshots:
       - magicast
       - vue
 
-  nuxt-time@1.0.3(magicast@0.3.5)(nuxt@3.16.2(@azure/identity@4.8.0)(@azure/storage-blob@12.27.0)(@parcel/watcher@2.5.1)(@types/node@22.14.1)(db0@0.3.1)(eslint@9.25.0(jiti@2.4.2))(ioredis@5.6.1)(magicast@0.3.5)(optionator@0.9.4)(rollup@4.40.0)(terser@5.39.0)(typescript@5.8.3)(vite@6.2.6(@types/node@22.14.1)(jiti@2.4.2)(terser@5.39.0)(yaml@2.7.1))(yaml@2.7.1)):
+  nuxt-time@1.0.3(magicast@0.3.5)(nuxt@3.16.2(@azure/identity@4.9.0)(@azure/storage-blob@12.27.0)(@parcel/watcher@2.5.1)(@types/node@22.14.1)(db0@0.3.1)(eslint@9.25.0(jiti@2.4.2))(ioredis@5.6.1)(magicast@0.3.5)(optionator@0.9.4)(rollup@4.40.0)(terser@5.39.0)(typescript@5.8.3)(vite@6.2.6(@types/node@22.14.1)(jiti@2.4.2)(terser@5.39.0)(yaml@2.7.1))(yaml@2.7.1)):
     dependencies:
       '@nuxt/kit': 3.16.2(magicast@0.3.5)
-      nuxt: 3.16.2(@azure/identity@4.8.0)(@azure/storage-blob@12.27.0)(@parcel/watcher@2.5.1)(@types/node@22.14.1)(db0@0.3.1)(eslint@9.25.0(jiti@2.4.2))(ioredis@5.6.1)(magicast@0.3.5)(optionator@0.9.4)(rollup@4.40.0)(terser@5.39.0)(typescript@5.8.3)(vite@6.2.6(@types/node@22.14.1)(jiti@2.4.2)(terser@5.39.0)(yaml@2.7.1))(yaml@2.7.1)
+      nuxt: 3.16.2(@azure/identity@4.9.0)(@azure/storage-blob@12.27.0)(@parcel/watcher@2.5.1)(@types/node@22.14.1)(db0@0.3.1)(eslint@9.25.0(jiti@2.4.2))(ioredis@5.6.1)(magicast@0.3.5)(optionator@0.9.4)(rollup@4.40.0)(terser@5.39.0)(typescript@5.8.3)(vite@6.2.6(@types/node@22.14.1)(jiti@2.4.2)(terser@5.39.0)(yaml@2.7.1))(yaml@2.7.1)
     transitivePeerDependencies:
       - magicast
 
-  nuxt@3.16.2(@azure/identity@4.8.0)(@azure/storage-blob@12.27.0)(@parcel/watcher@2.5.1)(@types/node@22.14.1)(db0@0.3.1)(eslint@9.25.0(jiti@2.4.2))(ioredis@5.6.1)(magicast@0.3.5)(optionator@0.9.4)(rollup@4.40.0)(terser@5.39.0)(typescript@5.8.3)(vite@6.2.6(@types/node@22.14.1)(jiti@2.4.2)(terser@5.39.0)(yaml@2.7.1))(yaml@2.7.1):
+  nuxt@3.16.2(@azure/identity@4.9.0)(@azure/storage-blob@12.27.0)(@parcel/watcher@2.5.1)(@types/node@22.14.1)(db0@0.3.1)(eslint@9.25.0(jiti@2.4.2))(ioredis@5.6.1)(magicast@0.3.5)(optionator@0.9.4)(rollup@4.40.0)(terser@5.39.0)(typescript@5.8.3)(vite@6.2.6(@types/node@22.14.1)(jiti@2.4.2)(terser@5.39.0)(yaml@2.7.1))(yaml@2.7.1):
     dependencies:
       '@nuxt/cli': 3.24.1(magicast@0.3.5)
       '@nuxt/devalue': 2.0.2
@@ -8254,7 +8253,7 @@ snapshots:
       mlly: 1.7.4
       mocked-exports: 0.1.1
       nanotar: 0.2.0
-      nitropack: 2.11.9(@azure/identity@4.8.0)(@azure/storage-blob@12.27.0)
+      nitropack: 2.11.9(@azure/identity@4.9.0)(@azure/storage-blob@12.27.0)
       nypm: 0.6.0
       ofetch: 1.4.1
       ohash: 2.0.11
@@ -8276,7 +8275,7 @@ snapshots:
       unimport: 4.2.0
       unplugin: 2.3.2
       unplugin-vue-router: 0.12.0(vue-router@4.5.0(vue@3.5.13(typescript@5.8.3)))(vue@3.5.13(typescript@5.8.3))
-      unstorage: 1.15.0(@azure/identity@4.8.0)(@azure/storage-blob@12.27.0)(db0@0.3.1)(ioredis@5.6.1)
+      unstorage: 1.15.0(@azure/identity@4.9.0)(@azure/storage-blob@12.27.0)(db0@0.3.1)(ioredis@5.6.1)
       untyped: 2.0.0
       vue: 3.5.13(typescript@5.8.3)
       vue-bundle-renderer: 2.1.1
@@ -8369,6 +8368,13 @@ snapshots:
       mimic-function: 5.0.1
 
   open@10.1.0:
+    dependencies:
+      default-browser: 5.2.1
+      define-lazy-prop: 3.0.0
+      is-inside-container: 1.0.0
+      is-wsl: 3.1.0
+
+  open@10.1.1:
     dependencies:
       default-browser: 5.2.1
       define-lazy-prop: 3.0.0
@@ -8504,14 +8510,14 @@ snapshots:
   pkg-types@2.1.0:
     dependencies:
       confbox: 0.2.2
-      exsolve: 1.0.4
+      exsolve: 1.0.5
       pathe: 2.0.3
 
-  playwright-core@1.51.1: {}
+  playwright-core@1.52.0: {}
 
-  playwright@1.51.1:
+  playwright@1.52.0:
     dependencies:
-      playwright-core: 1.51.1
+      playwright-core: 1.52.0
     optionalDependencies:
       fsevents: 2.3.2
 
@@ -9018,8 +9024,6 @@ snapshots:
 
   std-env@3.9.0: {}
 
-  stoppable@1.1.0: {}
-
   streamx@2.22.0:
     dependencies:
       fast-fifo: 1.3.2
@@ -9365,7 +9369,7 @@ snapshots:
       '@unrs/resolver-binding-win32-ia32-msvc': 1.5.0
       '@unrs/resolver-binding-win32-x64-msvc': 1.5.0
 
-  unstorage@1.15.0(@azure/identity@4.8.0)(@azure/storage-blob@12.27.0)(db0@0.3.1)(ioredis@5.6.1):
+  unstorage@1.15.0(@azure/identity@4.9.0)(@azure/storage-blob@12.27.0)(db0@0.3.1)(ioredis@5.6.1):
     dependencies:
       anymatch: 3.1.3
       chokidar: 4.0.3
@@ -9376,7 +9380,7 @@ snapshots:
       ofetch: 1.4.1
       ufo: 1.6.1
     optionalDependencies:
-      '@azure/identity': 4.8.0
+      '@azure/identity': 4.9.0
       '@azure/storage-blob': 12.27.0
       db0: 0.3.1
       ioredis: 5.6.1
@@ -9483,7 +9487,7 @@ snapshots:
       debug: 4.4.0
       error-stack-parser-es: 1.0.5
       ohash: 2.0.11
-      open: 10.1.0
+      open: 10.1.1
       perfect-debounce: 1.0.0
       sirv: 3.0.1
       unplugin-utils: 0.2.4
@@ -9516,9 +9520,9 @@ snapshots:
       terser: 5.39.0
       yaml: 2.7.1
 
-  vitest-environment-nuxt@1.0.1(@playwright/test@1.51.1)(@types/node@22.14.1)(jiti@2.4.2)(magicast@0.3.5)(playwright-core@1.51.1)(terser@5.39.0)(typescript@5.8.3)(yaml@2.7.1):
+  vitest-environment-nuxt@1.0.1(@playwright/test@1.52.0)(@types/node@22.14.1)(jiti@2.4.2)(magicast@0.3.5)(playwright-core@1.52.0)(terser@5.39.0)(typescript@5.8.3)(yaml@2.7.1):
     dependencies:
-      '@nuxt/test-utils': 3.17.2(@playwright/test@1.51.1)(@types/node@22.14.1)(jiti@2.4.2)(magicast@0.3.5)(playwright-core@1.51.1)(terser@5.39.0)(typescript@5.8.3)(yaml@2.7.1)
+      '@nuxt/test-utils': 3.17.2(@playwright/test@1.52.0)(@types/node@22.14.1)(jiti@2.4.2)(magicast@0.3.5)(playwright-core@1.52.0)(terser@5.39.0)(typescript@5.8.3)(yaml@2.7.1)
     transitivePeerDependencies:
       - '@cucumber/cucumber'
       - '@jest/globals'
