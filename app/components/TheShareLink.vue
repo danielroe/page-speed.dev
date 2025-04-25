@@ -15,7 +15,7 @@ const text = computed(() => props.domain
 
 const canonicalURL = computed(() => props.domain ? joinURL(`https://page-speed.dev`, props.domain) : 'https://page-speed.dev')
 const shareLink = computed(() =>
-  `https://twitter.com/intent/tweet?text=${
+  `https://bsky.app/intent/compose?text=${
     props.domain ? encodeURIComponent([text.value, canonicalURL.value].join('\n\n')) : text.value}`,
 )
 
@@ -32,7 +32,7 @@ async function nativeShare() {
     }
   }
   catch {
-    // ignore errors sharing to native share and fall back directly to Twitter
+    // ignore errors sharing to native share and fall back directly to Bluesky
   }
   return await navigateTo(shareLink.value, { external: true, open: { target: '_blank' } })
 }
