@@ -36,9 +36,9 @@
     "eslint": "9.25.1",
     "lint-staged": "15.5.1",
     "mock-driver": "link:./test/mock-driver",
-    "simple-git-hooks": "2.12.1",
+    "simple-git-hooks": "2.13.0",
     "typescript": "5.8.3",
-    "unstorage": "1.15.0"
+    "unstorage": "1.16.0"
   },
   "simple-git-hooks": {
     "pre-commit": "npx lint-staged"
@@ -48,5 +48,5 @@
       "npx eslint --fix"
     ]
   },
-  "packageManager": "pnpm@10.9.0"
+  "packageManager": "pnpm@10.10.0"
 }
