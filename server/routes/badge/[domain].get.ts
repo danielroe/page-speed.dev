@@ -7,6 +7,14 @@ interface StyleConfig {
   rect: string
 }
 
+const lighthouseMetrics = new Set([
+  'performance',
+  'accessibility',
+  'best-practices',
+  'bestPractices',
+  'seo',
+])
+
 export default defineCachedEventHandler(async (event) => {
   // Get and validate the domain from the URL parameter
   const domain = await validateDomain(getRouterParam(event, 'domain'))
@@ -16,55 +24,44 @@ export default defineCachedEventHandler(async (event) => {
   const style = String(query.style || 'default') // default, flat, flat-square, plastic
   const metric = String(query.metric || 'cwv') // cwv, lcp, cls, inp, performance
 
+  setResponseHeader(event, 'Content-Type', 'image/svg+xml')
+
   try {
+    if (!lighthouseMetrics.has(metric)) {
     // Fetch the CrUX data using the existing API
-    const cruxData = await $fetch(`/api/crux/${domain}`)
+      const cruxData = await $fetch(`/api/crux/${domain}`)
 
-    setResponseHeader(event, 'Content-Type', 'image/svg+xml')
+      if (metric === 'cwv') {
+        return generateCWVBadge(domain, cruxData, style)
+      }
+      if (['lcp', 'cls', 'inp'].includes(metric)) {
+        return generateMetricBadge(domain, cruxData, metric, style)
+      }
 
-    // Generate the badge with Core Web Vitals based on requested metric
-    let svgBadge: string
-
-    if (metric === 'cwv') {
-      svgBadge = generateCWVBadge(domain, cruxData, style)
-    }
-    else if (['lcp', 'cls', 'inp'].includes(metric)) {
-      svgBadge = generateMetricBadge(domain, cruxData, metric, style)
-    }
-    else {
       // Default to CWV badge if invalid metric specified
-      svgBadge = generateCWVBadge(domain, cruxData, style)
+      return generateCWVBadge(domain, cruxData, style)
     }
-
-    return svgBadge
   }
   catch {
     // If CrUX data is not available, try to fetch Lighthouse data
-    try {
-      const lighthouseData = await $fetch(`/api/run/${domain}`)
+  }
 
-      // Set content type header for SVG
-      setResponseHeader(event, 'Content-Type', 'image/svg+xml')
+  try {
+    const lighthouseData = await $fetch(`/api/run/${domain}`)
 
-      let svgBadge: string
-
-      // Check if user requested a Lighthouse metric specifically
-      if (metric === 'performance' || !['cwv', 'lcp', 'cls', 'inp'].includes(metric)) {
-        svgBadge = generateLighthouseBadge(domain, lighthouseData, metric, style)
-      }
-      else {
-        // Generate default Lighthouse badge if CrUX data not available but CWV metric requested
-        svgBadge = generateLighthouseBadge(domain, lighthouseData, 'performance', style)
-      }
-
-      return svgBadge
+    // Check if user requested a Lighthouse metric specifically
+    if (metric === 'performance' || !['cwv', 'lcp', 'cls', 'inp'].includes(metric)) {
+      return generateLighthouseBadge(domain, lighthouseData, metric, style)
     }
-    catch {
-      throw createError({
-        statusCode: 404,
-        message: 'No performance data available for this domain.',
-      })
-    }
+
+    // Generate default Lighthouse badge if CrUX data not available but CWV metric requested
+    return generateLighthouseBadge(domain, lighthouseData, 'performance', style)
+  }
+  catch {
+    throw createError({
+      statusCode: 404,
+      message: 'No performance data available for this domain.',
+    })
   }
 }, {
   base: 'pagespeed',
@@ -75,7 +72,7 @@ export default defineCachedEventHandler(async (event) => {
   staleMaxAge: 24 * 60 * 60,
 })
 
-function generateCWVBadge(domain: string, data: CruxData, style: string = 'default'): string {
+function generateCWVBadge(domain: string, data: CruxData, style = 'default'): string {
   // Color mappings for Core Web Vitals
   const getStatusColor = (pass: boolean) => pass ? '#23c55e' : '#ef4444'
   const overallStatus = data.cwv
@@ -107,7 +104,7 @@ function generateCWVBadge(domain: string, data: CruxData, style: string = 'defau
   </svg>`
 }
 
-function generateMetricBadge(domain: string, data: CruxData, metric: string, style: string = 'default'): string {
+function generateMetricBadge(domain: string, data: CruxData, metric: string, style = 'default'): string {
   let metricLabel = ''
   let metricValue: string | number = ''
   let metricThresholds = { good: 0, needsImprovement: 0, unit: '' }
@@ -165,7 +162,7 @@ function generateMetricBadge(domain: string, data: CruxData, metric: string, sty
   </svg>`
 }
 
-function generateLighthouseBadge(domain: string, data: LighthouseData, metric: string = 'performance', style: string = 'default'): string {
+function generateLighthouseBadge(domain: string, data: LighthouseData, metric = 'performance', style = 'default'): string {
   // Get performance score and determine color
   let metricLabel = ''
   let score = 0
