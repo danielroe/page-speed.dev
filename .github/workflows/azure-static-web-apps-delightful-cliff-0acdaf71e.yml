@@ -27,7 +27,7 @@ jobs:
           cache: pnpm
       - run: pnpm install --frozen-lockfile
       - name: Get Id Token
-        uses: actions/github-script@v7
+        uses: actions/github-script@v8
         id: idtoken
         with:
            script: |
@@ -64,7 +64,7 @@ jobs:
 
       - name: Create GitHub deployment for PR
         if: github.event_name == 'pull_request'
-        uses: actions/github-script@v7
+        uses: actions/github-script@v8
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
@@ -124,7 +124,7 @@ jobs:
           cache: pnpm
       - run: pnpm install --frozen-lockfile
       - name: Get Id Token
-        uses: actions/github-script@v7
+        uses: actions/github-script@v8
         id: idtoken
         with:
            script: |
@@ -140,7 +140,7 @@ jobs:
           action: "close"
 
       - name: Deactivate GitHub deployment for PR
-        uses: actions/github-script@v7
+        uses: actions/github-script@v8
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
