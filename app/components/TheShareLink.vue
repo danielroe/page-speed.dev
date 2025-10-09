@@ -50,10 +50,10 @@ async function nativeShare() {
     </NuxtLink>
     <a
       v-if="type === 'crux'"
-      :href="`https://lookerstudio.google.com/c/u/0/reporting/bbc5698d-57bb-4969-9e07-68810b9fa348/page/keDQB?params=%7B%22origin%22:%22https://${domain}%22%7D`"
+      :href="`https://cruxvis.withgoogle.com/#/?view=cwvsummary&url=https://${domain}`"
       class="self-start underline text-gray-400 hover:text-green-400 focus:text-green-400 active:text-green-400"
     >
-      explore full results in the CrUX Dashboard &raquo;
+      explore full results in CrUX Vis &raquo;
     </a>
     <a
       v-else
