@@ -4,5 +4,4 @@ ignoredBuiltDependencies:
 
 onlyBuiltDependencies:
   - simple-git-hooks
-trustPolicy: no-downgrade
 
