@@ -102,7 +102,7 @@ jobs:
 
       - name: Clear Cloudflare cache
         if: github.event_name == 'push'
-        uses: Cyb3r-Jak3/action-cloudflare-cache@v2.0.0
+        uses: Cyb3r-Jak3/action-cloudflare-cache@v3.0.0
         with:
           zone: ${{ secrets.CLOUDFLARE_ZONE }}
           api_token: ${{ secrets.CLOUDFLARE_TOKEN }}
