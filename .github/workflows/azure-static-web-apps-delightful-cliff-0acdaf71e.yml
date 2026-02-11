@@ -19,15 +19,15 @@ jobs:
        contents: read
        deployments: write
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
       - run: corepack enable
-      - uses: actions/setup-node@v6
+      - uses: actions/setup-node@6044e13b5dc448c55e2357c09f80417699197238 # v6
         with:
           node-version: lts/*
           cache: pnpm
       - run: pnpm install --frozen-lockfile
       - name: Get Id Token
-        uses: actions/github-script@v8
+        uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8
         id: idtoken
         with:
            script: |
@@ -36,7 +36,7 @@ jobs:
            result-encoding: string
       - name: Build And Deploy
         id: builddeploy
-        uses: Azure/static-web-apps-deploy@v1
+        uses: Azure/static-web-apps-deploy@1a947af9992250f3bc2e68ad0754c0b0c11566c9 # v1
         env:
           PRE_BUILD_COMMAND: npm i -g --force corepack && corepack enable
           CUSTOM_BUILD_COMMAND: pnpm install && pnpm build
@@ -64,7 +64,7 @@ jobs:
 
       - name: Create GitHub deployment for PR
         if: github.event_name == 'pull_request'
-        uses: actions/github-script@v8
+        uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
@@ -102,7 +102,7 @@ jobs:
 
       - name: Clear Cloudflare cache
         if: github.event_name == 'push'
-        uses: Cyb3r-Jak3/action-cloudflare-cache@v3.0.0
+        uses: Cyb3r-Jak3/action-cloudflare-cache@6ebf798ade84e7ab7da249404e0c3b9aecf54f88 # v3.0.0
         with:
           zone: ${{ secrets.CLOUDFLARE_ZONE }}
           api_token: ${{ secrets.CLOUDFLARE_TOKEN }}
@@ -116,15 +116,15 @@ jobs:
        contents: read
        deployments: write
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
       - run: corepack enable
-      - uses: actions/setup-node@v6
+      - uses: actions/setup-node@6044e13b5dc448c55e2357c09f80417699197238 # v6
         with:
           node-version: lts/*
           cache: pnpm
       - run: pnpm install --frozen-lockfile
       - name: Get Id Token
-        uses: actions/github-script@v8
+        uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8
         id: idtoken
         with:
            script: |
@@ -133,14 +133,14 @@ jobs:
            result-encoding: string
       - name: Close Pull Request
         id: closepullrequest
-        uses: Azure/static-web-apps-deploy@v1
+        uses: Azure/static-web-apps-deploy@1a947af9992250f3bc2e68ad0754c0b0c11566c9 # v1
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_DELIGHTFUL_CLIFF_0ACDAF71E }}
           github_id_token: ${{ steps.idtoken.outputs.result }}
           action: "close"
 
       - name: Deactivate GitHub deployment for PR
-        uses: actions/github-script@v8
+        uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
