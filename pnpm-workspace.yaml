@@ -1,7 +1,5 @@
-ignoredBuiltDependencies:
-  - '@parcel/watcher'
-  - esbuild
-
-onlyBuiltDependencies:
-  - simple-git-hooks
-
+allowBuilds:
+  '@parcel/watcher': false
+  esbuild: false
+  simple-git-hooks: true
+  unrs-resolver: false
