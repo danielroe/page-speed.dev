@@ -52,8 +52,8 @@ importers:
         specifier: 2.0.1
         version: 2.0.1
       '@actions/http-client':
-        specifier: 3.0.0
-        version: 3.0.0
+        specifier: 4.0.1
+        version: 4.0.1
       '@nuxt/eslint':
         specifier: 1.4.1
         version: 1.4.1(@vue/compiler-sfc@3.5.34)(eslint@9.39.2(jiti@2.7.0))(magicast@0.3.5)(typescript@5.8.3)(vite@6.3.5(@types/node@25.8.0)(jiti@2.7.0)(terser@5.47.1)(yaml@2.8.0))
@@ -92,6 +92,9 @@ packages:
 
   '@actions/http-client@3.0.0':
     resolution: {integrity: sha512-1s3tXAfVMSz9a4ZEBkXXRQD4QhY3+GAsWSbaYpeknPOKEeyRiU3lH+bHiLMZdo2x/fIeQ/hscL1wCkDLVM2DZQ==}
+
+  '@actions/http-client@4.0.1':
+    resolution: {integrity: sha512-+Nvd1ImaOZBSoPbsUtEhv+1z99H12xzncCkz0a3RuehINE81FZSe2QTj3uvAPTcJX/SCzUQHQ0D1GrPMbrPitg==}
 
   '@actions/io@2.0.0':
     resolution: {integrity: sha512-Jv33IN09XLO+0HS79aaODsvIRyduiF7NY/F6LYeK5oeUmrsz7aFdRphQjFoESF4jS7lMauDOttKALcpapVDIAg==}
@@ -4822,6 +4825,10 @@ packages:
     resolution: {integrity: sha512-raqeBD6NQK4SkWhQzeYKd1KmIG6dllBOTt55Rmkt4HtI9mwdWtJljnrXjAFUBLTSN67HWrOIZ3EPF4kjUw80Bg==}
     engines: {node: '>=14.0'}
 
+  undici@6.25.0:
+    resolution: {integrity: sha512-ZgpWDC5gmNiuY9CnLVXEH8rl50xhRCuLNA97fAUnKi8RRuV4E6KG31pDTsLVUKnohJE0I3XDrTeEydAXRw47xg==}
+    engines: {node: '>=18.17'}
+
   unenv@2.0.0-rc.17:
     resolution: {integrity: sha512-B06u0wXkEd+o5gOCMl/ZHl5cfpYbDZKAT+HWTL+Hws6jWu7dCiqBBXXXzMFcFVJb8D4ytAnYmxJA83uwOQRSsg==}
 
@@ -5283,6 +5290,11 @@ snapshots:
     dependencies:
       tunnel: 0.0.6
       undici: 5.29.0
+
+  '@actions/http-client@4.0.1':
+    dependencies:
+      tunnel: 0.0.6
+      undici: 6.25.0
 
   '@actions/io@2.0.0': {}
 
@@ -10640,6 +10652,8 @@ snapshots:
   undici@5.29.0:
     dependencies:
       '@fastify/busboy': 2.1.1
+
+  undici@6.25.0: {}
 
   unenv@2.0.0-rc.17:
     dependencies:
