@@ -70,7 +70,7 @@ importers:
         specifier: link:./test/mock-driver
         version: link:test/mock-driver
       nano-staged:
-        specifier: ^0.9.0
+        specifier: 0.9.0
         version: 0.9.0
       simple-git-hooks:
         specifier: 2.13.0
@@ -3962,11 +3962,6 @@ packages:
 
   pkg-types@2.3.0:
     resolution: {integrity: sha512-SIqCzDRg0s9npO5XQ3tNZioRY1uK06lA41ynBC1YmFTmnY6FjUjVt6s4LoADmwoig1qqD0oK8h1p/8mlMx8Oig==}
-
-  playwright-core@1.52.0:
-    resolution: {integrity: sha512-l2osTgLXSMeuLZOML9qYODUQoPPnUsKsb5/P6LJ2e6uPKXUdPK5WYhN4z03G+YNbWmGDY4YENauNu4ZKczreHg==}
-    engines: {node: '>=18'}
-    hasBin: true
 
   playwright-core@1.60.0:
     resolution: {integrity: sha512-9bW6zvX/m0lEbgTKJ6YppOKx8H3VOPBMOCFh2irXFOT4BbHgrx5hPjwJYLT40Lu+4qtD36qKc/Hn56StUW57IA==}
@@ -9376,7 +9371,7 @@ snapshots:
       ohash: 2.0.11
       pathe: 2.0.3
       pkg-types: 2.3.0
-      playwright-core: 1.52.0
+      playwright-core: 1.60.0
       radix3: 1.1.2
       satori: 0.13.1
       satori-html: 0.3.2
@@ -9735,8 +9730,6 @@ snapshots:
       confbox: 0.2.2
       exsolve: 1.0.8
       pathe: 2.0.3
-
-  playwright-core@1.52.0: {}
 
   playwright-core@1.60.0: {}
 
