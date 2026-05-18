@@ -28,17 +28,17 @@
     "vue": "^3.5.13"
   },
   "devDependencies": {
-    "@actions/core": "2.0.1",
+    "@actions/core": "2.0.3",
     "@actions/http-client": "4.0.1",
-    "@nuxt/eslint": "1.4.1",
+    "@nuxt/eslint": "1.15.2",
     "@nuxt/test-utils": "4.0.3",
     "@playwright/test": "1.60.0",
     "eslint": "9.39.2",
     "mock-driver": "link:./test/mock-driver",
     "nano-staged": "1.0.2",
-    "simple-git-hooks": "2.13.0",
-    "typescript": "5.8.3",
-    "unstorage": "1.16.0"
+    "simple-git-hooks": "2.13.1",
+    "typescript": "5.9.3",
+    "unstorage": "1.17.5"
   },
   "simple-git-hooks": {
     "pre-commit": "npx nano-staged"
