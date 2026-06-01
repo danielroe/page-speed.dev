@@ -28,7 +28,7 @@
     "vue": "^3.5.13"
   },
   "devDependencies": {
-    "@actions/core": "2.0.3",
+    "@actions/core": "3.0.1",
     "@actions/http-client": "4.0.1",
     "@nuxt/eslint": "1.15.2",
     "@nuxt/test-utils": "4.0.3",
