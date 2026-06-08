@@ -2,6 +2,7 @@
 export default defineNuxtConfig({
   modules: [
     '@nuxt/eslint',
+    '@nuxt/fonts',
     '@unocss/nuxt',
     'nuxt-og-image',
     'nuxt-time',
@@ -33,7 +34,7 @@ export default defineNuxtConfig({
   routeRules: {
     '/': { prerender: true, swr: true },
     '/api/**': { swr: false, cache: false },
-    '/__og-image__/**': { swr: false, cache: false },
+    '/_og/**': { swr: false, cache: false },
   },
   future: { compatibilityVersion: 4 },
   features: {
@@ -66,15 +67,18 @@ export default defineNuxtConfig({
       stylistic: true,
     },
   },
+  fonts: {
+    families: [
+      { name: 'Roboto', weights: [500], global: true },
+    ],
+  },
   htmlValidator: {
     failOnError: true,
   },
   ogImage: {
-    componentDirs: ['opengraph'],
     defaults: {
       cacheMaxAgeSeconds: 60 * 60 * 24,
     },
-    fonts: ['Roboto:500'],
   },
   plausible: {
     domain: 'page-speed.dev',

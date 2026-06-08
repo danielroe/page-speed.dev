@@ -21,7 +21,7 @@ const props = defineProps({
   },
 })
 
-const radius = props.size === 'large' ? 132 : 75
+const radius = props.size === 'large' ? 122 : 72
 const stroke = props.size === 'large' ? 14 : 9
 const normalizedRadius = radius - stroke * 2
 const circumference = normalizedRadius * 2 * Math.PI

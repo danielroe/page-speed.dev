@@ -13,7 +13,7 @@ const props = defineProps({
   },
 })
 
-const radius = props.size === 'large' ? 132 : 75
+const radius = props.size === 'large' ? 120 : 72
 const stroke = props.size === 'large' ? 14 : 9
 const normalizedRadius = radius - stroke * 2
 const circumference = normalizedRadius * 2 * Math.PI
@@ -42,7 +42,7 @@ const color = computed(() => {
     :class="size === 'large' ? 'gap-10' : 'gap-4'"
   >
     <span
-      class="relative rounded-full flex items-center justify-center overflow-hidden"
+      class="relative rounded-full flex items-center justify-center"
       :class="[size === 'large' ? 'text-7xl h-60 w-60' : 'text-3xl h-36 w-36', color]"
     >
       <svg

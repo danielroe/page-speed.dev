@@ -110,7 +110,7 @@ useServerSeoMeta({
 })
 
 if (!hasValidDomain.value) {
-  defineOgImageComponent('Home')
+  defineOgImage('Home')
   useServerSeoMeta({
     description: 'See and share Core Web Vitals and PageSpeed Insights results simply and easily.',
     ogDescription: 'See and share Core Web Vitals and PageSpeed Insights results simply and easily.',
@@ -135,7 +135,7 @@ else {
       ogDescription: description,
     })
 
-    defineOgImageComponent('Lighthouse', {
+    defineOgImage('Lighthouse', {
       domain: domain.value,
     })
   }
