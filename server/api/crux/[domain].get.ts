@@ -3,12 +3,17 @@ const cwvKeys = ['largest_contentful_paint', 'cumulative_layout_shift', 'interac
 export default defineCachedEventHandler(async (event) => {
   const domain = await validateDomain(getRouterParam(event, 'domain'))
 
+  const token = useRuntimeConfig(event).google.apiToken
+  if (!token) {
+    throw createError({ statusCode: 500, statusMessage: 'CrUX API token is not configured' })
+  }
+
   try {
     const results = await $fetch<CrUXResult>(`/records:queryRecord`, {
       baseURL: 'https://chromeuxreport.googleapis.com/v1',
       method: 'POST',
       query: {
-        key: useRuntimeConfig(event).google.apiToken,
+        key: token,
       },
       body: {
         origin: `https://${domain}`,
