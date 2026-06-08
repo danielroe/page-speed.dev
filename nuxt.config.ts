@@ -5,7 +5,6 @@ export default defineNuxtConfig({
     '@nuxt/fonts',
     '@unocss/nuxt',
     'nuxt-og-image',
-    'nuxt-time',
     '@nuxtjs/plausible',
     '@nuxtjs/html-validator',
     '@nuxt/test-utils/module',

@@ -44,9 +44,6 @@ importers:
       nuxt-og-image:
         specifier: ^6.5.2
         version: 6.5.2(0d168049404866cd9cfd149e2633697a)
-      nuxt-time:
-        specifier: ^1.0.2
-        version: 1.0.3(magicast@0.5.3)(nuxt@4.4.7(@azure/identity@4.13.1)(@azure/storage-blob@12.32.0)(@babel/plugin-syntax-jsx@7.27.1(@babel/core@7.29.7))(@babel/plugin-syntax-typescript@7.29.7(@babel/core@7.29.7))(@netlify/blobs@9.1.2)(@parcel/watcher@2.5.6)(@types/node@25.9.2)(@vue/compiler-sfc@3.5.35)(cac@6.7.14)(db0@0.3.4)(eslint@10.4.1(jiti@2.7.0))(ioredis@5.11.1)(lightningcss@1.32.0)(magicast@0.5.3)(optionator@0.9.4)(rollup-plugin-visualizer@7.0.1(rollup@4.61.1))(rollup@4.61.1)(terser@5.48.0)(typescript@6.0.3)(vite@7.3.5(@types/node@25.9.2)(jiti@2.7.0)(lightningcss@1.32.0)(terser@5.48.0)(yaml@2.9.0))(yaml@2.9.0))
       scule:
         specifier: ^1.3.0
         version: 1.3.0
@@ -4406,12 +4403,6 @@ packages:
 
   nuxt-site-config@4.0.8:
     resolution: {integrity: sha512-H7wHoOJ5Z6ZnTqD5vUugaKkWZbejZ9kGmzpr2dheOaC6RdT8JafCfMrmJG7W+cyJiJJ3YmzL+bzPBW2bW6MExA==}
-
-  nuxt-time@1.0.3:
-    resolution: {integrity: sha512-aD5Yv18IIKX08ED9B+Hd2rSDewcV40qNxUursdtJFaKFhLLZWPQF8TR2d/P523erPlqht2OvxSN3iyGhUJJy/g==}
-    deprecated: This module is no longer necessary as `<NuxtTime>` is built into Nuxt from v3.17 onwards.
-    peerDependencies:
-      nuxt: '>=3.12.0'
 
   nuxt@4.4.7:
     resolution: {integrity: sha512-4ASIbcOVF2O1HJqoKRVntxOphl9zmikgmj25D9c93l795yp8x0f4TItzrnT0xyrFxMkpL6z3rHhrfQQfoxNXxw==}
@@ -10410,13 +10401,6 @@ snapshots:
       - vite
       - vue
       - zod
-
-  nuxt-time@1.0.3(magicast@0.5.3)(nuxt@4.4.7(@azure/identity@4.13.1)(@azure/storage-blob@12.32.0)(@babel/plugin-syntax-jsx@7.27.1(@babel/core@7.29.7))(@babel/plugin-syntax-typescript@7.29.7(@babel/core@7.29.7))(@netlify/blobs@9.1.2)(@parcel/watcher@2.5.6)(@types/node@25.9.2)(@vue/compiler-sfc@3.5.35)(cac@6.7.14)(db0@0.3.4)(eslint@10.4.1(jiti@2.7.0))(ioredis@5.11.1)(lightningcss@1.32.0)(magicast@0.5.3)(optionator@0.9.4)(rollup-plugin-visualizer@7.0.1(rollup@4.61.1))(rollup@4.61.1)(terser@5.48.0)(typescript@6.0.3)(vite@7.3.5(@types/node@25.9.2)(jiti@2.7.0)(lightningcss@1.32.0)(terser@5.48.0)(yaml@2.9.0))(yaml@2.9.0)):
-    dependencies:
-      '@nuxt/kit': 3.21.7(magicast@0.5.3)
-      nuxt: 4.4.7(@azure/identity@4.13.1)(@azure/storage-blob@12.32.0)(@babel/plugin-syntax-jsx@7.27.1(@babel/core@7.29.7))(@babel/plugin-syntax-typescript@7.29.7(@babel/core@7.29.7))(@netlify/blobs@9.1.2)(@parcel/watcher@2.5.6)(@types/node@25.9.2)(@vue/compiler-sfc@3.5.35)(cac@6.7.14)(db0@0.3.4)(eslint@10.4.1(jiti@2.7.0))(ioredis@5.11.1)(lightningcss@1.32.0)(magicast@0.5.3)(optionator@0.9.4)(rollup-plugin-visualizer@7.0.1(rollup@4.61.1))(rollup@4.61.1)(terser@5.48.0)(typescript@6.0.3)(vite@7.3.5(@types/node@25.9.2)(jiti@2.7.0)(lightningcss@1.32.0)(terser@5.48.0)(yaml@2.9.0))(yaml@2.9.0)
-    transitivePeerDependencies:
-      - magicast
 
   nuxt@4.4.7(@azure/identity@4.13.1)(@azure/storage-blob@12.32.0)(@babel/plugin-syntax-jsx@7.27.1(@babel/core@7.29.7))(@babel/plugin-syntax-typescript@7.29.7(@babel/core@7.29.7))(@netlify/blobs@9.1.2)(@parcel/watcher@2.5.6)(@types/node@25.9.2)(@vue/compiler-sfc@3.5.35)(cac@6.7.14)(db0@0.3.4)(eslint@10.4.1(jiti@2.7.0))(ioredis@5.11.1)(lightningcss@1.32.0)(magicast@0.5.3)(optionator@0.9.4)(rollup-plugin-visualizer@7.0.1(rollup@4.61.1))(rollup@4.61.1)(terser@5.48.0)(typescript@6.0.3)(vite@7.3.5(@types/node@25.9.2)(jiti@2.7.0)(lightningcss@1.32.0)(terser@5.48.0)(yaml@2.9.0))(yaml@2.9.0):
     dependencies:
