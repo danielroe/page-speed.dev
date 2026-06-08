@@ -28,7 +28,7 @@ export default defineNuxtConfig({
   },
   runtimeConfig: {
     google: {
-      apiToken: '',
+      apiToken: process.env.NUXT_GOOGLE_API_TOKEN || '',
     },
   },
   routeRules: {
