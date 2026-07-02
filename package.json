@@ -32,9 +32,9 @@
   "devDependencies": {
     "@actions/core": "2.0.3",
     "@actions/http-client": "4.0.1",
-    "@nuxt/eslint": "1.15.2",
+    "@nuxt/eslint": "1.16.0",
     "@nuxt/test-utils": "4.0.3",
-    "@playwright/test": "1.60.0",
+    "@playwright/test": "1.61.1",
     "eslint": "10.6.0",
     "mock-driver": "link:./test/mock-driver",
     "nano-staged": "1.0.2",
@@ -45,7 +45,7 @@
   "simple-git-hooks": {
     "pre-commit": "npx nano-staged"
   },
-  "packageManager": "pnpm@11.5.2",
+  "packageManager": "pnpm@11.9.0",
   "nano-staged": {
     "*.{js,ts,mjs,cjs,json,.*rc}": [
       "npx eslint --fix"
