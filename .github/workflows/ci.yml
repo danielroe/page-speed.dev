@@ -8,9 +8,14 @@ on:
     branches:
       - main
 
+<<<<<<< Updated upstream
 concurrency:
   group: ci-${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
+=======
+permissions:
+  contents: read
+>>>>>>> Stashed changes
 
 jobs:
   lint:
