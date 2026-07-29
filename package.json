@@ -19,7 +19,7 @@
     "@nuxt/fonts": "^0.14.0",
     "@nuxtjs/html-validator": "^2.1.0",
     "@nuxtjs/plausible": "^3.0.2",
-    "@takumi-rs/core": "^1.7.0",
+    "@takumi-rs/core": "^2.0.0",
     "@unocss/nuxt": "^66.7.0",
     "defu": "^6.1.7",
     "nitropack": "^2.13.4",
