@@ -35,7 +35,7 @@
     "@nuxt/eslint": "1.17.0",
     "@nuxt/test-utils": "4.1.0",
     "@playwright/test": "1.62.1",
-    "eslint": "10.8.0",
+    "eslint": "10.8.1",
     "mock-driver": "link:./test/mock-driver",
     "nano-staged": "1.0.2",
     "simple-git-hooks": "2.13.1",
