@@ -24,8 +24,8 @@ importers:
         specifier: ^2.1.0
         version: 2.1.0(magicast@0.5.4)
       '@nuxtjs/plausible':
-        specifier: ^3.0.2
-        version: 3.0.2(magic-string@1.1.0)(magicast@0.5.4)(oxc-parser@0.142.0)(rolldown@1.2.3)(unplugin@3.3.0(esbuild@0.28.1)(rolldown@1.2.3)(rollup@4.62.4)(vite@8.2.0(@types/node@26.1.2)(esbuild@0.28.1)(jiti@2.7.0)(terser@5.49.0)(yaml@2.9.0))(webpack@5.109.2(cssnano@8.0.4(postcss@8.5.25))(csso@5.0.5)(esbuild@0.28.1)(lightningcss@1.33.0)(postcss@8.5.25)))
+        specifier: ^4.0.0
+        version: 4.0.0(magic-string@1.1.0)(magicast@0.5.4)(oxc-parser@0.142.0)(rolldown@1.2.3)(unplugin@3.3.0(esbuild@0.28.1)(rolldown@1.2.3)(rollup@4.62.4)(vite@8.2.0(@types/node@26.1.2)(esbuild@0.28.1)(jiti@2.7.0)(terser@5.49.0)(yaml@2.9.0))(webpack@5.109.2(cssnano@8.0.4(postcss@8.5.25))(csso@5.0.5)(esbuild@0.28.1)(lightningcss@1.33.0)(postcss@8.5.25)))
       '@takumi-rs/core':
         specifier: ^2.0.0
         version: 2.6.0(csstype@3.2.3)
@@ -1057,8 +1057,8 @@ packages:
   '@nuxtjs/html-validator@2.1.0':
     resolution: {integrity: sha512-ldo8ioSsH3OEumtgwDMokTxlhjgO9FxjJWViAxisq5l/wjvaVX8SYTQ02wjtQcQQPSvS6BwgypAp400RlyFHng==}
 
-  '@nuxtjs/plausible@3.0.2':
-    resolution: {integrity: sha512-6z01a7XbggSmI4CTWCkDDmLHQNm7wob2dx1QnvpIoo+YEV19298+GsuvlBclXVxXSk7op8r8qJpw25xKo8mzQQ==}
+  '@nuxtjs/plausible@4.0.0':
+    resolution: {integrity: sha512-R2G9BktBVSCG0nDNBSVlC8jDbsYBgrbqmn8wWisiIF9lKfRq99NwIvtw/DLuwexJT5pCYPvBflIof4NS4ZX8Xg==}
 
   '@oxc-parser/binding-android-arm-eabi@0.131.0':
     resolution: {integrity: sha512-t2xicr9pfzkSRYx5aPqZqlLaayIwJTqgQ81Jor31Xep2nGyL2Aq3d0K5wOfeR7VevaSdxaS9dzSQP9xDwn8fDg==}
@@ -6871,7 +6871,7 @@ snapshots:
       - magicast
       - vitest
 
-  '@nuxtjs/plausible@3.0.2(magic-string@1.1.0)(magicast@0.5.4)(oxc-parser@0.142.0)(rolldown@1.2.3)(unplugin@3.3.0(esbuild@0.28.1)(rolldown@1.2.3)(rollup@4.62.4)(vite@8.2.0(@types/node@26.1.2)(esbuild@0.28.1)(jiti@2.7.0)(terser@5.49.0)(yaml@2.9.0))(webpack@5.109.2(cssnano@8.0.4(postcss@8.5.25))(csso@5.0.5)(esbuild@0.28.1)(lightningcss@1.33.0)(postcss@8.5.25)))':
+  '@nuxtjs/plausible@4.0.0(magic-string@1.1.0)(magicast@0.5.4)(oxc-parser@0.142.0)(rolldown@1.2.3)(unplugin@3.3.0(esbuild@0.28.1)(rolldown@1.2.3)(rollup@4.62.4)(vite@8.2.0(@types/node@26.1.2)(esbuild@0.28.1)(jiti@2.7.0)(terser@5.49.0)(yaml@2.9.0))(webpack@5.109.2(cssnano@8.0.4(postcss@8.5.25))(csso@5.0.5)(esbuild@0.28.1)(lightningcss@1.33.0)(postcss@8.5.25)))':
     dependencies:
       '@nuxt/kit': 4.5.2(magic-string@1.1.0)(magicast@0.5.4)(oxc-parser@0.142.0)(rolldown@1.2.3)(unplugin@3.3.0(esbuild@0.28.1)(rolldown@1.2.3)(rollup@4.62.4)(vite@8.2.0(@types/node@26.1.2)(esbuild@0.28.1)(jiti@2.7.0)(terser@5.49.0)(yaml@2.9.0))(webpack@5.109.2(cssnano@8.0.4(postcss@8.5.25))(csso@5.0.5)(esbuild@0.28.1)(lightningcss@1.33.0)(postcss@8.5.25)))
       '@plausible-analytics/tracker': 0.4.5
