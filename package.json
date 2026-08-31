@@ -38,14 +38,14 @@
     "eslint": "10.8.1",
     "mock-driver": "link:./test/mock-driver",
     "nano-staged": "1.0.2",
-    "simple-git-hooks": "2.13.1",
+    "simple-git-hooks": "2.14.0",
     "typescript": "7.0.2",
     "unstorage": "1.17.5"
   },
   "simple-git-hooks": {
     "pre-commit": "npx nano-staged"
   },
-  "packageManager": "pnpm@11.22.0",
+  "packageManager": "pnpm@11.24.0",
   "nano-staged": {
     "*.{js,ts,mjs,cjs,json,.*rc}": [
       "npx eslint --fix"
