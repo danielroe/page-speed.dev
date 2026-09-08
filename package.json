@@ -45,7 +45,18 @@
   "simple-git-hooks": {
     "pre-commit": "npx nano-staged"
   },
-  "packageManager": "pnpm@12.3.4",
+  "devEngines": {
+    "runtime": {
+      "name": "node",
+      "version": "^24.0.0",
+      "onFail": "download"
+    },
+    "packageManager": {
+      "name": "pnpm",
+      "version": "12.3.4",
+      "onFail": "download"
+    }
+  },
   "nano-staged": {
     "*.{js,ts,mjs,cjs,json,.*rc}": [
       "npx eslint --fix"
