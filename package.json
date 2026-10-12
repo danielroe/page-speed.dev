@@ -34,7 +34,7 @@
     "@actions/http-client": "4.0.1",
     "@nuxt/eslint": "1.17.0",
     "@nuxt/test-utils": "4.3.3",
-    "@playwright/test": "1.63.0",
+    "@playwright/test": "1.64.0",
     "eslint": "10.12.0",
     "mock-driver": "link:./test/mock-driver",
     "nano-staged": "1.0.2",
@@ -53,7 +53,7 @@
     },
     "packageManager": {
       "name": "pnpm",
-      "version": "12.9.1",
+      "version": "12.11.2",
       "onFail": "download"
     }
   },
