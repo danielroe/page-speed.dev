@@ -16,7 +16,7 @@
     "@azure/identity": "^4.13.1",
     "@azure/storage-blob": "^12.32.0",
     "@neoconfetti/vue": "^2.2.1",
-    "@nuxt/fonts": "^0.14.0",
+    "@nuxt/fonts": "^1.0.0",
     "@nuxtjs/html-validator": "^2.1.0",
     "@nuxtjs/plausible": "^4.0.0",
     "@takumi-rs/core": "^2.0.0",
