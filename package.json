@@ -33,7 +33,7 @@
     "@actions/core": "2.0.3",
     "@actions/http-client": "4.0.1",
     "@nuxt/eslint": "1.17.0",
-    "@nuxt/test-utils": "4.3.3",
+    "@nuxt/test-utils": "4.3.4",
     "@playwright/test": "1.64.1",
     "eslint": "10.12.0",
     "mock-driver": "link:./test/mock-driver",
